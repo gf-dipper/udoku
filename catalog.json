@@ -1,0 +1,39 @@
+{
+  "siteName": "Udoku",
+  "series": [
+    {
+      "slug": "what-the-rain-remembers",
+      "title": "What the Rain Remembers",
+      "titleJa": "沈町",
+      "reading": "しずまち",
+      "cover": "what-the-rain-remembers/assets/cover.webp",
+      "banner": "what-the-rain-remembers/assets/banner.webp",
+      "status": "ongoing",
+      "genres": {
+        "en": [
+          "Supernatural",
+          "Mystery"
+        ],
+        "hu": [
+          "Természetfeletti",
+          "Rejtély"
+        ],
+        "ja": [
+          "怪異",
+          "ミステリー"
+        ]
+      },
+      "langs": [
+        "en",
+        "hu",
+        "ja"
+      ],
+      "logline": {
+        "en": "In a harbour town where the rain hasn't stopped for three years, Minato can see where the rain breaks on things no one else can see. Everyone has forgotten his little sister. He hasn't.",
+        "hu": "Egy kikötővárosban három éve megállás nélkül esik. Minato látja, hol törik meg az eső olyan dolgokon, amiket más nem lát. A húgát mindenki elfelejtette. Ő nem.",
+        "ja": "三年間、一度も雨が止まない港町。湊には、誰にも見えないものに雨が砕ける場所が見える。妹のことを、町のみんなが忘れた。湊だけが、覚えている。"
+      }
+    }
+  ],
+  "comingSoon": true
+}

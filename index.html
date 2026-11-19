@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Udoku – original motion manga, free to read</title>
+<meta name="description" content="Original manga that comes alive as you scroll. Free to read in English, Hungarian and Japanese.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Udoku – original motion manga">
+<meta property="og:description" content="Original manga that comes alive as you scroll. Free, in English, Hungarian and Japanese.">
+<meta property="og:image" content="what-the-rain-remembers/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#e6e8ea">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600;800&family=Shippori+Mincho+B1:wght@800&family=Noto+Sans:wght@400;600&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#e6e8ea;  /* newsprint grey */
+    --sheet:#f6f7f8;  /* a printed page */
+    --ink:#14171a; --grey:#59626a; --line:#c8cdd2;
+    --seal:#c8372d;   /* the publisher's stamp */
+    --serif:'Spectral', 'Shippori Mincho B1', Georgia, serif;
+    --mincho:'Shippori Mincho B1', serif;
+    --sans:'Noto Sans', 'Noto Sans JP', system-ui, sans-serif;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:400 17px/1.6 var(--sans); -webkit-font-smoothing:antialiased; }
+  body.ja { line-height:1.85; }
+  a { color:inherit; }
+  img { display:block; max-width:100%; }
+  :focus-visible { outline:2px solid var(--seal); outline-offset:3px; border-radius:4px; }
+  .wrap { width:min(1180px, 100% - 40px); margin-inline:auto; }
+
+  .top { border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:10; }
+  .top .wrap { display:flex; align-items:center; gap:28px; height:64px; }
+  .logo { display:flex; align-items:center; gap:10px; text-decoration:none; font:800 21px/1 var(--serif); letter-spacing:.01em; }
+  .seal { display:grid; place-items:center; width:32px; height:32px; background:var(--seal); color:#fff; font:800 18px/1 var(--mincho); border-radius:3px; }
+  nav { display:flex; gap:22px; font-size:15px; }
+  nav a { text-decoration:none; color:var(--grey); }
+  nav a:hover { color:var(--ink); }
+  .langs { margin-left:auto; display:flex; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--sheet); }
+  .langs button { font:600 13px/1 var(--sans); color:var(--grey); background:none; border:0; padding:8px 12px; border-radius:999px; cursor:pointer; }
+  .langs button[aria-pressed="true"] { background:var(--ink); color:var(--sheet); }
+
+  /* featured series */
+  .feature { margin:28px 0 0; display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); background:#161c20; color:#e6e4dd; border-radius:6px; overflow:hidden; text-decoration:none; }
+  .feature .art { position:relative; min-height:420px; display:block; }
+  .feature .art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .feature .txt { padding:40px 40px 36px; display:flex; flex-direction:column; justify-content:flex-end; gap:0; }
+  .badge { align-self:flex-start; font:600 13px/1 var(--sans); color:#161c20; background:#e6e4dd; padding:7px 11px; border-radius:999px; margin-bottom:22px; }
+  .feature .ja { font:800 26px/1 var(--mincho); letter-spacing:.14em; color:#aab3b8; margin-bottom:10px; }
+  .feature h1 { font:800 clamp(34px,3.6vw,50px)/1.02 var(--serif); margin:0 0 16px; text-wrap:balance; }
+  .feature p { margin:0 0 26px; color:#c9cdcc; font-size:16px; text-wrap:pretty; }
+  .actions { display:flex; flex-wrap:wrap; gap:10px; }
+  .btn { display:inline-flex; align-items:center; min-height:46px; padding:0 20px; border-radius:999px; font:600 15px/1 var(--sans); text-decoration:none; }
+  .btn.light { background:#e6e4dd; color:#161c20; }
+  .btn.light:hover { background:#fff; }
+  .btn.line { border:1px solid #56626a; color:#e6e4dd; }
+  .btn.line:hover { border-color:#e6e4dd; }
+
+  section { padding:64px 0 0; }
+  h2 { font:800 30px/1.15 var(--serif); margin:0 0 20px; }
+  .row-head { display:flex; align-items:baseline; justify-content:space-between; gap:16px; }
+  .row-head span { color:var(--grey); font-size:15px; }
+
+  /* continue + latest: a strip of printed pages */
+  .strip { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:18px; }
+  .ch { display:block; background:var(--sheet); border:1px solid var(--line); border-radius:4px; overflow:hidden; text-decoration:none; }
+  .ch:hover { border-color:var(--ink); }
+  .ch img { width:100%; aspect-ratio:3/2; object-fit:cover; background:#222; }
+  .ch div { padding:12px 14px 14px; }
+  .ch small { display:block; color:var(--grey); font-size:13px; }
+  .ch b { display:block; font:800 19px/1.25 var(--serif); margin:2px 0 6px; }
+  .ch .when { font-size:13px; color:var(--grey); }
+  .bar { height:4px; background:var(--line); border-radius:2px; overflow:hidden; margin-top:8px; }
+  .bar i { display:block; height:100%; background:var(--ink); }
+
+  /* the shelf */
+  .shelf { display:grid; grid-template-columns:repeat(auto-fill, minmax(190px, 1fr)); gap:28px 22px; list-style:none; padding:0; margin:0; }
+  .shelf a { text-decoration:none; display:block; }
+  .cover { position:relative; aspect-ratio:3/4; border-radius:4px; overflow:hidden; background:#161c20; box-shadow:0 1px 0 rgba(0,0,0,.08), 0 14px 30px -14px rgba(20,23,26,.45); }
+  .cover img { width:100%; height:100%; object-fit:cover; }
+  .cover .tt { position:absolute; inset:auto 0 0 0; padding:40px 12px 12px; background:linear-gradient(transparent, rgba(10,13,15,.92)); color:#f1f0ec; }
+  .cover .tt span { display:block; font:800 13px/1 var(--mincho); letter-spacing:.14em; opacity:.75; margin-bottom:6px; }
+  .cover .tt b { font:800 19px/1.1 var(--serif); }
+  .shelf a:hover .cover { outline:2px solid var(--ink); outline-offset:3px; }
+  .shelf p { margin:10px 0 0; font-size:14px; color:var(--grey); }
+  .shelf .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  .shelf .tags span { font-size:12px; border:1px solid var(--line); border-radius:999px; padding:2px 9px; color:var(--grey); }
+  .shelf .soon .cover { background:repeating-radial-gradient(circle at 0 0, transparent 0 5px, rgba(20,23,26,.08) 5px 6px), var(--sheet); border:1.5px dashed #a3aab0; box-shadow:none; display:grid; place-items:center; text-align:center; padding:18px; color:var(--grey); font-size:15px; }
+
+  .about { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; padding-bottom:20px; }
+  .about p { margin:0 0 12px; color:#2d3338; max-width:36em; }
+  .about .name { color:var(--grey); font-size:15px; }
+  .facts { list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+  .facts li { display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .facts li span:first-child { color:var(--grey); }
+  footer { margin-top:72px; padding:30px 0 48px; border-top:1px solid var(--line); color:var(--grey); font-size:14px; }
+  footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
+  [hidden] { display:none !important; }
+
+  @media (max-width: 860px) {
+    nav { display:none; }
+    .feature { grid-template-columns:1fr; margin-top:16px; }
+    .feature .art { min-height:0; aspect-ratio:7/3; }
+    .feature .txt { padding:24px 22px 26px; }
+    .about { grid-template-columns:1fr; gap:24px; }
+    .strip { grid-auto-flow:column; grid-template-columns:none; grid-auto-columns:78%; overflow-x:auto; scroll-snap-type:x mandatory; margin-right:-20px; padding-right:20px; }
+    .strip > * { scroll-snap-align:start; }
+    .shelf { grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px 14px; }
+    section { padding-top:48px; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="./"><span class="seal" aria-hidden="true">読</span><span id="siteName">Udoku</span></a>
+    <nav><a href="#latest" data-t="navLatest"></a><a href="#series" data-t="navSeries"></a><a href="#about" data-t="navAbout"></a></nav>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="false">EN</button><button data-l="hu" aria-pressed="false">HU</button><button data-l="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="feature" id="feature"></div>
+
+  <section id="continue" hidden>
+    <div class="row-head"><h2 data-t="continue"></h2></div>
+    <div class="strip" id="contList"></div>
+  </section>
+
+  <section id="latest">
+    <div class="row-head"><h2 data-t="latest"></h2><span data-t="latestNote"></span></div>
+    <div class="strip" id="latestList"></div>
+  </section>
+
+  <section id="series">
+    <div class="row-head"><h2 data-t="allSeries"></h2></div>
+    <ul class="shelf" id="shelf"></ul>
+  </section>
+
+  <section id="about" class="about">
+    <div>
+      <h2 data-t="aboutTitle"></h2>
+      <p data-t="about1"></p>
+      <p data-t="about2"></p>
+      <p class="name" data-t="nameNote"></p>
+    </div>
+    <ul class="facts">
+      <li><span data-t="fPrice"></span><span data-t="fPriceV"></span></li>
+      <li><span data-t="fLang"></span><span>English, Magyar, 日本語</span></li>
+      <li><span data-t="fDevice"></span><span data-t="fDeviceV"></span></li>
+      <li><span data-t="fAccount"></span><span data-t="fAccountV"></span></li>
+    </ul>
+  </section>
+</main>
+
+<footer><div class="wrap"><span data-t="copy"></span><span data-t="made"></span></div></footer>
+
+<script>
+const T = {
+  en: {
+    navLatest:'New chapters', navSeries:'Series', navAbout:'About',
+    newCh: n => `New: chapter ${n}`, read: 'Start reading', page: 'Series page', cont: (n, p) => `Continue chapter ${n} (${p}%)`,
+    continue:'Continue reading', latest:'New chapters', latestNote:'Newest first',
+    allSeries:'All series', ongoing:'Ongoing', complete:'Complete', chapters: n => n === 1 ? '1 chapter' : `${n} chapters`,
+    soon:'A new series is in the works.',
+    ch: n => `Chapter ${n}`, readPct: p => `${p}% read`,
+    aboutTitle:'Manga that moves when you scroll',
+    about1:'Every story here is original and drawn as a manga, then built for the screen: panels come alive as they reach the middle of your screen, with falling rain, lightning and speech that appears in time.',
+    about2:'Read on your phone, held upright, or on any screen. Your place in each chapter is saved on your device, nothing else is collected.',
+    fPrice:'Price', fPriceV:'Free', fLang:'Languages', fDevice:'Best on', fDeviceV:'Phone, held upright', fAccount:'Account', fAccountV:'Not needed',
+    nameNote:'The name comes from 晴耕雨読, “work the fields when it is sunny, read when it rains”. 雨読, udoku, is the rainy-day half.',
+    copy:'© 2026 Geri. All rights reserved.', made:'Made in Budapest.'
+  },
+  hu: {
+    navLatest:'Új fejezetek', navSeries:'Sorozatok', navAbout:'Rólunk',
+    newCh: n => `Új: ${n}. fejezet`, read: 'Olvasás', page: 'A sorozat oldala', cont: (n, p) => `Folytatás: ${n}. fejezet (${p}%)`,
+    continue:'Olvasd tovább', latest:'Új fejezetek', latestNote:'A legújabb elöl',
+    allSeries:'Összes sorozat', ongoing:'Folyamatban', complete:'Befejezett', chapters: n => `${n} fejezet`,
+    soon:'Egy új sorozat készül.',
+    ch: n => `${n}. fejezet`, readPct: p => `${p}%-ig olvastad`,
+    aboutTitle:'Manga, ami görgetésre megmozdul',
+    about1:'Minden történet itt saját, eredeti manga, amit képernyőre építünk: a panelek akkor kelnek életre, amikor a képernyőd közepére érnek. Esik az eső, villám csap, és a szereplők a megfelelő pillanatban szólalnak meg.',
+    about2:'Olvasd álló telefonon vagy bármilyen képernyőn. Az eszközöd megjegyzi, hol tartasz az egyes fejezetekben, ezen kívül semmit nem gyűjtünk.',
+    fPrice:'Ár', fPriceV:'Ingyenes', fLang:'Nyelvek', fDevice:'Leginkább', fDeviceV:'Álló telefonon', fAccount:'Fiók', fAccountV:'Nem kell',
+    nameNote:'A név a japán 晴耕雨読 mondásból jön: „ha süt a nap, dolgozz a földeken, ha esik, olvass”. A 雨読 (udoku) az esős napi olvasás.',
+    copy:'© 2026 Geri. Minden jog fenntartva.', made:'Budapesten készült.'
+  },
+  ja: {
+    navLatest:'新着', navSeries:'作品一覧', navAbout:'このサイトについて',
+    newCh: n => `新着：第${n}話`, read: '読む', page: '作品ページ', cont: (n, p) => `第${n}話の続き（${p}%）`,
+    continue:'続きを読む', latest:'新着エピソード', latestNote:'新しい順',
+    allSeries:'作品一覧', ongoing:'連載中', complete:'完結', chapters: n => `全${n}話`,
+    soon:'新しい作品を制作中です。',
+    ch: n => `第${n}話`, readPct: p => `${p}%まで読んだ`,
+    aboutTitle:'スクロールで動くマンガ',
+    about1:'ここにあるのはすべてオリジナルのマンガです。コマが画面の真ん中に来ると動き出し、雨が降り、稲妻が走り、セリフが現れます。',
+    about2:'スマホの縦持ちでも、どの画面でも読めます。読んだ場所はお使いの端末にだけ保存され、それ以外の情報は集めていません。',
+    fPrice:'料金', fPriceV:'無料', fLang:'言語', fDevice:'おすすめ', fDeviceV:'スマホ（縦持ち）', fAccount:'アカウント', fAccountV:'不要',
+    nameNote:'名前は「晴耕雨読」から。雨の日は、読む日。',
+    copy:'© 2026 Geri. All rights reserved.', made:'ブダペストで制作。'
+  }
+};
+
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+let LANG = (() => { try { return localStorage.getItem('wtrr-lang'); } catch (e) { return null; } })()
+  || ({ hu:'hu', ja:'ja' }[(navigator.language || '').slice(0, 2)] || 'en');
+if (!T[LANG]) LANG = 'en';
+const pick = v => (v && typeof v === 'object' && !Array.isArray(v)) ? (v[LANG] ?? v.en) : v;
+const chTitle = c => { const s = pick(c.subtitle) || ''; const parts = s.split(/\s*[·・]\s*/); return parts.length > 1 ? parts.slice(1).join(' ') : s; };
+const fmtDate = d => new Date(d + 'T12:00:00').toLocaleDateString({ en:'en-GB', hu:'hu-HU', ja:'ja-JP' }[LANG], { year:'numeric', month:'long', day:'numeric' });
+const progressOf = slug => { try { return JSON.parse(localStorage.getItem('prog:' + new URL(slug + '/', location.href).pathname) || 'null'); } catch (e) { return null; } };
+
+let CAT = null; const SER = {};   // slug -> { list: chapters.json, ch: { src: chapter data } }
+
+function render() {
+  const t = T[LANG];
+  document.documentElement.lang = LANG; document.body.classList.toggle('ja', LANG === 'ja');
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === LANG));
+  document.querySelectorAll('[data-t]').forEach(e => { const v = t[e.dataset.t]; if (typeof v === 'string') e.textContent = v; });
+  if (!CAT) return;
+  document.getElementById('siteName').textContent = CAT.siteName;
+
+  // featured: the first series
+  const f = CAT.series[0], fs = SER[f.slug], fp = progressOf(f.slug);
+  const lastN = fs ? fs.list.chapters[fs.list.chapters.length - 1].n : null;
+  const lastCh = fs && fp && fp.last && fs.list.chapters.find(c => c.src === fp.last);
+  const fa = document.getElementById('feature');
+  fa.innerHTML = `<a class="art" href="${f.slug}/" tabindex="-1" aria-hidden="true"><img src="${f.banner}" alt="" fetchpriority="high"></a>
+    <div class="txt">${lastN ? `<span class="badge">${esc(t.newCh(lastN))}</span>` : ''}
+      <div class="ja" lang="ja">${esc(f.titleJa)}</div><h1>${esc(f.title)}</h1><p>${esc(pick(f.logline))}</p>
+      <div class="actions"><a class="btn light" href="${lastCh && fp.at > .03 && fp.at < .97 ? f.slug + '/read.html#ch=' + lastCh.src + '&resume' : f.slug + '/read.html'}">${esc(lastCh && fp.at > .03 && fp.at < .97 ? t.cont(lastCh.n, Math.round(fp.at * 100)) : t.read)}</a>
+      <a class="btn line" href="${f.slug}/">${esc(t.page)}</a></div></div>`;
+
+  // continue reading
+  const cont = []; CAT.series.forEach(s => { const p = progressOf(s.slug), d = SER[s.slug]; if (!p || !p.last || !d) return;
+    const c = d.list.chapters.find(x => x.src === p.last); if (c && p.at < .97) cont.push({ s, c, p, d }); });
+  cont.sort((a, b) => (b.p.t || 0) - (a.p.t || 0));
+  document.getElementById('continue').hidden = !cont.length;
+  document.getElementById('contList').innerHTML = cont.map(({ s, c, p, d }) => `<a class="ch" href="${s.slug}/read.html#ch=${c.src}&resume">
+    <img src="${s.slug}/${c.thumb}" alt="" loading="lazy"><div><small>${esc(s.title)}</small><b>${esc(t.ch(c.n))}: ${esc(chTitle(d.ch[c.src]))}</b>
+    <span class="when">${esc(t.readPct(Math.round(p.at * 100)))}</span><div class="bar"><i style="width:${Math.round(p.at * 100)}%"></i></div></div></a>`).join('');
+
+  // newest chapters across all series
+  const all = []; CAT.series.forEach(s => { const d = SER[s.slug]; if (d) d.list.chapters.forEach(c => all.push({ s, c, d })); });
+  all.sort((a, b) => (b.c.published || '').localeCompare(a.c.published || '') || b.c.n - a.c.n);
+  document.getElementById('latestList').innerHTML = all.slice(0, 8).map(({ s, c, d }) => `<a class="ch" href="${s.slug}/read.html${c.src === 'chapter.json' ? '' : '#ch=' + c.src}">
+    <img src="${s.slug}/${c.thumb}" alt="" loading="lazy"><div><small>${esc(s.title)}</small><b>${esc(t.ch(c.n))}: ${esc(chTitle(d.ch[c.src]))}</b>
+    <span class="when">${c.published ? esc(fmtDate(c.published)) : ''}</span></div></a>`).join('');
+
+  // the shelf
+  document.getElementById('shelf').innerHTML = CAT.series.map(s => { const d = SER[s.slug], n = d ? d.list.chapters.length : 0;
+    return `<li><a href="${s.slug}/"><div class="cover"><img src="${s.cover}" alt="" loading="lazy"><div class="tt"><span lang="ja">${esc(s.titleJa)}</span><b>${esc(s.title)}</b></div></div>
+      <p>${esc(s.status === 'complete' ? t.complete : t.ongoing)}, ${esc(t.chapters(n))}</p>
+      <div class="tags">${(pick(s.genres) || []).map(g => `<span>${esc(g)}</span>`).join('')}</div></a></li>`; }).join('')
+    + (CAT.comingSoon ? `<li class="soon"><div class="cover">${esc(t.soon)}</div></li>` : '');
+}
+
+document.querySelector('.langs').addEventListener('click', e => {
+  const l = e.target.dataset && e.target.dataset.l; if (!l || l === LANG) return;
+  LANG = l; try { localStorage.setItem('wtrr-lang', l); } catch (err) {} render();
+});
+addEventListener('pageshow', e => { if (e.persisted) render(); });
+
+(async () => {
+  render();
+  try {
+    CAT = await (await fetch('catalog.json')).json();
+    await Promise.all(CAT.series.map(async s => {
+      const list = await (await fetch(s.slug + '/chapters.json')).json(), ch = {};
+      await Promise.all(list.chapters.map(async c => { ch[c.src] = await (await fetch(s.slug + '/' + c.src)).json(); }));
+      SER[s.slug] = { list, ch };
+    }));
+  } catch (e) { console.error(e); }
+  render();
+})();
+</script>
+</body>
+</html>
