@@ -18,8 +18,40 @@
   a.brand.home::before { content:'‹ '; color:#8f8d9c; }
   .end a.home { display:block; margin-top:18px; color:#8f8d9c; font-size:15px; }
   .langs { display:flex; gap:4px; flex-shrink:0; }
+  header { gap:8px !important; }
   .langs button { background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; padding:4px 10px; font:inherit; font-size:15px; cursor:pointer; }
   .langs button.on { background:var(--teal); color:#071211; border-color:var(--teal); }
+  .tools { display:flex; gap:4px; flex-shrink:0; margin-left:auto; }
+  .tools button { display:grid; place-items:center; width:34px; height:30px; background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; cursor:pointer; padding:0; }
+  .tools button[aria-expanded="true"] { border-color:var(--teal); color:#fff; }
+  .tools svg { width:18px; height:18px; }
+  .sheet { position:fixed; top:58px; right:12px; z-index:70; width:min(340px, calc(100vw - 24px)); max-height:calc(100vh - 80px); overflow:auto;
+    background:#14161b; border:1px solid #2e313a; border-radius:10px; padding:14px; box-shadow:0 20px 50px rgba(0,0,0,.6); font-family:'Noto Sans', 'Noto Sans JP', sans-serif; }
+  .sheet[hidden] { display:none; }
+  .sheet h2 { font-size:13px; font-weight:700; color:#8f8d9c; margin:0 0 8px; letter-spacing:.02em; }
+  .sheet a.chap { display:flex; gap:12px; align-items:center; padding:8px; border-radius:8px; text-decoration:none; color:#e8e7ee; }
+  .sheet a.chap:hover, .sheet a.chap.on { background:#20232b; }
+  .sheet a.chap img { width:72px; aspect-ratio:3/2; object-fit:cover; border-radius:4px; flex-shrink:0; }
+  .sheet a.chap small { display:block; color:#8f8d9c; font-size:12px; }
+  .sheet a.chap span { font-size:15px; line-height:1.3; }
+  .sheet a.chap i { font-style:normal; display:block; height:3px; background:#2a2d36; border-radius:2px; margin-top:6px; overflow:hidden; }
+  .sheet a.chap i b { display:block; height:100%; background:var(--teal); }
+  .sheet .soon { padding:8px; color:#6f6d7c; font-size:14px; }
+  .opt { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-top:1px solid #23262e; font-size:15px; }
+  .opt:first-of-type { border-top:0; }
+  .seg { display:flex; background:#1a1c22; border:1px solid #2a2d36; border-radius:8px; padding:2px; }
+  .seg button { background:none; border:0; color:#bdbcc8; font:inherit; font-size:14px; padding:6px 10px; border-radius:6px; cursor:pointer; }
+  .seg button[aria-pressed="true"] { background:var(--teal); color:#071211; }
+  .nextbar { position:fixed; left:50%; bottom:max(14px, env(safe-area-inset-bottom)); z-index:55; transform:translate(-50%, 160%); transition:transform .35s ease;
+    display:flex; align-items:center; gap:10px; width:min(560px, calc(100vw - 24px)); padding:10px 10px 10px 16px; background:rgba(20,22,27,.94); backdrop-filter:blur(8px);
+    border:1px solid #2e313a; border-radius:14px; font-family:'Noto Sans', 'Noto Sans JP', sans-serif; box-shadow:0 14px 40px rgba(0,0,0,.5); }
+  .nextbar.show { transform:translate(-50%, 0); }
+  .nextbar span { flex:1; min-width:0; font-size:14px; color:#bdbcc8; line-height:1.3; }
+  .nextbar span b { display:block; color:#e8e7ee; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .nextbar a { flex-shrink:0; text-decoration:none; font-size:14px; font-weight:600; padding:10px 14px; border-radius:10px; }
+  .nextbar a.go { background:var(--teal); color:#071211; }
+  .nextbar a.all { color:#bdbcc8; border:1px solid #3a3d47; }
+  .nextbar button.x { flex-shrink:0; background:none; border:0; color:#8f8d9c; font-size:20px; cursor:pointer; padding:4px 6px; }
   .progress { position:fixed; top:0; left:0; height:3px; width:0; background:var(--teal); z-index:60; }
   main { max-width:760px; margin:0 auto; padding:80px 12px 140px; display:flex; flex-direction:column; gap:26px; }
 
@@ -62,7 +94,7 @@
   @keyframes glint { 0%,100% { opacity:.15; } 50% { opacity:.75; } }
 
   .txt { position:absolute; z-index:6; opacity:0; }
-  .bubble, .caption { color:#111; font-size:clamp(13px,2.4vw,19px); line-height:1.2; max-width:44%;
+  .bubble, .caption { color:#111; font-size:calc(clamp(13px,2.4vw,19px) * var(--ts,1)); line-height:1.2; max-width:44%;
     transform:scale(.6); transform-origin:center bottom; transition:opacity .25s, transform .35s cubic-bezier(.3,1.7,.5,1); }
   .txt.show.bubble, .txt.show.caption { opacity:1; transform:scale(1); }
   .bubble { padding:12px 18px; text-align:center; box-sizing:content-box; }
@@ -102,6 +134,7 @@
   body.ja .hand.f-gondo { font-family:'Klee One', 'Kalam', cursive; }
   .hand i { font-style:normal; font-family:'Caveat', cursive; font-size:1.12em; }
   .end { text-align:center; color:#8f8d9c; padding:40px 0; font-size:18px; }
+  .end span { display:block; }
   .end b { display:block; color:#e8e7ee; font-size:28px; margin-bottom:6px; font-weight:400; }
   .err { color:#ff8a8a; text-align:center; }
   .end a.next { display:inline-block; margin-top:22px; padding:10px 22px; border:1px solid #5d5b6a; border-radius:22px; color:#e8e7ee; text-decoration:none; font-size:17px; }
@@ -116,19 +149,38 @@
 <div class="progress" id="progress"></div>
 <header>
   <a class="brand" id="brand" href="./">What the Rain <b>Remembers</b></a>
+  <div class="tools">
+    <button id="chBtn" aria-expanded="false" aria-controls="chSheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></button>
+    <button id="setBtn" aria-expanded="false" aria-controls="setSheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 9 5l5 14M6 14h6M15 19l3.5-9 3.5 9M16.2 16h4.6"/></svg></button>
+  </div>
   <div class="langs" id="langs">
     <button data-l="en">EN</button><button data-l="hu">HU</button><button data-l="ja">日本語</button>
   </div>
 </header>
+<div class="sheet" id="chSheet" hidden><h2 id="chHead"></h2><div id="chList"></div></div>
+<div class="sheet" id="setSheet" hidden>
+  <div class="opt"><span id="optText"></span><div class="seg" id="segText"><button data-v="1">A</button><button data-v="1.15" style="font-size:17px">A</button></div></div>
+  <div class="opt"><span id="optMotion"></span><div class="seg" id="segMotion"><button data-v="0"></button><button data-v="1"></button></div></div>
+</div>
 <main id="reader"></main>
+<div class="nextbar" id="nextBar" role="region"><span id="nbText"></span><a class="all" id="nbAll"></a><a class="go" id="nbGo"></a><button class="x" id="nbX">×</button></div>
 
 <script>
 const UI = {
-  en: { hint: 'Scroll slowly', end: 'To be continued', endSub: '', home: 'All chapters' },
-  hu: { hint: 'Görgess lassan', end: 'Folytatjuk', endSub: '', home: 'Az összes fejezet' },
-  ja: { hint: 'ゆっくりスクロール', end: 'つづく', endSub: '', home: 'エピソード一覧' }
+  en: { hint: 'Scroll slowly', end: 'To be continued', endSub: '', home: 'All chapters', chapters: 'Chapters', settings: 'Reading settings',
+        text: 'Text size', motion: 'Animations', on: 'On', off: 'Off', next: 'Next', nextGo: 'Read', soon: n => `Chapter ${n} is in the works`, ch: n => `Chapter ${n}`, close: 'Close' },
+  hu: { hint: 'Görgess lassan', end: 'Folytatjuk', endSub: '', home: 'Az összes fejezet', chapters: 'Fejezetek', settings: 'Olvasási beállítások',
+        text: 'Betűméret', motion: 'Animációk', on: 'Be', off: 'Ki', next: 'Következik', nextGo: 'Olvasás', soon: n => `A ${n}. fejezet készül`, ch: n => `${n}. fejezet`, close: 'Bezárás' },
+  ja: { hint: 'ゆっくりスクロール', end: 'つづく', endSub: '', home: 'エピソード一覧', chapters: 'エピソード', settings: '表示設定',
+        text: '文字サイズ', motion: 'アニメーション', on: 'オン', off: 'オフ', next: '次の話', nextGo: '読む', soon: n => `第${n}話 制作中`, ch: n => `第${n}話`, close: '閉じる' }
 };
-const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+let RM = matchMedia('(prefers-reduced-motion: reduce)').matches || store.get('wtrr-rm') === '1';
+let TS = parseFloat(store.get('wtrr-ts') || '1') || 1;
+document.documentElement.style.setProperty('--ts', TS);
+// smaller images for phones: img/m/<name> is 800 px wide, the original is used on large or very sharp screens
+const SMALL = !new URLSearchParams(location.search).has('full');
+let LIST = null; // chapters.json next to the reader, if there is one
 let LANG = 'en';
 try { LANG = localStorage.getItem('wtrr-lang') || ({ hu: 'hu', ja: 'ja' }[(navigator.language || '').slice(0, 2)] || 'en'); } catch (e) {}
 // on the website the reader is <series>/read.html, next to the series page
@@ -177,7 +229,7 @@ function build() {
     const layers = p.layers.map(l => {
       const d = el('div', 'layer' + (l.reveal ? ' rev' : '') + (l.cover ? ' cover' : '') + (l.glow != null ? ' glowl' : '')); d.dataset.depth = l.depth || 0;
       if (l.reveal && l.ms) d.style.setProperty('--rv', l.ms + 'ms'); if (l.cover && l.ms) d.style.setProperty('--rv', l.ms + 'ms');
-      const img = el('img'); img.src = l.src; img.alt = l.alt || ''; img.loading = 'lazy'; img.decoding = 'async';
+      const img = el('img'); if (SMALL && /^img\/[^/]+\.webp$/.test(l.src)) { img.srcset = l.src.replace('img/', 'img/m/') + ' 800w, ' + l.src + ' 1600w'; img.sizes = '(max-width: 780px) 100vw, 760px'; } img.src = l.src; img.alt = l.alt || ''; img.loading = 'lazy'; img.decoding = 'async';
       d.append(img); cam.append(d); return d;
     });
     const glints = (p.glints || []).map(g => { const gl = el('div', 'glint once'); Object.assign(gl.style, { left: g.x + '%', top: g.y + '%', width: g.w + '%', height: g.h + '%' }); (g.layer != null && layers[g.layer] ? layers[g.layer] : cam).append(gl); return { e: gl, at: g.at || 0 }; });
@@ -222,6 +274,7 @@ function build() {
   if (CH.prev) { const a = el('a', 'prev'); a.href = CH.prev.src === 'chapter.json' ? '#' : '#ch=' + CH.prev.src; a.textContent = tr(CH.prev.label); t.append(a); }
   reader.append(end);
   panels.forEach(P => io.observe(P.fig));
+  refreshUI();
   update();
   panels.forEach(P => P.layers.forEach(L => L.querySelector('img').addEventListener('load', () => shapeAll(P))));
   document.fonts && document.fonts.ready.then(() => panels.forEach(shapeAll));
@@ -366,7 +419,7 @@ function update() {
     if (P.live) shapeAll(P);
   }
 }
-addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } saveProgress(); }, { passive: true });
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } saveProgress(); nextBarCheck(); }, { passive: true });
 // reading progress for the website's "continue" button (per device, nothing leaves the browser)
 let saveT = 0;
 function saveProgress() {
@@ -383,6 +436,84 @@ document.getElementById('langs').addEventListener('click', e => {
   LANG = l; try { localStorage.setItem('wtrr-lang', l); } catch (err) {}
   const y = scrollY; build(); scrollTo(0, y);
 });
+/* ---- chapter menu, settings, next-chapter bar ---- */
+const $ = id => document.getElementById(id);
+const chNum = src => { const m = src.match(/chapter(\d*)\.json/); return m ? (parseInt(m[1] || '1', 10)) : 1; };
+const chTitle = c => { const t = tr(c.subtitle) || ''; const p = t.split(/\s*[·・]\s*/); return p.length > 1 ? p.slice(1).join(' ') : t; };
+async function loadList() {
+  if (LIST) return LIST;
+  try {
+    const l = await (await fetch('chapters.json')).json();
+    await Promise.all(l.chapters.map(async c => { c.data = await (await fetch(c.src)).json(); }));
+    LIST = l;
+  } catch (e) { LIST = { chapters: [] }; }
+  return LIST;
+}
+function togglePop(btn, sheet, open) {
+  const willOpen = open ?? sheet.hidden;
+  [['chBtn', 'chSheet'], ['setBtn', 'setSheet']].forEach(([b, s]) => { $(s).hidden = true; $(b).setAttribute('aria-expanded', 'false'); });
+  sheet.hidden = !willOpen; btn.setAttribute('aria-expanded', String(willOpen));
+  if (willOpen) renderList();
+}
+$('chBtn').addEventListener('click', e => { e.stopPropagation(); togglePop($('chBtn'), $('chSheet')); });
+$('setBtn').addEventListener('click', e => { e.stopPropagation(); togglePop($('setBtn'), $('setSheet')); });
+document.addEventListener('click', e => { if (!e.target.closest('.sheet') && !e.target.closest('.tools')) { $('chSheet').hidden = $('setSheet').hidden = true; $('chBtn').setAttribute('aria-expanded', 'false'); $('setBtn').setAttribute('aria-expanded', 'false'); } });
+addEventListener('keydown', e => { if (e.key === 'Escape') { $('chSheet').hidden = $('setSheet').hidden = true; } });
+async function renderList() {
+  const u = UI[LANG], l = await loadList(), box = $('chList'); $('chHead').textContent = u.chapters;
+  let prog = {}; try { prog = (JSON.parse(store.get(PKEY) || '{}').p) || {}; } catch (e) {}
+  if (!l.chapters.length) {   // no list: fall back to the links in the chapter itself
+    box.innerHTML = '';
+    [CH.prev, CH.next].filter(Boolean).forEach(x => { const a = el('a', 'chap'); a.href = x.src === 'chapter.json' ? '#ch=chapter.json' : '#ch=' + x.src; a.innerHTML = '<span></span>'; a.querySelector('span').textContent = tr(x.label); box.append(a); });
+    return;
+  }
+  box.innerHTML = '';
+  l.chapters.forEach(c => {
+    const a = el('a', 'chap' + (c.src === SRC ? ' on' : '')); a.href = '#ch=' + c.src; if (c.src === SRC) a.setAttribute('aria-current', 'page');
+    const p = Math.round(Math.min(1, prog[c.src] || 0) * 100);
+    a.innerHTML = `<img alt="" loading="lazy"><div><small></small><span></span><i><b style="width:${p}%"></b></i></div>`;
+    a.querySelector('img').src = c.thumb ? (HOME ? c.thumb : '') : ''; if (!c.thumb || !HOME) a.querySelector('img').remove();
+    a.querySelector('small').textContent = u.ch(c.n); a.querySelector('span').textContent = chTitle(c.data);
+    a.addEventListener('click', () => { $('chSheet').hidden = true; $('chBtn').setAttribute('aria-expanded', 'false'); });
+    box.append(a);
+  });
+  if (l.next) { const d = el('div', 'soon'); d.textContent = u.soon(l.next.n); box.append(d); }
+}
+function refreshUI() {
+  const u = UI[LANG];
+  $('chBtn').setAttribute('aria-label', u.chapters); $('chBtn').title = u.chapters;
+  $('setBtn').setAttribute('aria-label', u.settings); $('setBtn').title = u.settings;
+  $('optText').textContent = u.text; $('optMotion').textContent = u.motion;
+  const sm = $('segMotion').children; sm[0].textContent = u.on; sm[1].textContent = u.off;
+  [...$('segText').children].forEach(b => b.setAttribute('aria-pressed', String(parseFloat(b.dataset.v) === TS)));
+  sm[0].setAttribute('aria-pressed', String(!RM)); sm[1].setAttribute('aria-pressed', String(RM));
+  $('nbX').setAttribute('aria-label', u.close);
+  $('nextBar').classList.remove('show'); $('nextBar').dataset.for = ''; nbClosed = false;
+  if (!$('chSheet').hidden) renderList();
+  nextBarCheck();
+}
+function rebuildKeep() { const f = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight); build(); requestAnimationFrame(() => scrollTo(0, f * (document.documentElement.scrollHeight - innerHeight))); }
+$('segText').addEventListener('click', e => { const v = e.target.dataset && e.target.dataset.v; if (!v) return; TS = parseFloat(v); store.set('wtrr-ts', v); document.documentElement.style.setProperty('--ts', TS); rebuildKeep(); });
+$('segMotion').addEventListener('click', e => { const v = e.target.dataset && e.target.dataset.v; if (v == null) return; RM = v === '1'; store.set('wtrr-rm', v); rebuildKeep(); });
+let nbClosed = false;
+$('nbX').addEventListener('click', () => { nbClosed = true; $('nextBar').classList.remove('show'); });
+function nextBarCheck() {
+  if (!CH) return;
+  const max = document.documentElement.scrollHeight - innerHeight, f = max > 0 ? scrollY / max : 0, u = UI[LANG], bar = $('nextBar');
+  const show = f > .86 && !nbClosed;
+  if (show && bar.dataset.for !== SRC + LANG) {
+    bar.dataset.for = SRC + LANG;
+    const go = $('nbGo'), all = $('nbAll'), t = $('nbText');
+    if (CH.next) {
+      go.hidden = false; go.href = '#ch=' + CH.next.src; go.textContent = u.nextGo;
+      t.innerHTML = '<span></span><b></b>'; t.firstChild.textContent = u.next;
+      const n = chNum(CH.next.src); t.lastChild.textContent = u.ch(n);
+      loadList().then(l => { const c = l.chapters.find(x => x.src === CH.next.src); if (c) t.lastChild.textContent = u.ch(n) + ': ' + chTitle(c.data); });
+    } else { go.hidden = true; t.innerHTML = '<b></b>'; t.firstChild.textContent = tr(CH.endTitle) || u.end; }
+    all.hidden = !HOME || !!CH.next; if (HOME) { all.href = HOME + '#chapters'; all.textContent = u.home; }
+  }
+  bar.classList.toggle('show', show);
+}
 load();
 </script>
 </body>
