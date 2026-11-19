@@ -1,0 +1,2327 @@
+{
+ "title": "What the Rain Remembers",
+ "titleJa": "沈町",
+ "subtitle": {
+  "en": "Chapter 1 · The Thirteenth Step",
+  "hu": "1. fejezet · A tizenharmadik fok",
+  "ja": "第1話・十三段目"
+ },
+ "panels": [
+  {
+   "id": "f00_p01",
+   "aspect": "4/3",
+   "rain": 70,
+   "zoom": {
+    "scale": 1.05,
+    "x": 55,
+    "y": 55,
+    "ms": 7000
+   },
+   "layers": [
+    {
+     "src": "img/f00_p01.webp",
+     "depth": 0.15,
+     "alt": "Minato leans over the railing and wipes the water-gauge staff in the rain"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "x": 3,
+     "y": 4,
+     "at": 400,
+     "text": {
+      "en": "Yodoura. Day 1,103 of the rain.",
+      "hu": "Yodoura. Az eső 1103. napja.",
+      "ja": "澱浦。雨、千百三日目。"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f00_p02",
+   "aspect": "3/2",
+   "rain": 90,
+   "layers": [
+    {
+     "src": "img/f00_p02.webp",
+     "depth": 0.2,
+     "alt": "Raindrops burst on an invisible step below the last visible stair"
+    }
+   ],
+   "glints": [
+    {
+     "x": 29.63,
+     "y": 44.64,
+     "w": 8.33,
+     "h": 12.5,
+     "at": 1500,
+     "layer": 0
+    },
+    {
+     "x": 36.11,
+     "y": 44.64,
+     "w": 8.33,
+     "h": 12.5,
+     "at": 1720,
+     "layer": 0
+    },
+    {
+     "x": 42.59,
+     "y": 44.64,
+     "w": 8.33,
+     "h": 12.5,
+     "at": 1940,
+     "layer": 0
+    },
+    {
+     "x": 49.07,
+     "y": 44.64,
+     "w": 8.33,
+     "h": 12.5,
+     "at": 2160,
+     "layer": 0
+    },
+    {
+     "x": 55.56,
+     "y": 44.64,
+     "w": 8.33,
+     "h": 12.5,
+     "at": 2380,
+     "layer": 0
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 13,
+     "y": 10,
+     "at": 500,
+     "text": {
+      "en": "…eleven. Twelve.",
+      "hu": "…tizenegy. Tizenkettő.",
+      "ja": "……\n十一。\n十二。"
+     },
+     "pos": {
+      "ja": {
+       "x": 38,
+       "y": 2
+      }
+     },
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_fej"
+    },
+    {
+     "type": "bubble",
+     "x": 17,
+     "y": 64,
+     "at": 3000,
+     "text": {
+      "en": "…thirteen?",
+      "hu": "…tizenhárom?",
+      "ja": "……十三?"
+     },
+     "pos": {
+      "ja": {
+       "x": 15,
+       "y": 2
+      }
+     },
+     "speaker": "minato",
+     "kind": "whisper",
+     "to": "minato_fej"
+    }
+   ],
+   "anchors": {
+    "minato_fej": {
+     "l": 0,
+     "x": 12,
+     "y": 62
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato feje",
+     "l": 0,
+     "x": 0,
+     "y": 22,
+     "w": 15,
+     "h": 55
+    },
+    {
+     "n": "a 13. fok csobbanásai",
+     "l": 0,
+     "x": 27,
+     "y": 40,
+     "w": 40,
+     "h": 20
+    }
+   ]
+  },
+  {
+   "id": "f00_p02b",
+   "aspect": "1888/826",
+   "rain": 60,
+   "layers": [
+    {
+     "src": "img/f00_p02b_hatter.webp",
+     "depth": 0.1,
+     "alt": "The lowest steps at the water's edge, the hair tie on the bottom step"
+    },
+    {
+     "src": "img/f00_p02b_szereplo.webp",
+     "depth": 0.1,
+     "alt": "Minato's boots stop together on the second-lowest step, a small splash at the toe"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "x": 30,
+     "y": 30,
+     "at": 300,
+     "s": 5,
+     "r": "-4deg",
+     "c": "#f4f1e8",
+     "text": {
+      "en": "splt…",
+      "hu": "csob…",
+      "ja": "ピチャ…"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f00_p03",
+   "aspect": "4/5",
+   "rain": 120,
+   "zoom": {
+    "scale": 1.15,
+    "x": 22,
+    "y": 62,
+    "ms": 6000
+   },
+   "layers": [
+    {
+     "src": "img/f00_p03_hatter.webp",
+     "depth": 0.1,
+     "alt": "Rain-soaked concrete stairs of Gate 7: a wall on the right, the railing and the bay on the left"
+    },
+    {
+     "src": "img/f00_p03_villam.webp",
+     "depth": 0.1,
+     "reveal": true,
+     "ms": 900,
+     "alt": "A lightning bolt over the harbor"
+    },
+    {
+     "src": "img/f00_p03_szereplo.webp",
+     "depth": 0.1,
+     "alt": "Minato crouching on the second-lowest step, reaching down"
+    },
+    {
+     "src": "img/f00_p03_eloter.webp",
+     "depth": 0.1,
+     "alt": "A dry hair tie on the chipped bottom step, rain falling on the water below"
+    }
+   ],
+   "events": [
+    {
+     "at": 900,
+     "do": "flash"
+    },
+    {
+     "at": 900,
+     "do": "reveal",
+     "ms": 900
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "y": 4,
+     "at": 900,
+     "s": 11,
+     "r": "-8deg",
+     "c": "#f4f1e8",
+     "text": {
+      "en": "KRAK",
+      "hu": "KRAKK",
+      "ja": "ピシャッ"
+     },
+     "x": 4
+    },
+    {
+     "type": "bubble",
+     "y": 28,
+     "at": 2400,
+     "text": {
+      "en": "…Mio?",
+      "hu": "…Mio?",
+      "ja": "……澪?"
+     },
+     "x": 33,
+     "pos": {
+      "ja": {
+       "x": 34,
+       "y": 12
+      }
+     },
+     "speaker": "minato",
+     "kind": "whisper",
+     "to": "minato_szaj"
+    }
+   ],
+   "glints": [
+    {
+     "layer": 2,
+     "x": 21.5,
+     "y": 91.8,
+     "w": 7,
+     "h": 3.5,
+     "at": 1500
+    },
+    {
+     "layer": 2,
+     "x": 50.1,
+     "y": 83.2,
+     "w": 7,
+     "h": 3.5,
+     "at": 1750
+    },
+    {
+     "layer": 2,
+     "x": 69.7,
+     "y": 88.2,
+     "w": 7,
+     "h": 3.5,
+     "at": 2000
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 2,
+     "x": 25.5,
+     "y": 46
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato",
+     "l": 2,
+     "x": 18,
+     "y": 40,
+     "w": 15,
+     "h": 23
+    }
+   ]
+  },
+  {
+   "id": "f01_p04",
+   "aspect": "1/1",
+   "rain": 70,
+   "zoom": {
+    "scale": 1.06,
+    "x": 72,
+    "y": 80,
+    "ms": 5000
+   },
+   "layers": [
+    {
+     "src": "img/f01_p04_hatter.webp",
+     "depth": 0.1,
+     "alt": "The dry patch with the hair tie on the bottom step; Minato crouched just behind it"
+    },
+    {
+     "src": "img/f01_p04_szereplo.webp",
+     "depth": 0.1,
+     "alt": "Minato's gloved left hand reaching down toward the hair tie"
+    }
+   ]
+  },
+  {
+   "id": "f01_p04b",
+   "aspect": "3/2",
+   "rain": 60,
+   "layers": [
+    {
+     "src": "img/f01_p04b.webp",
+     "depth": 0.15,
+     "alt": "Holding the found hair tie in his bare left hand, Minato pulls the other one off his notebook"
+    }
+   ]
+  },
+  {
+   "id": "f01_p05",
+   "aspect": "3/2",
+   "rain": 60,
+   "zoom": {
+    "scale": 1.05,
+    "x": 54,
+    "y": 50,
+    "ms": 5000
+   },
+   "layers": [
+    {
+     "src": "img/f01_p05.webp",
+     "depth": 0.15,
+     "alt": "Two identical beaded hair ties in Minato's bare palm"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "x": 4,
+     "y": 5,
+     "at": 600,
+     "text": {
+      "en": "Her other one.",
+      "hu": "A párja.",
+      "ja": "もう片方。"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p06",
+   "aspect": "16/9",
+   "rain": 110,
+   "layers": [
+    {
+     "src": "img/f01_p06_hatter.webp",
+     "depth": 0.1,
+     "alt": "Rain splashing on an invisible step in front of the bottom stair, just above the water"
+    },
+    {
+     "src": "img/f01_p06_szereplo.webp",
+     "depth": 0.1,
+     "alt": "Minato standing on the bottom step, staring at the water"
+    }
+   ],
+   "glints": [
+    {
+     "layer": 0,
+     "x": 38,
+     "y": 83.2,
+     "w": 4,
+     "h": 3.5,
+     "at": 900
+    },
+    {
+     "layer": 0,
+     "x": 43.3,
+     "y": 79.7,
+     "w": 4,
+     "h": 3.5,
+     "at": 1160
+    },
+    {
+     "layer": 0,
+     "x": 48.6,
+     "y": 77.0,
+     "w": 4,
+     "h": 3.5,
+     "at": 1420
+    },
+    {
+     "layer": 0,
+     "x": 51.1,
+     "y": 74.3,
+     "w": 4,
+     "h": 3.5,
+     "at": 1680
+    },
+    {
+     "layer": 0,
+     "x": 57.1,
+     "y": 71.0,
+     "w": 4,
+     "h": 3.5,
+     "at": 1940
+    },
+    {
+     "layer": 0,
+     "x": 59.9,
+     "y": 68.8,
+     "w": 4,
+     "h": 3.5,
+     "at": 2200
+    }
+   ]
+  },
+  {
+   "id": "f01_p07",
+   "aspect": "5/8",
+   "rain": 130,
+   "layers": [
+    {
+     "src": "img/f01_p07_lent.webp",
+     "depth": 0.05,
+     "reveal": true,
+     "ms": 1500,
+     "alt": "For an instant, lit by lightning, the water turns clear: the stairs continue down into a drowned street that fades into black"
+    },
+    {
+     "src": "img/f01_p07_felszin.webp",
+     "depth": 0.05,
+     "cover": true,
+     "ms": 1500,
+     "alt": "Black water dotted with rain"
+    },
+    {
+     "src": "img/f01_p07_mio.webp",
+     "depth": 0.05,
+     "reveal": true,
+     "ms": 2600,
+     "alt": "Mio stands on the drowned stairs, barefoot, hair floating upward, looking straight up"
+    }
+   ],
+   "events": [
+    {
+     "at": 1300,
+     "do": "reveal",
+     "ms": 2700
+    },
+    {
+     "at": 1300,
+     "do": "flash",
+     "strength": 0.35
+    }
+   ],
+   "glints": [
+    {
+     "layer": 1,
+     "x": 6.2,
+     "y": 73.4,
+     "w": 3.6,
+     "h": 2.0,
+     "at": 3200
+    },
+    {
+     "layer": 1,
+     "x": 21.0,
+     "y": 71.8,
+     "w": 5.4,
+     "h": 2.9,
+     "at": 3330
+    },
+    {
+     "layer": 1,
+     "x": 40.3,
+     "y": 72.9,
+     "w": 4.2,
+     "h": 2.3,
+     "at": 3610
+    },
+    {
+     "layer": 1,
+     "x": 58.8,
+     "y": 71.5,
+     "w": 6.0,
+     "h": 3.1,
+     "at": 3700
+    },
+    {
+     "layer": 1,
+     "x": 83.1,
+     "y": 73.6,
+     "w": 3.3,
+     "h": 1.8,
+     "at": 4050
+    }
+   ],
+   "zoom": {
+    "scale": 1.12,
+    "x": 50,
+    "y": 34,
+    "ms": 4500
+   }
+  },
+  {
+   "id": "f01_p08",
+   "aspect": "3/2",
+   "rain": 90,
+   "layers": [
+    {
+     "src": "img/f01_p08.webp",
+     "depth": 0.15,
+     "alt": "Minato's face, rain running down it, staring at the black water"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "right": 5,
+     "y": 8,
+     "at": 700,
+     "s": 7,
+     "r": "-4deg",
+     "c": "#bdbcc8",
+     "text": {
+      "en": "rrrumble…",
+      "hu": "drrrmm…",
+      "ja": "ゴロゴロ…"
+     },
+     "halk": true
+    }
+   ]
+  },
+  {
+   "id": "f01_p09",
+   "aspect": "3/2",
+   "rain": 110,
+   "zoom": {
+    "scale": 1.12,
+    "x": 58,
+    "y": 40,
+    "ms": 5500
+   },
+   "layers": [
+    {
+     "src": "img/f01_p09.webp",
+     "depth": 0.1,
+     "alt": "Minato on the stairs, gloved hand on the wet railing, frozen, looking down at the railing beside his hand"
+    },
+    {
+     "src": "img/f01_p09_feny.webp",
+     "depth": 0.1,
+     "glow": 1900,
+     "alt": ""
+    }
+   ],
+   "glints": []
+  },
+  {
+   "id": "f01_p09b",
+   "aspect": "3/2",
+   "rain": 60,
+   "layers": [
+    {
+     "src": "img/f01_p09b.webp",
+     "depth": 0.1,
+     "alt": "Close-up: beside Minato's gloved hand, the dry print of a small child's hand gripping the wet railing"
+    },
+    {
+     "src": "img/f01_p09b_feny.webp",
+     "depth": 0.1,
+     "glow": 700,
+     "alt": ""
+    }
+   ],
+   "zoom": {
+    "scale": 1.06,
+    "x": 52,
+    "y": 32,
+    "ms": 4000
+   }
+  },
+  {
+   "id": "f01_p09c",
+   "aspect": "3/2",
+   "rain": 40,
+   "layers": [
+    {
+     "src": "img/f01_p09c.webp",
+     "depth": 0.1,
+     "alt": "Extreme close-up of Minato's tired eyes staring down; a tiny turquoise glint is reflected in both irises"
+    },
+    {
+     "src": "img/f01_p09c_feny.webp",
+     "depth": 0.1,
+     "glow": 500,
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "id": "f01_p10",
+   "aspect": "3/2",
+   "rain": 80,
+   "layers": [
+    {
+     "src": "img/f01_p10.webp",
+     "depth": 0.15,
+     "alt": "A walkie-talkie in a plastic bag, crackling in Minato's coat pocket"
+    }
+   ],
+   "events": [
+    {
+     "at": 300,
+     "do": "shake"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "x": 52,
+     "y": 52,
+     "at": 250,
+     "s": 6,
+     "r": "-6deg",
+     "text": {
+      "en": "KSSHHT",
+      "hu": "SZRRRT",
+      "ja": "ザザッ"
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 44,
+     "y": 3,
+     "at": 900,
+     "text": {
+      "en": "Seven. What's the reading?",
+      "hu": "Hetes. Mennyi?",
+      "ja": "七番。水位は？"
+     },
+     "speaker": "radio",
+     "kind": "radio",
+     "to": "radio"
+    }
+   ],
+   "anchors": {
+    "radio": {
+     "l": 0,
+     "x": 65,
+     "y": 41
+    }
+   },
+   "keep": [
+    {
+     "n": "rádió",
+     "l": 0,
+     "x": 58,
+     "y": 33,
+     "w": 15,
+     "h": 20
+    }
+   ]
+  },
+  {
+   "id": "f01_p11",
+   "aspect": "16/7",
+   "rain": 110,
+   "layers": [
+    {
+     "src": "img/f01_p11_hatter.webp",
+     "depth": 0.1,
+     "alt": "The wet stairs seen through the railing"
+    },
+    {
+     "src": "img/f01_p11_szereplo.webp",
+     "depth": 0.1,
+     "alt": "Minato's boots climbing back up the stairs toward the left, the taped left boot in front"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "x": 60,
+     "y": 82,
+     "at": 250,
+     "s": 5.1,
+     "r": "9deg",
+     "text": {
+      "en": "slap",
+      "hu": "cupp",
+      "ja": "バシャ"
+     }
+    },
+    {
+     "type": "sfx",
+     "x": 24,
+     "y": 60,
+     "at": 650,
+     "s": 6,
+     "r": "9deg",
+     "text": {
+      "en": "slap",
+      "hu": "cupp",
+      "ja": "バシャ"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p12",
+   "aspect": "2/3",
+   "rain": 110,
+   "layers": [
+    {
+     "src": "img/f01_p12_hatter.webp",
+     "depth": 0.1,
+     "alt": "The water gauge: a long staff rising out of the water beside the landing"
+    },
+    {
+     "src": "img/f01_p12_szereplo.webp",
+     "depth": 0.1,
+     "alt": "Minato leaning over the railing, radio at his mouth, looking down at the staff"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 4,
+     "y": 2,
+     "at": 500,
+     "text": {
+      "hu": "Egy-nyolcvan,\nGondō-san. Stabil.",
+      "en": "One-eighty,\nGondō-san. Steady.",
+      "ja": "1メートル80です、\n権藤さん。\n安定してます。"
+     },
+     "pos": {
+      "ja": {
+       "x": 76,
+       "y": 1
+      },
+      "en": {
+       "x": 1,
+       "y": 1
+      },
+      "hu": {
+       "x": 4,
+       "y": 1
+      }
+     },
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_szaj"
+    },
+    {
+     "id": "p12_szrt",
+     "type": "sfx",
+     "x": 50.5,
+     "y": 13.8,
+     "at": 1500,
+     "s": 3.2,
+     "r": "-6deg",
+     "c": "#f4f1e8",
+     "text": {
+      "en": "ksht",
+      "hu": "szrt",
+      "ja": "ザッ"
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 14,
+     "y": 12,
+     "at": 1900,
+     "text": {
+      "hu": "…Hm. Vettem.",
+      "en": "…Hm. Copy.",
+      "ja": "……ん。了解。"
+     },
+     "pos": {
+      "ja": {
+       "x": 30,
+       "y": 3
+      }
+     },
+     "speaker": "radio",
+     "kind": "radio",
+     "to": "radio"
+    }
+   ],
+   "zoom": {
+    "scale": 1.06,
+    "x": 50,
+    "y": 30,
+    "ms": 5000
+   },
+   "anchors": {
+    "minato_szaj": {
+     "l": 1,
+     "x": 54.2,
+     "y": 14.3
+    },
+    "radio": {
+     "l": 1,
+     "x": 53.6,
+     "y": 15.2
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato",
+     "l": 1,
+     "x": 54,
+     "y": 8,
+     "w": 13,
+     "h": 22
+    }
+   ]
+  },
+  {
+   "id": "f01_p13",
+   "aspect": "3/2",
+   "rain": 110,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p13.webp",
+     "depth": 0.1,
+     "alt": "Minato, seen from behind, steps off the steel catwalk into the lock hut; warm lamplight spills from the open door"
+    }
+   ]
+  },
+  {
+   "id": "f01_p14",
+   "aspect": "4/3",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p14.webp",
+     "depth": 0.1,
+     "alt": "Inside the hut, Minato sits at the desk under the window and writes in the log by the light of a small desk lamp; the two hair ties and his right glove lie on the desk"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "x": 43,
+     "y": 57,
+     "at": 600,
+     "s": 3.2,
+     "r": "-8deg",
+     "text": {
+      "en": "scritch",
+      "hu": "sercc",
+      "ja": "カリ"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p14b",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p14b.webp",
+     "depth": 0.1,
+     "alt": "The log page from above: Minato's pencil finishes tonight's line"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "20:40 – 7-es: +1,79 m",
+      "en": "20:40 – Gate 7: +1.79 m",
+      "ja": "20:40 7番 +1.79m"
+     },
+     "pos": {
+      "en": {
+       "x": 10.25,
+       "y": 14.18,
+       "s": 3.92
+      },
+      "ja": {
+       "x": 10.25,
+       "y": 14.61,
+       "s": 3.36
+      }
+     },
+     "x": 10.25,
+     "y": 14.18,
+     "s": 3.92,
+     "c": "#47474f",
+     "r": "0.3deg"
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "21:05 – 2-es szivattyú: jár",
+      "en": "21:05 – Pump 2: running",
+      "ja": "21:05 2号ポンプ 稼働中"
+     },
+     "pos": {
+      "en": {
+       "x": 10.25,
+       "y": 21.3,
+       "s": 3.92
+      },
+      "ja": {
+       "x": 10.25,
+       "y": 21.73,
+       "s": 3.36
+      }
+     },
+     "x": 10.25,
+     "y": 21.3,
+     "s": 3.92,
+     "c": "#47474f",
+     "r": "-0.4deg"
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 900,
+     "text": {
+      "hu": "21:40 – 7-es: +~~1,80~~ 1,86 m",
+      "en": "21:40 – Gate 7: +~~1.80~~ 1.86 m",
+      "ja": "21:40 7番 +~~1.80~~ 1.86m"
+     },
+     "pos": {
+      "en": {
+       "x": 10.25,
+       "y": 28.43,
+       "s": 3.92
+      },
+      "ja": {
+       "x": 10.25,
+       "y": 28.86,
+       "s": 3.36
+      }
+     },
+     "x": 10.25,
+     "y": 28.43,
+     "s": 3.92,
+     "c": "#47474f",
+     "r": "0.5deg"
+    }
+   ]
+  },
+  {
+   "id": "f01_p15",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p15.webp",
+     "depth": 0.1,
+     "alt": "An old, water-stained log volume; Minato's left hand turns back the pages to a night three years ago"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "07. 14.",
+      "en": "Jul 14",
+      "ja": "7月14日"
+     },
+     "pos": {
+      "en": {
+       "x": 46.11,
+       "y": 17.73,
+       "s": 2.427
+      },
+      "ja": {
+       "x": 46.11,
+       "y": 17.31,
+       "s": 2.333
+      }
+     },
+     "x": 46.11,
+     "y": 17.73,
+     "s": 2.427,
+     "font": "gondo",
+     "c": "#3b3e48"
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "00:50 – eső, 7-es: +2,61",
+      "en": "00:50 – rain, Gate 7: +2.61",
+      "ja": "00:50 雨 7番 +2.61"
+     },
+     "pos": {
+      "en": {
+       "x": 46.11,
+       "y": 22.61,
+       "s": 2.427
+      },
+      "ja": {
+       "x": 46.11,
+       "y": 22.19,
+       "s": 2.333
+      }
+     },
+     "x": 46.11,
+     "y": 22.61,
+     "s": 2.427,
+     "font": "gondo",
+     "c": "#3b3e48"
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "01:20 – 7-es: +2,90",
+      "en": "01:20 – Gate 7: +2.90",
+      "ja": "01:20 7番 +2.90"
+     },
+     "pos": {
+      "en": {
+       "x": 46.11,
+       "y": 27.86,
+       "s": 2.427
+      },
+      "ja": {
+       "x": 46.11,
+       "y": 27.44,
+       "s": 2.333
+      }
+     },
+     "x": 46.11,
+     "y": 27.86,
+     "s": 2.427,
+     "font": "gondo",
+     "c": "#3b3e48"
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "01:45 – 2-es szivattyú leállt",
+      "en": "01:45 – Pump 2 stopped",
+      "ja": "01:45 2号ポンプ停止"
+     },
+     "pos": {
+      "en": {
+       "x": 46.11,
+       "y": 33.11,
+       "s": 2.427
+      },
+      "ja": {
+       "x": 46.11,
+       "y": 32.69,
+       "s": 2.333
+      }
+     },
+     "x": 46.11,
+     "y": 33.11,
+     "s": 2.427,
+     "font": "gondo",
+     "c": "#3b3e48"
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "text": {
+      "hu": "02:10 – 7-es kapu kézi zárás. Zárta: __S. M.__",
+      "en": "02:10 – Gate 7 closed by hand. By: __S. M.__",
+      "ja": "02:10 7番ゲート手動閉鎖 担当：__S. M.__"
+     },
+     "pos": {
+      "en": {
+       "x": 46.11,
+       "y": 38.48,
+       "s": 2.427
+      },
+      "ja": {
+       "x": 46.11,
+       "y": 38.06,
+       "s": 2.333
+      }
+     },
+     "x": 46.11,
+     "y": 38.48,
+     "s": 2.427,
+     "font": "gondo",
+     "c": "#3b3e48"
+    }
+   ]
+  },
+  {
+   "id": "f01_p16",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p16.webp",
+     "depth": 0.1,
+     "alt": "Extreme close-up: Minato's finger stops under one line in Gondō's neat handwriting"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "font": "gondo",
+     "c": "#3b3e48",
+     "text": {
+      "hu": "szivattyú leállt",
+      "en": "Pump 2 stopped",
+      "ja": "2号ポンプ停止"
+     },
+     "pos": {
+      "en": {
+       "x": 6.98,
+       "y": 9.32,
+       "s": 8.96
+      },
+      "ja": {
+       "x": 15.92,
+       "y": 8.87,
+       "s": 7.84
+      }
+     },
+     "x": 12.7,
+     "y": 9.32,
+     "s": 8.96
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "font": "gondo",
+     "c": "#3b3e48",
+     "text": {
+      "hu": "kézi zárás. Zárta: __S. M.__",
+      "en": "by hand. By: __S. M.__",
+      "ja": "手動閉鎖 担当：__S. M.__"
+     },
+     "pos": {
+      "en": {
+       "x": 20.64,
+       "y": 37.32,
+       "s": 8.96
+      },
+      "ja": {
+       "x": 15.5,
+       "y": 36.87,
+       "s": 7.84
+      }
+     },
+     "x": 5.14,
+     "y": 37.32,
+     "s": 8.96
+    }
+   ]
+  },
+  {
+   "id": "f01_p17",
+   "aspect": "4/3",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p17.webp",
+     "depth": 0.1,
+     "alt": "Minato at the desk, the radio at his mouth in his bare left hand, his right hand flat on a log full of pencilled lines; the two hair ties lie by the lamp"
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 0,
+     "x": 50.6,
+     "y": 30.5
+    },
+    "radio": {
+     "l": 0,
+     "x": 59,
+     "y": 37
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 40,
+     "y": 12,
+     "w": 22,
+     "h": 30
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 3,
+     "y": 4,
+     "at": 400,
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "Ki zárta a hetest\nakkor éjjel?",
+      "en": "Who closed Gate 7\nthat night?",
+      "ja": "あの夜、\n７番を\n閉めたのは\n誰だ？"
+     },
+     "pos": {
+      "ja": {
+       "x": 66,
+       "y": 2
+      },
+      "en": {
+       "x": 2,
+       "y": 4
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 66,
+     "y": 4,
+     "at": 2300,
+     "speaker": "radio",
+     "kind": "radio",
+     "to": "radio",
+     "text": {
+      "hu": "…A Takeda-gyerek.\nMondtam már.",
+      "en": "…The Takeda kid.\nI told you.",
+      "ja": "……武田の\n坊主だ。\n前に\n言ったろ。"
+     },
+     "pos": {
+      "ja": {
+       "x": 70,
+       "y": 48
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p17b",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f01_p17b.webp",
+     "depth": 0.1,
+     "alt": "Close on Minato's face, frowning down, the radio at his chin"
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 0,
+     "x": 65.6,
+     "y": 68.7
+    },
+    "radio": {
+     "l": 0,
+     "x": 83,
+     "y": 86
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 46,
+     "y": 35,
+     "w": 40,
+     "h": 50
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 2,
+     "y": 40,
+     "at": 300,
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "Múltkor azt mondtad,\nhogy te.",
+      "en": "Last time you said\nit was you.",
+      "ja": "この前は、\n自分だって\n言ってた。"
+     },
+     "pos": {
+      "ja": {
+       "x": 14,
+       "y": 30
+      }
+     }
+    },
+    {
+     "type": "sfx",
+     "x": 86,
+     "y": 70,
+     "at": 2200,
+     "s": 3,
+     "r": "-4deg",
+     "c": "#f4f1e8",
+     "text": {
+      "hu": "szrr…",
+      "en": "kssh…",
+      "ja": "ザー…"
+     },
+     "halk": true
+    }
+   ]
+  },
+  {
+   "id": "f01_p18",
+   "aspect": "21/9",
+   "rain": 120,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p18.webp",
+     "depth": 0.1,
+     "alt": "The top of the seawall at night: Minato, from behind, faces east; the half-sunken torii in the bay on the left, the dark town on the right, a headlamp approaching from Gate 4"
+    }
+   ]
+  },
+  {
+   "id": "f01_p19",
+   "aspect": "4/3",
+   "rain": 110,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p19.webp",
+     "depth": 0.1,
+     "alt": "On the seawall Minato (left) and Akari (right) face each other; her headlamp shines in his face; the bay and the torii behind them"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 71.3,
+     "y": 48.6
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 66,
+     "y": 40,
+     "w": 14,
+     "h": 16
+    },
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 20,
+     "y": 36,
+     "w": 12,
+     "h": 14
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 55,
+     "y": 3,
+     "at": 400,
+     "speaker": "akari",
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Te megint számoltad\na lépcsőt?",
+      "en": "You were counting\nthe steps again?",
+      "ja": "また階段\n数えとったん？"
+     },
+     "pos": {
+      "ja": {
+       "x": 48,
+       "y": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p20",
+   "aspect": "3/2",
+   "rain": 110,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p20.webp",
+     "depth": 0.1,
+     "alt": "Closer on Akari, a sly half-smile under the headlamp; Minato's shoulder blurred in the foreground"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 64.8,
+     "y": 41.3
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 52,
+     "y": 12,
+     "w": 34,
+     "h": 40
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 4,
+     "y": 4,
+     "at": 400,
+     "speaker": "akari",
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "…és a kaput még mindig\ngyorsabban zárom be,\nmint te.",
+      "en": "…and I still shut\nmy gate faster\nthan you.",
+      "ja": "…で、\n閉めるのは\nまだうちの方が\n速いし。"
+     },
+     "pos": {
+      "ja": {
+       "x": 8,
+       "y": 3
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p21",
+   "aspect": "3/2",
+   "rain": 90,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p21.webp",
+     "depth": 0.1,
+     "alt": "Minato's open bare left palm in the headlamp light: two black hair ties side by side, each with a small white bead"
+    }
+   ],
+   "anchors": {
+    "minato_ki": {
+     "l": 0,
+     "x": 0,
+     "y": 45
+    }
+   },
+   "keep": [
+    {
+     "n": "tenyér + hajgumik",
+     "l": 0,
+     "x": 30,
+     "y": 40,
+     "w": 55,
+     "h": 40
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 3,
+     "y": 4,
+     "at": 400,
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_ki",
+     "text": {
+      "hu": "Száraz volt.\nA tizenkettedik fokon,\na víz szélén.",
+      "en": "It was dry.\nOn the twelfth step,\nright at the water.",
+      "ja": "乾いてた。\n十二段目、\n水際で。"
+     },
+     "pos": {
+      "hu": {
+       "x": 4,
+       "y": 1
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p22",
+   "aspect": "4/3",
+   "rain": 110,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p22.webp",
+     "depth": 0.1,
+     "alt": "On the dam in the rain, Minato holds out his open palm with the hair ties; Akari, headlamp on, looks at him flatly"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 60,
+     "y": 34.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 54,
+     "y": 22,
+     "w": 14,
+     "h": 18
+    },
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 16,
+     "y": 15,
+     "w": 13,
+     "h": 18
+    },
+    {
+     "n": "tenyér",
+     "l": 0,
+     "x": 35,
+     "y": 60,
+     "w": 12,
+     "h": 9
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 72,
+     "y": 3,
+     "at": 400,
+     "speaker": "akari",
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Minato.\nEzek csak\nhajgumik.",
+      "en": "Minato.\nThey're just\nhair ties.",
+      "ja": "湊。\nそれ、\nただの\nヘアゴムやで。"
+     },
+     "pos": {
+      "ja": {
+       "x": 72,
+       "y": 2
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p23",
+   "aspect": "3/2",
+   "rain": 110,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p23.webp",
+     "depth": 0.1,
+     "alt": "Akari close, head lowered, her headlamp beam falling to the concrete at her feet; serious and quiet"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 56.7,
+     "y": 42
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 50,
+     "y": 18,
+     "w": 22,
+     "h": 32
+    },
+    {
+     "n": "lámpa",
+     "l": 0,
+     "x": 48,
+     "y": 14,
+     "w": 8,
+     "h": 8
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 4,
+     "y": 5,
+     "at": 400,
+     "speaker": "akari",
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Holnap bent vagyok\naz irodában.\nHa akarsz beszélni…",
+      "en": "I'm at the office\ntomorrow.\nIf you want to talk…",
+      "ja": "明日、\n相談所に\nおるから。\n話したく\nなったら…"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p24",
+   "aspect": "21/9",
+   "rain": 110,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f01_p24.webp",
+     "depth": 0.1,
+     "alt": "From behind Akari: her headlamp beam picks out Minato walking away along the dam in the rain, his left hand going into his pocket"
+    }
+   ],
+   "anchors": {
+    "minato_fej": {
+     "l": 0,
+     "x": 39.8,
+     "y": 42
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato",
+     "l": 0,
+     "x": 36,
+     "y": 38,
+     "w": 8,
+     "h": 52
+    },
+    {
+     "n": "Akari feje",
+     "l": 0,
+     "x": 59,
+     "y": 28,
+     "w": 16,
+     "h": 42
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 30,
+     "y": 8,
+     "at": 900,
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_fej",
+     "text": {
+      "hu": "Jó éjt, Akari.",
+      "en": "Night, Akari.",
+      "ja": "おやすみ、灯。"
+     },
+     "pos": {
+      "ja": {
+       "x": 10,
+       "y": 1,
+       "mh": 80
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p25",
+   "aspect": "21/9",
+   "rain": 0,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f01_p25.webp",
+     "depth": 0.1,
+     "alt": "A covered footbridge between upper floors, cold strip lights, rain on the glass; Minato walks across from right to left"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "x": 70,
+     "y": 6,
+     "at": 600,
+     "s": 2.2,
+     "r": "-3deg",
+     "c": "#a9a9b2",
+     "text": {
+      "hu": "bzzz…",
+      "en": "bzzz…",
+      "ja": "ジジ…"
+     },
+     "halk": true
+    }
+   ]
+  },
+  {
+   "id": "f01_p27",
+   "aspect": "4/3",
+   "rain": 0,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f01_p27.webp",
+     "depth": 0.1,
+     "alt": "A blistered campaign poster on the footbridge wall: Deputy Mayor Kuga smiling, right hand in his pocket, a closed black umbrella in the other; Minato passes without looking"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "tabla",
+     "layer": 0,
+     "at": 0,
+     "c": "#26262a",
+     "text": {
+      "hu": "Új védőgát – Yodoura holnapjáért",
+      "en": "A new seawall – for Yodoura's tomorrow",
+      "ja": "新しい防潮堤を ― 澱浦の明日のために"
+     },
+     "x": 42.78,
+     "y": 79.61,
+     "s": 3.173,
+     "pos": {
+      "en": {
+       "x": 43.17,
+       "y": 79.99,
+       "s": 2.613
+      },
+      "ja": {
+       "x": 43.1,
+       "y": 79.73,
+       "s": 2.987
+      }
+     }
+    },
+    {
+     "type": "hand",
+     "font": "tabla",
+     "layer": 0,
+     "at": 0,
+     "c": "#26262a",
+     "text": {
+      "hu": "Kuga Sōichirō alpolgármester",
+      "en": "Deputy Mayor Kuga Sōichirō",
+      "ja": "副市長 久我宗一郎"
+     },
+     "x": 49.53,
+     "y": 88.77,
+     "s": 2.613,
+     "pos": {
+      "en": {
+       "x": 50.3,
+       "y": 88.77,
+       "s": 2.613
+      },
+      "ja": {
+       "x": 57.56,
+       "y": 88.77,
+       "s": 2.613
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p28",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f01_p28.webp",
+     "depth": 0.1,
+     "alt": "The narrow entrance hall at home: Minato sits on the step pulling off his boots; two adult pairs of boots on the floor, and on the bottom shelf of the shoe cupboard a small, dusty child's pair"
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 0,
+     "x": 54.8,
+     "y": 30
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 48,
+     "y": 16,
+     "w": 15,
+     "h": 20
+    },
+    {
+     "n": "kis csizma",
+     "l": 0,
+     "x": 85,
+     "y": 66,
+     "w": 12,
+     "h": 14
+    },
+    {
+     "n": "lámpa",
+     "l": 0,
+     "x": 57,
+     "y": 0,
+     "w": 12,
+     "h": 8
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 10,
+     "y": 8,
+     "at": 700,
+     "speaker": "minato",
+     "kind": "whisper",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "Megjöttem.",
+      "en": "I'm home.",
+      "ja": "ただいま。"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p29",
+   "aspect": "21/9",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p29.webp",
+     "depth": 0.1,
+     "alt": "The cramped old kitchen at night: Minato sits at the table with his back to us; banknotes and a note lie on it, a dehumidifier hums, laundry hangs to dry, rain on the window"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "c": "#3a3a40",
+     "r": "-6deg",
+     "text": {
+      "hu": "Vacsorára.\nApa",
+      "en": "For dinner.\nDad",
+      "ja": "晩飯代。\n父"
+     },
+     "x": 51.73,
+     "y": 64.72,
+     "s": 1.0,
+     "font": "gondo"
+    },
+    {
+     "type": "sfx",
+     "x": 80,
+     "y": 34,
+     "at": 700,
+     "s": 2.6,
+     "r": "-4deg",
+     "c": "#d8d8de",
+     "text": {
+      "hu": "hrrr… pfff…",
+      "en": "zzz…",
+      "ja": "ぐー…"
+     },
+     "halk": true
+    },
+    {
+     "type": "sfx",
+     "x": 4,
+     "y": 60,
+     "at": 1300,
+     "s": 2.2,
+     "r": "3deg",
+     "c": "#c8c8ce",
+     "text": {
+      "hu": "zzzzm",
+      "en": "hmmmm",
+      "ja": "ブーン"
+     },
+     "halk": true
+    }
+   ]
+  },
+  {
+   "id": "f01_p29b",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p29b.webp",
+     "depth": 0.1,
+     "alt": "On the kitchen table: a few crumpled banknotes and a note in Dad's hand – 'For dinner. Dad' – beside a mug ring"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "c": "#33333a",
+     "r": "-3deg",
+     "text": {
+      "hu": "Vacsorára.\nApa",
+      "en": "For dinner.\nDad",
+      "ja": "晩飯代。\n父"
+     },
+     "x": 58.22,
+     "y": 40.69,
+     "s": 5.6,
+     "pos": {
+      "en": {
+       "x": 58.19,
+       "y": 40.69,
+       "s": 5.6
+      },
+      "ja": {
+       "x": 57.95,
+       "y": 40.69,
+       "s": 5.6
+      }
+     },
+     "font": "gondo"
+    }
+   ]
+  },
+  {
+   "id": "f01_p30",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p30.webp",
+     "depth": 0.1,
+     "alt": "Sanae comes into the kitchen, tired but kind, shrugging off her wet raincoat, a supermarket bag on her arm; Minato's shoulder at the table edge"
+    }
+   ],
+   "anchors": {
+    "sanae_szaj": {
+     "l": 0,
+     "x": 38.8,
+     "y": 20.6
+    }
+   },
+   "keep": [
+    {
+     "n": "Sanae arca",
+     "l": 0,
+     "x": 33,
+     "y": 6,
+     "w": 15,
+     "h": 19
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 52,
+     "y": 22,
+     "at": 400,
+     "speaker": "sanae",
+     "kind": "speech",
+     "to": "sanae_szaj",
+     "text": {
+      "hu": "Megjöttem!\nJaj, de esik…",
+      "en": "I'm home!\nUgh, this rain…",
+      "ja": "ただいま。\nほんと、\nよく降るね…"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p31",
+   "aspect": "4/3",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p31.webp",
+     "depth": 0.1,
+     "alt": "Over Sanae's shoulder: Minato at the table holds out his bare left palm with the two hair ties"
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 0,
+     "x": 67,
+     "y": 32
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 59,
+     "y": 14,
+     "w": 17,
+     "h": 26
+    },
+    {
+     "n": "tenyér",
+     "l": 0,
+     "x": 43,
+     "y": 69,
+     "w": 25,
+     "h": 13
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 20,
+     "y": 3,
+     "at": 500,
+     "speaker": "minato",
+     "kind": "speech",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "Anya. Volt valaha…\nnálunk ilyen?",
+      "en": "Mom. Did we ever…\nhave one of these?",
+      "ja": "母さん。\nうちに…\nこういうの、\nあった？"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p32",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p32.webp",
+     "depth": 0.1,
+     "alt": "Sanae smiles, honest and kind, a little tired; not a flicker of recognition"
+    }
+   ],
+   "anchors": {
+    "sanae_szaj": {
+     "l": 0,
+     "x": 49.4,
+     "y": 50
+    }
+   },
+   "keep": [
+    {
+     "n": "Sanae arca",
+     "l": 0,
+     "x": 30,
+     "y": 14,
+     "w": 28,
+     "h": 46
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 62,
+     "y": 26,
+     "at": 500,
+     "speaker": "sanae",
+     "kind": "speech",
+     "to": "sanae_szaj",
+     "text": {
+      "hu": "Aranyos. Valamelyik\nosztálytársadé?",
+      "en": "Cute. One of your\nclassmates'?",
+      "ja": "かわいいね。\nクラスの子の？"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p33",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p33.webp",
+     "depth": 0.1,
+     "alt": "Down the narrow hallway: Sanae stops dead in the open doorway of the storage room, one hand on the frame, back to us; a cardboard box sits against the frame"
+    }
+   ]
+  },
+  {
+   "id": "f01_p34",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p34.webp",
+     "depth": 0.1,
+     "alt": "Behind Minato in the doorway: the cramped storage room, boxes, a drying rack, a dehumidifier; Sanae bends for a rice sack"
+    }
+   ]
+  },
+  {
+   "id": "f01_p35",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p35.webp",
+     "depth": 0.1,
+     "alt": "Minato lays his hand on the doorframe, exactly where his mother's hand rested; faint pencil lines under his fingertips"
+    }
+   ]
+  },
+  {
+   "id": "f01_p36",
+   "aspect": "2/3",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p36.webp",
+     "depth": 0.1,
+     "alt": "Close on the old doorframe beside the dark storeroom: Minato's fingertip on the top of three scratched height marks – みお 10さい, 7さい, 4さい"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "jegyzet",
+     "layer": 0,
+     "at": 700,
+     "r": "0deg",
+     "text": {
+      "hu": "Mio, 10 éves",
+      "en": "Mio, age 10",
+      "ja": ""
+     },
+     "x": 77.42,
+     "y": 16.15,
+     "s": 2.862
+    },
+    {
+     "type": "hand",
+     "font": "jegyzet",
+     "layer": 0,
+     "at": 700,
+     "r": "0deg",
+     "text": {
+      "hu": "Mio, 7 éves",
+      "en": "Mio, age 7",
+      "ja": ""
+     },
+     "x": 77.42,
+     "y": 43.04,
+     "s": 2.862
+    },
+    {
+     "type": "hand",
+     "font": "jegyzet",
+     "layer": 0,
+     "at": 700,
+     "r": "0deg",
+     "text": {
+      "hu": "Mio, 4 éves",
+      "en": "Mio, age 4",
+      "ja": ""
+     },
+     "x": 77.42,
+     "y": 84.0,
+     "s": 2.862
+    }
+   ]
+  },
+  {
+   "id": "f01_p37",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p37.webp",
+     "depth": 0.1,
+     "alt": "Sanae, the rice sack in her arms, glances back over her shoulder at Minato in the doorway, puzzled and a little annoyed"
+    }
+   ],
+   "anchors": {
+    "sanae_szaj": {
+     "l": 0,
+     "x": 33.58,
+     "y": 43.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Sanae arca",
+     "l": 0,
+     "x": 19,
+     "y": 15,
+     "w": 20,
+     "h": 36
+    },
+    {
+     "n": "Minato",
+     "l": 0,
+     "x": 58,
+     "y": 42,
+     "w": 10,
+     "h": 56
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 41,
+     "y": 3,
+     "at": 400,
+     "speaker": "sanae",
+     "kind": "speech",
+     "to": "sanae_szaj",
+     "text": {
+      "hu": "Ki karcolta össze\naz ajtófélfát?",
+      "en": "Who scratched\nthe doorframe?",
+      "ja": "柱に\n落書き\nしたの、\n誰？"
+     },
+     "pos": {
+      "ja": {
+       "x": 39,
+       "y": 1
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f01_p38",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f01_p38.webp",
+     "depth": 0.1,
+     "alt": "Minato stands silent before the doorframe, the two hair ties in his open left palm, his right hand clenched"
+    }
+   ]
+  }
+ ],
+ "endSub": {
+  "hu": "1. fejezet · vége",
+  "en": "End of Chapter 1",
+  "ja": "第1話・おわり"
+ },
+ "next": {
+  "src": "chapter2.json",
+  "label": {
+   "hu": "2. fejezet →",
+   "en": "Chapter 2 →",
+   "ja": "第2話へ →"
+  }
+ },
+ "endTitle": {
+  "hu": "Folytatjuk",
+  "en": "To be continued",
+  "ja": "つづく"
+ }
+}

@@ -1,0 +1,8 @@
+{
+  "series": "What the Rain Remembers",
+  "chapters": [
+    { "n": 1, "src": "chapter.json", "day": 1103, "thumb": "assets/ch1.webp", "published": "2026-11-19" },
+    { "n": 2, "src": "chapter2.json", "day": 1104, "thumb": "assets/ch2.webp", "published": "2026-11-19" }
+  ],
+  "next": { "n": 3, "day": 1105 }
+}

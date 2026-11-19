@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What the Rain Remembers – a scrolling motion manga</title>
+<meta name="description" content="In a harbour town where the rain hasn't stopped for three years, Minato can see where the rain breaks on things no one else can see. Read it free, in English, Hungarian or Japanese.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What the Rain Remembers">
+<meta property="og:description" content="A scrolling motion manga. Everyone has forgotten his little sister. He hasn't.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#161c20">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600;800&family=Shippori+Mincho+B1:wght@600;800&family=Noto+Sans:wght@400;600&family=Noto+Sans+JP:wght@400;700&family=Kalam&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night:#161c20;   /* wet concrete after dark */
+    --slab:#20282d;    /* raised surfaces */
+    --ink:#e6e4dd;     /* paper-white text */
+    --mist:#97a3aa;    /* secondary text */
+    --break:#3fe0d0;   /* where the rain breaks */
+    --paper:#e7e4d9; --rule:#bcc6cb; --pencil:#2b3136; --water:#5f7e8c;
+    --serif:'Spectral', 'Shippori Mincho B1', Georgia, serif;
+    --mincho:'Shippori Mincho B1', 'Noto Serif JP', serif;
+    --sans:'Noto Sans', 'Noto Sans JP', system-ui, sans-serif;
+    --hand:'Kalam', 'Noto Sans JP', cursive;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; overflow-x:clip; background:var(--night); color:var(--ink); font:400 17px/1.6 var(--sans); -webkit-font-smoothing:antialiased; }
+  body.ja { line-height:1.85; }
+  a { color:inherit; }
+  :focus-visible { outline:2px solid var(--break); outline-offset:3px; border-radius:4px; }
+  img { display:block; max-width:100%; }
+  .wrap { width:min(1120px, 100% - 40px); margin-inline:auto; }
+
+  /* top bar */
+  .top { position:absolute; inset:0 0 auto 0; z-index:20; }
+  .top .wrap { display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .mark { display:flex; align-items:center; gap:10px; font:600 16px/1 var(--sans); text-decoration:none; color:var(--ink); }
+  .mark .seal { display:grid; place-items:center; width:30px; height:30px; background:#c8372d; color:#fff; font:800 17px/1 var(--mincho); border-radius:3px; }
+  .mark:hover #siteName { text-decoration:underline; text-underline-offset:4px; }
+  .langs { display:flex; border:1px solid #3a454c; border-radius:999px; padding:3px; background:rgba(22,28,32,.7); backdrop-filter:blur(6px); }
+  .langs button { font:600 13px/1 var(--sans); color:var(--mist); background:none; border:0; padding:8px 12px; border-radius:999px; cursor:pointer; }
+  .langs button[aria-pressed="true"] { background:var(--ink); color:var(--night); }
+
+  /* hero */
+  .hero { position:relative; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:56px; align-items:end; padding:96px 0 72px; }
+  .hero-text { position:relative; padding-left:116px; padding-bottom:12px; }
+  .tate { position:absolute; left:0; top:-6px; writing-mode:vertical-rl; font:800 64px/1 var(--mincho); letter-spacing:.12em; color:var(--ink); opacity:.92; }
+  .tate small { display:block; font:400 14px/1 var(--sans); letter-spacing:.3em; color:var(--mist); margin-top:14px; }
+  h1 { font:800 clamp(44px, 6.4vw, 84px)/.98 var(--serif); margin:0 0 26px; letter-spacing:-.01em; text-wrap:balance; }
+  body.ja h1 { font-size:clamp(34px, 4.8vw, 60px); line-height:1.15; }
+  .logline { font-size:19px; max-width:34em; color:#cfd3d2; margin:0 0 34px; text-wrap:pretty; }
+  .logline b { color:var(--ink); font-weight:600; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+  .btn { display:inline-flex; align-items:center; gap:10px; min-height:50px; padding:0 24px; border-radius:999px; font:600 16px/1 var(--sans); text-decoration:none; }
+  .btn.primary { background:var(--break); color:#06201d; }
+  .btn.primary:hover { background:#6cebe0; }
+  .btn.quiet { border:1px solid #46525a; color:var(--ink); }
+  .btn.quiet:hover { border-color:var(--ink); }
+  .btn small { font-weight:400; opacity:.75; }
+  .note { margin:18px 0 0; font-size:14px; color:var(--mist); }
+
+  .stage { position:relative; width:min(44vw, 520px, 62vh); aspect-ratio:1100/1375; margin:0; border-radius:3px; overflow:hidden; background:#000; box-shadow:0 30px 80px rgba(0,0,0,.45); }
+  .stage img { width:100%; height:100%; object-fit:cover; }
+  .stage canvas { position:absolute; inset:0; width:100%; height:100%; }
+  .stage figcaption { position:absolute; left:14px; bottom:12px; font:400 13px/1.3 var(--hand); color:rgba(230,228,221,.7); }
+
+  /* logbook */
+  section { padding:84px 0; }
+  h2 { font:800 clamp(30px, 3.6vw, 42px)/1.1 var(--serif); margin:0 0 10px; }
+  .lede { color:var(--mist); margin:0 0 34px; max-width:40em; }
+  .log { background:var(--paper); color:var(--pencil); border-radius:4px; padding:10px 0 18px; position:relative;
+    background-image:repeating-linear-gradient(to bottom, transparent 0 39px, var(--rule) 39px 40px);
+    background-position:0 26px; box-shadow:0 1px 0 #fff4 inset, 0 24px 60px rgba(0,0,0,.35); }
+  .log::before { content:''; position:absolute; top:0; bottom:0; left:118px; width:1px; background:#c98f86; opacity:.7; }
+  .log-head { display:flex; justify-content:space-between; align-items:baseline; padding:14px 28px 6px 140px; font:400 22px/1.2 var(--hand); }
+  .log-head span:last-child { font-size:16px; color:#5d666c; }
+  .entry { display:grid; grid-template-columns:118px 150px minmax(0,1fr); gap:0 22px; align-items:center; padding:18px 28px 18px 0; text-decoration:none; color:inherit; position:relative; }
+  .entry + .entry { border-top:1px dashed #a9b3b8; }
+  a.entry:hover { background:rgba(63,224,208,.10); }
+  .day { font:400 17px/1.25 var(--hand); text-align:right; padding-right:16px; color:#4b555b; }
+  .day b { display:block; font-size:26px; font-weight:400; color:var(--pencil); }
+  .thumb { width:150px; aspect-ratio:3/2; object-fit:cover; border:2px solid var(--pencil); filter:contrast(1.05); }
+  .entry h3 { font:800 24px/1.2 var(--serif); margin:0 0 4px; }
+  .entry h3 span { display:block; font:600 14px/1.4 var(--sans); color:#566066; margin-bottom:2px; }
+  .meta { font-size:14px; color:#4e585e; margin:0 0 10px; }
+  .gauge { display:flex; align-items:center; gap:12px; font-size:13px; color:#4e585e; }
+  .gauge i { position:relative; display:block; width:min(220px, 50%); height:10px; border:1.5px solid var(--pencil); border-radius:2px; overflow:hidden;
+    background:repeating-linear-gradient(to right, transparent 0 21px, var(--pencil) 21px 22.5px); }
+  .gauge i::after { content:''; position:absolute; inset:0 auto 0 0; width:var(--p,0%); background:var(--water); opacity:.85; }
+  .entry.soon { opacity:.6; }
+  .entry.soon .thumb { border-style:dashed; background:repeating-linear-gradient(135deg, transparent 0 8px, #c9cfd2 8px 9px); }
+
+  /* how to read */
+  .how { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:56px; align-items:center; }
+  .how p { margin:0 0 14px; color:#cfd3d2; max-width:36em; }
+  .demo { position:relative; aspect-ratio:3/2; border-radius:3px; overflow:hidden; border:3px solid #000; outline:1px solid #34404a; }
+  .demo img { width:100%; height:100%; object-fit:cover; }
+  .demo .bub { position:absolute; left:6%; top:8%; background:#fff; color:#111; font:400 clamp(13px,1.6vw,17px)/1.2 'Kalam', var(--sans); padding:12px 18px; border:2.5px solid #111; border-radius:50%; opacity:0; transform:scale(.6); transition:opacity .3s, transform .45s cubic-bezier(.3,1.7,.5,1); }
+  .demo.on .bub { opacity:1; transform:none; }
+
+  /* cast */
+  .cast { display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:22px; list-style:none; padding:0; margin:0; }
+  .cast li { margin:0; }
+  .cast img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:3px; filter:grayscale(1) contrast(1.05); }
+  .cast h3 { font:800 21px/1.2 var(--serif); margin:14px 0 2px; }
+  .cast h3 span { font:400 14px/1 var(--mincho); color:var(--mist); margin-left:8px; }
+  .cast p { margin:6px 0 0; font-size:15px; color:#c3c8c8; }
+
+  footer { padding:46px 0 60px; border-top:1px solid #2a3338; color:var(--mist); font-size:14px; }
+  footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
+
+  @media (max-width: 900px) {
+    .how { grid-template-columns:1fr; gap:28px; }
+    .cast { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:40%; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; }
+  }
+  @media (max-width: 700px) {
+    .hero { grid-template-columns:1fr; gap:0; padding:0 0 40px; }
+    .hero .stage { order:-1; width:100vw; margin-left:calc(50% - 50vw); border-radius:0; box-shadow:none; }
+    .top { background:linear-gradient(rgba(22,28,32,.75), rgba(22,28,32,0)); }
+    .hero-text { padding:28px 0 0 74px; }
+    .tate { font-size:44px; top:30px; }
+    .how { grid-template-columns:1fr; gap:28px; }
+    .cast { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:62%; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:10px; margin-right:-20px; padding-right:20px; }
+    .cast li { scroll-snap-align:start; }
+    .log::before { left:64px; }
+    .log-head { padding-left:82px; padding-right:18px; flex-direction:column; gap:2px; }
+    .entry { grid-template-columns:64px minmax(0,1fr); padding-right:18px; gap:10px 18px; align-items:start; }
+    .day { padding-right:10px; font-size:14px; }
+    .day b { font-size:21px; }
+    .thumb { grid-column:2; width:100%; max-width:340px; }
+    .entry .body { grid-column:2; }
+    .entry h3 { font-size:21px; }
+    section { padding:64px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .demo .bub { transition:none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" id="home" href="../"><span class="seal" aria-hidden="true">読</span><span id="siteName">Udoku</span></a>
+    <div class="langs" role="group" aria-label="Language">
+      <button data-l="en" aria-pressed="false">EN</button><button data-l="hu" aria-pressed="false">HU</button><button data-l="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="hero-text">
+      <div class="tate" aria-hidden="true">沈町<small>しずまち</small></div>
+      <h1>What the Rain Remembers</h1>
+      <p class="logline" data-t="logline"></p>
+      <div class="actions" id="actions"></div>
+      <p class="note" data-t="free"></p>
+    </div>
+    <figure class="stage" id="stage">
+      <img src="assets/hero.webp" alt="" width="1100" height="1375" fetchpriority="high">
+      <canvas id="rain" aria-hidden="true"></canvas>
+      <figcaption data-t="caption"></figcaption>
+    </figure>
+  </div>
+
+  <section id="chapters">
+    <div class="wrap">
+      <h2 data-t="logTitle"></h2>
+      <p class="lede" data-t="logLede"></p>
+      <div class="log">
+        <div class="log-head"><span data-t="logHead"></span><span data-t="logOwner"></span></div>
+        <div id="entries"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap how">
+      <div>
+        <h2 data-t="howTitle"></h2>
+        <p data-t="how1"></p>
+        <p data-t="how2"></p>
+      </div>
+      <div class="demo" id="demo">
+        <img src="assets/ch1.webp" alt="" loading="lazy">
+        <div class="bub" data-t="demoLine"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 data-t="castTitle"></h2>
+      <p class="lede" data-t="castLede"></p>
+      <ul class="cast" id="cast"></ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span data-t="copy"></span><span data-t="made"></span></div>
+</footer>
+
+<script>
+const T = {
+  en: {
+    logline: "In a harbour town where the rain hasn't stopped for three years, sixteen-year-old Minato can see where the rain breaks on things no one else can see. Everyone has forgotten his little sister. <b>He hasn't.</b>",
+    read1: 'Read chapter 1', cont: n => `Continue chapter ${n}`, start: 'Start from the beginning', all: 'All chapters',
+    free: 'Free to read in your browser. No sign-up, no app.',
+    caption: 'Gate Seven, the twelfth step',
+    logTitle: 'Chapters', logLede: 'Each chapter is one rainy night, told in about forty panels you scroll through.',
+    logHead: 'Shift log, Gate Seven', logOwner: 'Kept by S. Minato',
+    day: 'Day', ofRain: 'of rain', ch: n => `Chapter ${n}`, panels: (n, m) => `${n} panels, about ${m} minutes`,
+    notStarted: 'Not read yet', pct: p => `${p}% read`, done: 'Finished', soon: 'Chapter 3 is in the works', soonMeta: 'The next night at the gates.',
+    howTitle: 'How to read it',
+    how1: 'Scroll slowly. Each panel wakes up as it reaches the middle of your screen: the rain starts falling, lightning flashes, and people start talking.',
+    how2: "It's made for phones held upright, but it works on any screen. You can switch between English, Hungarian and Japanese at any time, and your place is saved on this device.",
+    demoLine: 'You were counting the steps again?',
+    castTitle: 'Who you will meet', castLede: 'No spoilers past chapter 1.',
+    cast: {
+      minato: 'Sixteen, apprentice floodgate keeper. Counts the steps. Remembers his sister.',
+      mio: 'His little sister. She vanished at Gate Seven three years ago. Nobody remembers her.',
+      akari: "Covers her grandfather's night shifts at Gate Four. Doesn't believe in ghosts. Yet.",
+      gondo: "The old keeper on the other end of Minato's radio. His memories keep shifting.",
+      kuga: 'Deputy mayor, hero of the rescue after the flood. He is building a new seawall.'
+    },
+    copy: '© 2026 Geri. All rights reserved.', made: 'Made in Budapest.'
+  },
+  hu: {
+    logline: 'Egy kikötővárosban három éve megállás nélkül esik. A tizenhat éves Minato látja, hol törik meg az eső olyan dolgokon, amiket más nem lát. A húgát mindenki elfelejtette. <b>Ő nem.</b>',
+    read1: 'Olvasd az 1. fejezetet', cont: n => `Folytatás: ${n}. fejezet`, start: 'Kezdd az elejéről', all: 'Az összes fejezet',
+    free: 'Ingyenes, a böngésződben olvasható. Nem kell regisztráció, sem alkalmazás.',
+    caption: 'Hetes kapu, a tizenkettedik fok',
+    logTitle: 'Fejezetek', logLede: 'Minden fejezet egy esős éjszaka, nagyjából negyven panelben, amelyeken végiggörgetsz.',
+    logHead: 'Műszaknapló, hetes kapu', logOwner: 'Vezeti: S. Minato',
+    day: 'Az eső', ofRain: 'napja', ch: n => `${n}. fejezet`, panels: (n, m) => `${n} panel, kb. ${m} perc`,
+    notStarted: 'Még nem olvastad', pct: p => `${p}%-ig olvastad`, done: 'Elolvastad', soon: 'A 3. fejezet készül', soonMeta: 'A következő éjszaka a kapuknál.',
+    howTitle: 'Hogyan olvasd?',
+    how1: 'Görgess lassan. Minden panel akkor kel életre, amikor a képernyőd közepére ér: elered az eső, villám csap, és megszólalnak a szereplők.',
+    how2: 'Álló telefonra készült, de bármilyen képernyőn működik. Bármikor válthatsz angol, magyar és japán nyelv között, és ez az eszköz megjegyzi, hol tartasz.',
+    demoLine: 'Te megint számoltad a lépcsőt?',
+    castTitle: 'Akikkel találkozol', castLede: 'Az 1. fejezeten túli titkok nélkül.',
+    cast: {
+      minato: 'Tizenhat éves zsilipkezelő-tanonc. Számolja a lépcsőfokokat, és emlékszik a húgára.',
+      mio: 'A húga. Három éve tűnt el a hetes kapunál. Senki sem emlékszik rá.',
+      akari: 'Éjjelente a nagyapja helyett ő kezeli a négyes kaput. Nem hisz a szellemekben. Még.',
+      gondo: 'Az öreg gátőr Minato rádiójának másik végén. Az emlékei folyton változnak.',
+      kuga: 'Alpolgármester, az árvíz utáni mentés hőse. Új védőgátat épít.'
+    },
+    copy: '© 2026 Geri. Minden jog fenntartva.', made: 'Budapesten készült.'
+  },
+  ja: {
+    logline: '三年間、一度も雨が止まない港町。十六歳の湊には、誰にも見えないものに雨が砕ける場所が見える。妹のことを、町のみんなが忘れた。<b>湊だけが、覚えている。</b>',
+    read1: '第1話を読む', cont: n => `第${n}話の続きを読む`, start: '最初から読む', all: 'すべての話',
+    free: 'ブラウザで無料で読めます。登録もアプリも不要です。',
+    caption: '七番水門、十二段目',
+    logTitle: 'エピソード', logLede: '一話ごとに、雨の一夜。スクロールで読む約四十のコマ。',
+    logHead: '勤務日誌・七番水門', logOwner: '記録者：汐見 湊',
+    day: '降雨', ofRain: '日目', ch: n => `第${n}話`, panels: (n, m) => `${n}コマ・約${m}分`,
+    notStarted: '未読', pct: p => `${p}%まで読んだ`, done: '読了', soon: '第3話 制作中', soonMeta: '水門の、次の夜。',
+    howTitle: '読み方',
+    how1: 'ゆっくりスクロールしてください。コマが画面の真ん中に来ると動き出します。雨が降り、稲妻が走り、登場人物が話し始めます。',
+    how2: 'スマホの縦持ち向けですが、どの画面でも読めます。英語・ハンガリー語・日本語はいつでも切り替えられ、読んだ場所はこの端末に保存されます。',
+    demoLine: 'また階段数えとったん？',
+    castTitle: '登場人物', castLede: '第1話以降のネタバレはありません。',
+    cast: {
+      minato: '十六歳。水門番の見習い。階段を数え、妹を覚えている。',
+      mio: '湊の妹。三年前、七番水門で消えた。誰も覚えていない。',
+      akari: '祖父の代わりに、夜の四番門を守る。幽霊なんて信じてへん。まだ。',
+      gondo: '湊の無線の向こうにいる、年老いた水門番。記憶が少しずつ変わっていく。',
+      kuga: '副市長。洪水後の救助を率いた英雄。新しい防潮堤を建てている。'
+    },
+    copy: '© 2026 Geri. All rights reserved.', made: 'ブダペストで制作。'
+  }
+};
+const CAST = [
+  { id:'minato', img:'assets/minato.webp', name:{en:'Minato',hu:'Minato',ja:'湊'}, kanji:'汐見 湊' },
+  { id:'mio', img:'assets/mio.webp', name:{en:'Mio',hu:'Mio',ja:'澪'}, kanji:'汐見 澪' },
+  { id:'akari', img:'assets/akari.webp', name:{en:'Akari',hu:'Akari',ja:'灯'}, kanji:'鹿島 灯' },
+  { id:'gondo', img:'assets/gondo.webp', name:{en:'Gondō',hu:'Gondō',ja:'権藤'}, kanji:'権藤' },
+  { id:'kuga', img:'assets/kuga.webp', name:{en:'Kuga',hu:'Kuga',ja:'久我'}, kanji:'久我 宗一郎' }
+];
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  lang() { try { return localStorage.getItem('wtrr-lang'); } catch (e) { return null; } },
+  setLang(l) { try { localStorage.setItem('wtrr-lang', l); } catch (e) {} }
+};
+let LANG = store.lang() || ((navigator.language || 'en').slice(0, 2) === 'hu' ? 'hu' : (navigator.language || '').slice(0, 2) === 'ja' ? 'ja' : 'en');
+if (!T[LANG]) LANG = 'en';
+let SITE = null; const CH = {};
+const PKEY = 'prog:' + location.pathname.replace(/[^/]*$/, '');
+fetch('../catalog.json').then(r => r.json()).then(c => { document.getElementById('siteName').textContent = c.siteName; }).catch(() => {});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+const pick = v => (v && typeof v === 'object') ? (v[LANG] ?? v.en) : v;
+const chTitle = c => { const s = pick(c.subtitle) || ''; const parts = s.split(/\s*[·・]\s*/); return parts.length > 1 ? parts.slice(1).join(' ') : s; };
+
+function render() {
+  const t = T[LANG];
+  document.documentElement.lang = LANG;
+  document.body.classList.toggle('ja', LANG === 'ja');
+  document.querySelectorAll('.langs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === LANG));
+  document.querySelectorAll('[data-t]').forEach(e => { const v = t[e.dataset.t]; if (typeof v === 'string') e.innerHTML = v; });
+
+  // reading progress, written by the reader
+  const st = store.get(PKEY, {});                        // { p: { "chapter2.json": 0.42 }, last, at }
+  const prog = st.p || {}, last = st.last || null;
+  const acts = document.getElementById('actions'); acts.innerHTML = '';
+  const lastCh = SITE && last && SITE.chapters.find(c => c.src === last);
+  if (lastCh && (prog[last] || 0) > 0.03 && (prog[last] || 0) < 0.97) {
+    acts.innerHTML = `<a class="btn primary" href="read.html#ch=${lastCh.src}&resume">${esc(t.cont(lastCh.n))} <small>${Math.round(prog[last] * 100)}%</small></a>
+      <a class="btn quiet" href="read.html">${esc(t.start)}</a>`;
+  } else {
+    acts.innerHTML = `<a class="btn primary" href="read.html">${esc(t.read1)}</a><a class="btn quiet" href="#chapters">${esc(t.all)}</a>`;
+  }
+
+  const box = document.getElementById('entries'); box.innerHTML = '';
+  if (SITE) {
+    SITE.chapters.forEach(c => {
+      const d = CH[c.src]; const p = Math.min(1, prog[c.src] || 0);
+      const n = d ? d.panels.length : 0, mins = Math.max(3, Math.round(n * 9 / 60));
+      const state = p >= .97 ? t.done : p > .03 ? t.pct(Math.round(p * 100)) : t.notStarted;
+      const a = document.createElement('a'); a.className = 'entry'; a.href = 'read.html' + (c.src === 'chapter.json' ? '' : '#ch=' + c.src);
+      a.innerHTML = `<div class="day">${esc(t.day)}<b>${c.day}</b>${esc(t.ofRain)}</div>
+        <img class="thumb" src="${c.thumb}" alt="" loading="lazy">
+        <div class="body"><h3><span>${esc(t.ch(c.n))}</span>${esc(d ? chTitle(d) : '')}</h3>
+        <p class="meta">${n ? esc(t.panels(n, mins)) : ''}</p>
+        <div class="gauge"><i style="--p:${(p * 100).toFixed(0)}%"></i><span>${esc(state)}</span></div></div>`;
+      box.append(a);
+    });
+    if (SITE.next) {
+      const s = document.createElement('div'); s.className = 'entry soon';
+      s.innerHTML = `<div class="day">${esc(t.day)}<b>${SITE.next.day}</b>${esc(t.ofRain)}</div><div class="thumb" aria-hidden="true"></div>
+        <div class="body"><h3><span>${esc(t.ch(SITE.next.n))}</span>${esc(t.soon)}</h3><p class="meta">${esc(t.soonMeta)}</p></div>`;
+      box.append(s);
+    }
+  }
+
+  const cast = document.getElementById('cast'); cast.innerHTML = '';
+  CAST.forEach(c => {
+    const li = document.createElement('li');
+    li.innerHTML = `<img src="${c.img}" alt="" loading="lazy" width="480" height="480"><h3>${esc(pick(c.name))}<span lang="ja">${c.kanji}</span></h3><p>${esc(t.cast[c.id])}</p>`;
+    cast.append(li);
+  });
+}
+
+document.querySelector('.langs').addEventListener('click', e => {
+  const l = e.target.dataset && e.target.dataset.l; if (!l || l === LANG) return;
+  LANG = l; store.setLang(l); render();
+});
+
+async function boot() {
+  render();
+  try {
+    SITE = await (await fetch('chapters.json')).json();
+    await Promise.all(SITE.chapters.map(async c => { CH[c.src] = await (await fetch(c.src)).json(); }));
+  } catch (e) { SITE = SITE || null; }
+  render();
+}
+boot();
+addEventListener('pageshow', e => { if (e.persisted) render(); });
+
+/* hero rain: streaks fall, and some break in turquoise on the invisible thirteenth step */
+(() => {
+  const cv = document.getElementById('rain'), ctx = cv.getContext('2d');
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const STEP = { y: .786, x0: .12, x1: .86 };  // just above the water, in front of the last step
+  let W = 0, H = 0, dpr = 1, drops = [], splashes = [], t0 = performance.now(), running = true;
+  function size() {
+    const r = cv.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio || 1);
+    W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function drop(init) {
+    const hits = Math.random() < .2;
+    const x = hits ? (STEP.x0 + Math.random() * (STEP.x1 - STEP.x0)) * W : Math.random() * W * 1.1;
+    return { x: x - (hits ? .12 * STEP.y * H : 0), y: init ? Math.random() * H : -40 - Math.random() * H * .3,
+      v: H * (1.5 + Math.random() * .9), len: 14 + Math.random() * 22, hits, a: .18 + Math.random() * .25 };
+  }
+  function splash(x, y) { splashes.push({ x, y, t: 0 }); }
+  function frame(now) {
+    if (!running) return;
+    const dt = Math.min(.05, (now - (frame.last || now)) / 1000); frame.last = now;
+    const age = (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineCap = 'round';
+    for (const d of drops) {
+      d.y += d.v * dt; d.x += d.v * dt * .12;
+      const stop = d.hits && age > 1.1 ? STEP.y * H : H + 40;
+      if (d.y >= stop) { if (d.hits && age > 1.1) splash(d.x, stop); Object.assign(d, drop(false)); continue; }
+      ctx.strokeStyle = `rgba(230,233,235,${d.a})`; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - d.len * .12, d.y - d.len); ctx.stroke();
+    }
+    for (let i = splashes.length - 1; i >= 0; i--) {
+      const s = splashes[i]; s.t += dt; const k = s.t / .55; if (k >= 1) { splashes.splice(i, 1); continue; }
+      const al = (1 - k) * .95, r = 3 + k * 11;
+      ctx.strokeStyle = `rgba(63,224,208,${al})`; ctx.lineWidth = 1.4;
+      ctx.beginPath(); ctx.ellipse(s.x, s.y, r, r * .28, 0, 0, Math.PI * 2); ctx.stroke();
+      for (const dir of [-1, -.4, .4, 1]) { ctx.beginPath(); ctx.moveTo(s.x + dir * 2, s.y - 1); ctx.lineTo(s.x + dir * (3 + k * 9), s.y - 3 - k * 9 * (1.2 - Math.abs(dir) * .4)); ctx.stroke(); }
+      const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 16); g.addColorStop(0, `rgba(63,224,208,${al * .35})`); g.addColorStop(1, 'rgba(63,224,208,0)');
+      ctx.fillStyle = g; ctx.fillRect(s.x - 16, s.y - 16, 32, 32);
+    }
+    requestAnimationFrame(frame);
+  }
+  function still() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < 9; i++) { const x = (STEP.x0 + (i + .5) / 9 * (STEP.x1 - STEP.x0)) * W, y = STEP.y * H;
+      ctx.strokeStyle = 'rgba(63,224,208,.8)'; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.ellipse(x, y, 6, 1.8, 0, 0, Math.PI * 2); ctx.stroke(); }
+  }
+  size(); addEventListener('resize', () => { size(); if (RM) still(); });
+  if (RM) { still(); return; }
+  drops = Array.from({ length: Math.round(W * H / 2600) }, () => drop(true));
+  new IntersectionObserver(es => { const on = es[0].isIntersecting; if (on && !running) { running = true; frame.last = 0; requestAnimationFrame(frame); } running = on; }).observe(cv);
+  requestAnimationFrame(frame);
+})();
+
+/* how-to demo: the bubble pops in when the panel reaches the middle of the screen */
+new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('on', e.isIntersecting)), { rootMargin: '-35% 0px -35% 0px' })
+  .observe(document.getElementById('demo'));
+</script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What the Rain Remembers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Dela+Gothic+One&family=Noto+Sans:wght@700&family=Noto+Sans+JP:wght@500;700&family=Patrick+Hand&family=Yomogi&family=Kalam&family=Caveat&family=Klee+One&subset=latin-ext&display=swap" rel="stylesheet">
+<style>
+  :root { --teal:#3fe0d0; --bg:#0b0c0f; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; background:var(--bg); color:#e8e7ee; font-family:'Patrick Hand', system-ui, sans-serif; }
+  header { position:fixed; inset:0 0 auto 0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:10px 16px; background:rgba(11,12,15,.85); backdrop-filter:blur(8px); border-bottom:1px solid #20222a; }
+  .brand { font-size:19px; letter-spacing:.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .brand b { color:var(--teal); font-weight:400; }
+  a.brand { color:inherit; text-decoration:none; }
+  a.brand.home::before { content:'‹ '; color:#8f8d9c; }
+  .end a.home { display:block; margin-top:18px; color:#8f8d9c; font-size:15px; }
+  .langs { display:flex; gap:4px; flex-shrink:0; }
+  .langs button { background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; padding:4px 10px; font:inherit; font-size:15px; cursor:pointer; }
+  .langs button.on { background:var(--teal); color:#071211; border-color:var(--teal); }
+  .progress { position:fixed; top:0; left:0; height:3px; width:0; background:var(--teal); z-index:60; }
+  main { max-width:760px; margin:0 auto; padding:80px 12px 140px; display:flex; flex-direction:column; gap:26px; }
+
+  .title { text-align:center; padding:70px 0 50px; }
+  .title .ja { font-family:'Noto Sans JP', sans-serif; font-weight:700; font-size:20px; letter-spacing:8px; color:var(--teal); }
+  .title h1 { font-family:'Patrick Hand', sans-serif; font-weight:400; font-size:clamp(40px,9vw,72px); margin:8px 0 6px; line-height:1; }
+  .title p { margin:0; color:#8f8d9c; font-size:18px; }
+  .title .hint { margin-top:34px; font-size:22px; color:#8f8d9c; animation:bob 1.8s ease-in-out infinite; }
+  @keyframes bob { 50% { transform:translateY(8px); } }
+
+  .panel { position:relative; overflow:hidden; margin:0; container-type:inline-size; background:#000; border:3px solid #000; outline:1px solid #2a2c33; }
+  .cam { position:absolute; inset:0; transform-origin:var(--zx,50%) var(--zy,50%); }
+  .panel.live .cam.zoom { animation:camzoom var(--zt,6s) ease-out forwards; }
+  @keyframes camzoom { to { transform:scale(var(--zs,1.06)); } }
+  .layer { position:absolute; inset:-6% -4%; will-change:transform; }
+  .layer img { width:100%; height:100%; object-fit:cover; display:block; user-select:none; -webkit-user-drag:none; }
+  canvas.rain { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:3; }
+  .flash { position:absolute; inset:0; z-index:4; opacity:0; pointer-events:none; background:#fff; }
+  .panel.flashing .flash { animation:flash .6s ease-out; }
+  @keyframes flash { 0% { opacity:var(--fs,.9); } 100% { opacity:0; } }
+  /* reveal: a layer visible only during a lightning flash, with an afterimage */
+  .layer.rev { opacity:0; }
+  .panel.revealing .layer.rev { animation:revIn var(--rv,900ms) ease-out forwards; }
+  .panel.revealing .layer.cover { animation:revCover var(--rv,900ms) ease-in forwards; }
+  @keyframes revIn { 0%,16% { opacity:1; } 100% { opacity:0; } }
+  @keyframes revCover { 0%,16% { opacity:.12; } 100% { opacity:1; } }
+  body.rm .layer.rev { opacity:.28; }
+  .layer.glowl { opacity:0; mix-blend-mode:screen; pointer-events:none; }
+  .layer.glowl.show { animation:glowIn .8s ease-out forwards, glowPulse 2.4s ease-in-out .8s infinite; }
+  @keyframes glowIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes glowPulse { 0%,100% { opacity:.6; } 50% { opacity:1; } }
+  body.rm .layer.glowl { opacity:.8; }
+  .panel.shaking { animation:shake .45s; }
+  @keyframes shake { 0%,100% { transform:none; } 20% { transform:translate(-8px,5px); } 40% { transform:translate(7px,-6px); } 60% { transform:translate(-5px,-3px); } 80% { transform:translate(3px,3px); } }
+  .glint { position:absolute; z-index:2; pointer-events:none; border-radius:50%; mix-blend-mode:screen; opacity:0;
+    background:radial-gradient(closest-side, rgba(63,224,208,.55), rgba(63,224,208,0)); }
+  .glint.show { animation:glint 2.2s ease-in-out infinite; }
+  .glint.show.once { animation:glintIn .5s ease-out forwards, glint 2.2s ease-in-out .5s infinite; }
+  @keyframes glintIn { from { opacity:0; transform:scale(.4); } to { opacity:.75; transform:scale(1); } }
+  @keyframes glint { 0%,100% { opacity:.15; } 50% { opacity:.75; } }
+
+  .txt { position:absolute; z-index:6; opacity:0; }
+  .bubble, .caption { color:#111; font-size:clamp(13px,2.4vw,19px); line-height:1.2; max-width:44%;
+    transform:scale(.6); transform-origin:center bottom; transition:opacity .25s, transform .35s cubic-bezier(.3,1.7,.5,1); }
+  .txt.show.bubble, .txt.show.caption { opacity:1; transform:scale(1); }
+  .bubble { padding:12px 18px; text-align:center; box-sizing:content-box; }
+  .bubble > span { position:relative; z-index:1; white-space:pre-line; display:inline-block; }
+  .bubble > svg.bl { position:absolute; left:0; top:0; overflow:visible; z-index:0; pointer-events:none; }
+  .bubble > svg.bl path { fill:#fff; stroke:#111; stroke-width:2.5; stroke-linejoin:round; }
+  .bubble.k-whisper > svg.bl path { stroke-dasharray:7 5; }
+  .bubble.k-whisper > span { font-size:.92em; color:#333; }
+  .bubble.k-radio > span { font-style:italic; letter-spacing:.5px; }
+  .bubble.k-radio { padding:14px 22px; }
+  .dbg-anchor { position:absolute; z-index:40; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:#ff2a2a; border:2px solid #fff; pointer-events:none; }
+  .dbg-keep { position:absolute; z-index:39; border:2px dashed #ff2a2a; pointer-events:none; }
+  .dbg-anchor b { position:absolute; left:12px; top:-6px; font:11px monospace; color:#fff; background:#c00; padding:0 3px; white-space:nowrap; }
+  .caption { background:#f4f1e8; border:2px solid #111; padding:6px 11px; transform-origin:left top; }
+  /* japán: függőleges szedés */
+  body.ja .bubble, body.ja .caption { font-family:'Noto Sans JP', sans-serif; font-weight:500; writing-mode:vertical-rl; text-orientation:upright;
+    max-width:none; max-height:46%; letter-spacing:1px; }
+  body.ja .bubble { padding:16px 10px; }
+  .sfx { font-family:'Bangers', cursive; color:var(--c,#fff); font-size:min(calc(var(--s) * 1vw), calc(var(--s) * 7.6px));
+    -webkit-text-stroke:4px #111; paint-order:stroke fill; letter-spacing:3px; line-height:1; white-space:nowrap;
+    transform:rotate(var(--r,0deg)) scale(.2); text-shadow:4px 4px 0 #111; }
+  body.ja .sfx { font-family:'Dela Gothic One', sans-serif; letter-spacing:0; }
+  .sfx.halk { -webkit-text-stroke:1.6px #18181c; text-shadow:1px 1px 0 #18181c; letter-spacing:2px; }
+  .sfx.show { animation:pop .5s cubic-bezier(.2,1.5,.4,1) forwards; }
+  @keyframes pop { 0% { opacity:0; transform:rotate(var(--r,0deg)) scale(.2); } 60% { opacity:1; transform:rotate(var(--r,0deg)) scale(1.25); }
+    100% { opacity:1; transform:rotate(var(--r,0deg)) scale(1); } }
+  .hand { position:absolute; font-family:'Patrick Hand', cursive; color:#2b2b30; font-size:calc(var(--s,3) * 1cqw); line-height:1.25;
+    white-space:pre; transform:rotate(var(--r,0deg)); transform-origin:left top; transition:opacity .6s; mix-blend-mode:multiply; }
+  .hand s { text-decoration:none; background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20' preserveAspectRatio='none'><path d='M1 13 L5 7 L9 14 L13 6 L17 14 L21 6 L25 13 L29 6 L33 13 L37 7 L39 11' fill='none' stroke='%2333333a' stroke-width='1.5' stroke-linejoin='round' stroke-linecap='round' opacity='.85'/></svg>") no-repeat 0 60% / 100% .55em; }
+  .hand .g { display:inline-block; }
+  .txt.show.hand { opacity:.92; }
+  body.ja .hand { font-family:'Yomogi', 'Patrick Hand', cursive; }
+  .hand.f-gondo { font-family:'Kalam', cursive; }
+  .hand.f-gyerek, body.ja .hand.f-gyerek { font-family:'Yomogi', cursive; line-height:1.05; }
+  .hand.f-jegyzet, body.ja .hand.f-jegyzet { font-family:'Noto Sans', 'Noto Sans JP', sans-serif; font-weight:400; color:#e2e2e6 !important; mix-blend-mode:normal; text-shadow:0 0 .25em #000, 0 0 .5em #000; letter-spacing:.01em; }
+  .hand.f-tabla, body.ja .hand.f-tabla { font-family:'Noto Sans', 'Noto Sans JP', sans-serif; font-weight:700; letter-spacing:.02em; line-height:1.15; text-align:center; }
+  body.ja .hand.f-gondo { font-family:'Klee One', 'Kalam', cursive; }
+  .hand i { font-style:normal; font-family:'Caveat', cursive; font-size:1.12em; }
+  .end { text-align:center; color:#8f8d9c; padding:40px 0; font-size:18px; }
+  .end b { display:block; color:#e8e7ee; font-size:28px; margin-bottom:6px; font-weight:400; }
+  .err { color:#ff8a8a; text-align:center; }
+  .end a.next { display:inline-block; margin-top:22px; padding:10px 22px; border:1px solid #5d5b6a; border-radius:22px; color:#e8e7ee; text-decoration:none; font-size:17px; }
+  .end a.next:hover { border-color:#e8e7ee; color:#fff; }
+  .title a.prev { display:inline-block; margin-top:14px; color:#8f8d9c; font-size:14px; text-decoration:none; }
+  @media (prefers-reduced-motion: reduce) {
+    .panel.shaking, .panel.live .cam.zoom, .glint.show, .title .hint { animation:none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header>
+  <a class="brand" id="brand" href="./">What the Rain <b>Remembers</b></a>
+  <div class="langs" id="langs">
+    <button data-l="en">EN</button><button data-l="hu">HU</button><button data-l="ja">日本語</button>
+  </div>
+</header>
+<main id="reader"></main>
+
+<script>
+const UI = {
+  en: { hint: 'Scroll slowly', end: 'To be continued', endSub: '', home: 'All chapters' },
+  hu: { hint: 'Görgess lassan', end: 'Folytatjuk', endSub: '', home: 'Az összes fejezet' },
+  ja: { hint: 'ゆっくりスクロール', end: 'つづく', endSub: '', home: 'エピソード一覧' }
+};
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let LANG = 'en';
+try { LANG = localStorage.getItem('wtrr-lang') || ({ hu: 'hu', ja: 'ja' }[(navigator.language || '').slice(0, 2)] || 'en'); } catch (e) {}
+// on the website the reader is <series>/read.html, next to the series page
+const HOME = /\/read\.html$/.test(location.pathname) ? './' : null;
+const PKEY = 'prog:' + location.pathname.replace(/[^/]*$/, '');
+if (HOME) { const b = document.getElementById('brand'); b.href = HOME; b.classList.add('home'); }
+let SRC = 'chapter.json';
+const reader = document.getElementById('reader');
+let panels = [], CH = null;
+
+const el = (t, c) => { const e = document.createElement(t); if (c) e.className = c; return e; };
+const DEBUG = new URLSearchParams(location.search).has('debug');
+const tr = v => (v && typeof v === 'object') ? (v[LANG] ?? v.en) : v;
+
+window.addEventListener('hashchange', () => { load().then(() => window.scrollTo(0, 0)); });
+async function load() {
+  const hm = location.hash.match(/ch=([\w.-]+\.json)/);
+  const src = new URLSearchParams(location.search).get('ch') || (hm && hm[1]) || 'chapter.json'; SRC = src;
+  try { CH = await (await fetch(src)).json(); }
+  catch (e) { reader.innerHTML = '<p class="err">Chapter data could not be loaded.</p>'; return; }
+  build();
+  if (/resume/.test(location.hash)) requestAnimationFrame(() => { try {
+    const st = JSON.parse(localStorage.getItem(PKEY) || '{}'); const f = st.last === src ? (st.at || 0) : ((st.p || {})[src] || 0);
+    scrollTo(0, f * (document.documentElement.scrollHeight - innerHeight));
+  } catch (e) {} });
+}
+
+function build() {
+  panels.forEach(stop); panels = [];
+  reader.innerHTML = '';
+  document.body.classList.toggle('ja', LANG === 'ja'); document.body.classList.toggle('rm', RM);
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('#langs button').forEach(b => b.classList.toggle('on', b.dataset.l === LANG));
+
+  const t = el('section', 'title');
+  t.innerHTML = `<div class="ja">${CH.titleJa || ''}</div><h1></h1><p></p><div class="hint">↓ ${UI[LANG].hint}</div>`;
+  t.querySelector('h1').textContent = tr(CH.title);
+  t.querySelector('p').textContent = tr(CH.subtitle) || '';
+  reader.append(t);
+
+  CH.panels.forEach(p => {
+    const fig = el('figure', 'panel'); fig.style.aspectRatio = p.aspect || '4/3'; if (p.gap) fig.style.marginTop = p.gap + 'vh';
+    const cam = el('div', 'cam' + (p.zoom ? ' zoom' : ''));
+    if (p.zoom) { cam.style.setProperty('--zs', p.zoom.scale || 1.06); cam.style.setProperty('--zx', (p.zoom.x ?? 50) + '%'); cam.style.setProperty('--zy', (p.zoom.y ?? 50) + '%'); cam.style.setProperty('--zt', (p.zoom.ms || 6000) + 'ms'); }
+    fig.append(cam);
+    const layers = p.layers.map(l => {
+      const d = el('div', 'layer' + (l.reveal ? ' rev' : '') + (l.cover ? ' cover' : '') + (l.glow != null ? ' glowl' : '')); d.dataset.depth = l.depth || 0;
+      if (l.reveal && l.ms) d.style.setProperty('--rv', l.ms + 'ms'); if (l.cover && l.ms) d.style.setProperty('--rv', l.ms + 'ms');
+      const img = el('img'); img.src = l.src; img.alt = l.alt || ''; img.loading = 'lazy'; img.decoding = 'async';
+      d.append(img); cam.append(d); return d;
+    });
+    const glints = (p.glints || []).map(g => { const gl = el('div', 'glint once'); Object.assign(gl.style, { left: g.x + '%', top: g.y + '%', width: g.w + '%', height: g.h + '%' }); (g.layer != null && layers[g.layer] ? layers[g.layer] : cam).append(gl); return { e: gl, at: g.at || 0 }; });
+    let canvas = null; if (p.rain) { canvas = el('canvas', 'rain'); fig.append(canvas); }
+    const flash = el('div', 'flash'); if (p.flashColor) flash.style.background = p.flashColor; fig.append(flash);
+    const texts = (p.texts || []).map(x => {
+      const kind = x.type === 'bubble' ? (x.kind || (x.whisper ? 'whisper' : 'speech')) : '';
+      const e = el('div', 'txt ' + x.type + (kind ? ' k-' + kind : ''));
+      const pos = Object.assign({}, x, (x.pos && x.pos[LANG]) || {});
+      if (pos.right != null) e.style.right = pos.right + '%'; else e.style.left = pos.x + '%';
+      e.style.top = pos.y + '%';
+      if (pos.mh) e.style.maxHeight = pos.mh + '%';
+      if (x.type === 'sfx') { if (x.halk) e.classList.add('halk'); e.style.setProperty('--s', x.s || 8); e.style.setProperty('--r', x.r || '0deg'); if (x.c) e.style.setProperty('--c', x.c); }
+      let svg = null;
+      if (x.type === 'bubble') {
+        const sp = el('span'); sp.textContent = tr(x.text); e.append(sp);
+        svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('class', 'bl');
+        svg.append(document.createElementNS('http://www.w3.org/2000/svg', 'path')); e.prepend(svg);
+      } else if (x.type === 'hand') {
+        e.style.setProperty('--s', pos.s || x.s || 3); if (x.r) e.style.setProperty('--r', x.r); if (x.font) e.classList.add('f-' + x.font); if (x.c) e.style.color = x.c;
+        const esc = String(tr(x.text)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        e.innerHTML = esc.replace(/~~(.+?)~~/g, '<s>$1</s>').replace(/__(.+?)__/g, '<i>$1</i>');
+        if (x.font !== 'tabla' && x.font !== 'jegyzet') { let seed = 0; for (const ch of (p.id + (x.at || 0) + tr(x.text))) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+          const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296 - .5; };
+          const walk = n => { [...n.childNodes].forEach(c => { if (c.nodeType === 3) { const f = document.createDocumentFragment();
+            for (const ch of c.textContent) { if (ch === ' ' || ch === '\n') { f.append(ch); continue; }
+              const g = document.createElement('span'); g.className = 'g'; g.textContent = ch;
+              g.style.transform = `translateY(${(rnd() * .07).toFixed(3)}em) rotate(${(rnd() * 5).toFixed(2)}deg) scale(${(1 + rnd() * .08).toFixed(3)})`; f.append(g); }
+            c.replaceWith(f); } else walk(c); }); }; walk(e); }
+      } else e.textContent = tr(x.text);
+      (x.type === 'hand' && layers[x.layer ?? 0] ? layers[x.layer ?? 0] : fig).append(e); return { e, x, kind, svg };
+    });
+    if (DEBUG && p.anchors) Object.keys(p.anchors).forEach(k => { const d = el('div', 'dbg-anchor'); d.dataset.k = k; d.innerHTML = '<b>' + k + '</b>'; fig.append(d); });
+    reader.append(fig);
+    panels.push({ p, fig, layers, canvas, texts, glints, timers: [], live: false, rain: null });
+  });
+
+  const end = el('div', 'end'); end.innerHTML = `<b></b><span></span>`;
+  end.querySelector('b').textContent = tr(CH.endTitle) || UI[LANG].end; end.querySelector('span').textContent = tr(CH.endSub) || UI[LANG].endSub;
+  if (CH.next) { const a = el('a', 'next'); a.href = '#ch=' + CH.next.src; a.textContent = tr(CH.next.label); end.append(a); }
+  if (HOME) { const a = el('a', 'home'); a.href = HOME + '#chapters'; a.textContent = UI[LANG].home; end.append(a); }
+  if (CH.prev) { const a = el('a', 'prev'); a.href = CH.prev.src === 'chapter.json' ? '#' : '#ch=' + CH.prev.src; a.textContent = tr(CH.prev.label); t.append(a); }
+  reader.append(end);
+  panels.forEach(P => io.observe(P.fig));
+  update();
+  panels.forEach(P => P.layers.forEach(L => L.querySelector('img').addEventListener('load', () => shapeAll(P))));
+  document.fonts && document.fonts.ready.then(() => panels.forEach(shapeAll));
+}
+
+/* ---- buborékok: a farok mindig a megadott horgonypontra (száj, rádió) mutat ---- */
+function anchorPx(P, a) {
+  // a: {l: rétegindex, x, y} a képréteg saját képének %-ában -> px a panelhez képest
+  const L = P.layers[a.l ?? P.layers.length - 1]; if (!L) return null;
+  const img = L.querySelector('img'); const r = img.getBoundingClientRect(), fr = P.fig.getBoundingClientRect();
+  const nw = img.naturalWidth, nh = img.naturalHeight; if (!nw || !nh) return null;
+  const sc = Math.max(r.width / nw, r.height / nh), cw = nw * sc, ch = nh * sc;
+  return [r.left - fr.left + (r.width - cw) / 2 + a.x / 100 * cw, r.top - fr.top + (r.height - ch) / 2 + a.y / 100 * ch];
+}
+function targetPx(P, to) {
+  if (!to) return null;
+  if (typeof to === 'string') { const a = P.p.anchors && P.p.anchors[to]; return a ? anchorPx(P, a) : null; }
+  return [to[0] / 100 * P.fig.clientWidth, to[1] / 100 * P.fig.clientHeight];   // [x%, y%] a panelben (képen kívüli beszélőhöz)
+}
+function shapeBalloon(P, T) {
+  const { e, x, kind, svg } = T; if (!svg) return;
+  const sp = e.querySelector('span');
+  if (sp) { // a szöveg téglalapja férjen bele az ellipszisbe: (a/A)^2 + (b/B)^2 <= 1
+    const sw = sp.offsetWidth, sh = sp.offsetHeight, px = Math.round(sw * 0.18 + 9), py = Math.round(sh * 0.26 + 8);
+    if (e.dataset.pad !== px + ',' + py) { e.style.padding = py + 'px ' + px + 'px'; e.dataset.pad = px + ',' + py; }
+  }
+  const w = e.offsetWidth, h = e.offsetHeight, ox = e.offsetLeft, oy = e.offsetTop;
+  const cx = w / 2, cy = h / 2, rx = w / 2, ry = h / 2;
+  svg.setAttribute('width', w); svg.setAttribute('height', h);
+  const pt = (t, k = 1) => [cx + rx * k * Math.cos(t), cy + ry * k * Math.sin(t)];
+  const tg = targetPx(P, x.to); let tail = null, info = { id: P.p.id, text: tr(x.text), kind, speaker: x.speaker || null, to: x.to || null,
+    box: [ox, oy, w, h], fig: [P.fig.clientWidth, P.fig.clientHeight], target: tg ? [tg[0], tg[1]] : null,
+    keeps: (P.p.keep || []).map(k => { const a = anchorPx(P, { l: k.l, x: k.x, y: k.y }), b = anchorPx(P, { l: k.l, x: k.x + k.w, y: k.y + k.h }); return a && b ? { n: k.n, r: [a[0], a[1], b[0] - a[0], b[1] - a[1]] } : null; }).filter(Boolean) };
+  if (tg) {
+    const Tx = tg[0] - ox, Ty = tg[1] - oy;
+    const inside = ((Tx - cx) / rx) ** 2 + ((Ty - cy) / ry) ** 2 <= 1;
+    if (!inside) {
+      const t0 = Math.atan2((Ty - cy) / ry, (Tx - cx) / rx), E = pt(t0);
+      const dist = Math.hypot(Tx - E[0], Ty - E[1]);
+      let len = kind === 'radio' ? Math.max(dist * .8, Math.min(24, dist * .9)) : Math.min(Math.max(dist * .55, 14), dist * .8);
+      const ux = (Tx - E[0]) / dist, uy = (Ty - E[1]) / dist;
+      const tip = [E[0] + ux * len, E[1] + uy * len];
+      const d = Math.min(.24, 12 / Math.max(rx, ry) + .06);
+      tail = { t0, d, E, tip, ux, uy, len };
+      info.tip = [tip[0] + ox, tip[1] + oy]; info.gap = dist; info.edge = [E[0] + ox, E[1] + oy];
+    } else info.inside = true;
+  }
+  let dpath = '';
+  const N = kind === 'radio' ? 30 : 72;
+  const ring = [];
+  const a0 = tail ? tail.t0 + tail.d : 0, span = tail ? 2 * Math.PI - 2 * tail.d : 2 * Math.PI;
+  for (let i = 0; i <= N; i++) {
+    const t = a0 + span * i / N;
+    const k = kind === 'radio' ? (i % 2 ? 1.0 : .9) : 1;
+    ring.push(pt(t, k));
+  }
+  dpath = 'M' + ring.map(p => p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' L');
+  if (tail) {
+    const { tip, ux, uy, len } = tail, b1 = ring[ring.length - 1], b2 = ring[0];
+    const nx = -uy, ny = ux;
+    if (kind === 'radio') {   // villám alakú farok
+      const z = Math.min(10, len * .22), E = tail.E;
+      const P1 = [E[0] + ux * len * .38 + nx * z, E[1] + uy * len * .38 + ny * z];
+      const P2 = [E[0] + ux * len * .62 - nx * z, E[1] + uy * len * .62 - ny * z];
+      const w1 = 4.5, w2 = 3;
+      const f = p => p[0].toFixed(1) + ',' + p[1].toFixed(1);
+      dpath += ` L${f([P1[0] + nx * w1, P1[1] + ny * w1])} L${f([P2[0] + nx * w2, P2[1] + ny * w2])} L${f(tip)} L${f([P2[0] - nx * w2, P2[1] - ny * w2])} L${f([P1[0] - nx * w1, P1[1] - ny * w1])} Z`;
+    } else {                  // enyhén ívelt, elvékonyodó farok
+      const bend = len * .12;
+      const c1 = [(b1[0] + tip[0]) / 2 + nx * bend, (b1[1] + tip[1]) / 2 + ny * bend];
+      const c2 = [(b2[0] + tip[0]) / 2 + nx * bend, (b2[1] + tip[1]) / 2 + ny * bend];
+      dpath += ` Q${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${tip[0].toFixed(1)},${tip[1].toFixed(1)} Q${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${b2[0].toFixed(1)},${b2[1].toFixed(1)} Z`;
+    }
+    e.style.transformOrigin = tip[0].toFixed(0) + 'px ' + tip[1].toFixed(0) + 'px';
+  } else dpath += ' Z';
+  svg.firstChild.setAttribute('d', dpath);
+  if (sp) info.span = [ox + sp.offsetLeft, oy + sp.offsetTop, sp.offsetWidth, sp.offsetHeight];
+  T.info = info;
+}
+function shapeAll(P) {
+  P.texts.forEach(T => shapeBalloon(P, T));
+  if (DEBUG) { P.fig.querySelectorAll('.dbg-keep').forEach(d => d.remove());
+    (P.p.keep || []).forEach(k => { const a = anchorPx(P, k), b = anchorPx(P, { l: k.l, x: k.x + k.w, y: k.y + k.h }); if (!a || !b) return;
+      const d = el('div', 'dbg-keep'); Object.assign(d.style, { left: a[0] + 'px', top: a[1] + 'px', width: (b[0] - a[0]) + 'px', height: (b[1] - a[1]) + 'px' }); P.fig.append(d); }); }
+  if (DEBUG && P.p.anchors) P.fig.querySelectorAll('.dbg-anchor').forEach(d => { const q = anchorPx(P, P.p.anchors[d.dataset.k]); if (q) { d.style.left = q[0] + 'px'; d.style.top = q[1] + 'px'; } });
+}
+window.__balloons = () => panels.flatMap(P => { shapeAll(P); return P.texts.filter(T => T.info).map(T => T.info); });
+
+function retrigger(fig, cls, ms) { fig.classList.remove(cls); void fig.offsetWidth; fig.classList.add(cls); setTimeout(() => fig.classList.remove(cls), ms); }
+
+function start(P) {
+  P.live = true; P.fig.classList.add('live'); shapeAll(P);
+  if (P.p.zoom) P.timers.push(setTimeout(() => shapeAll(P), (P.p.zoom.ms || 6000) + 50));
+  P.texts.forEach(({ e, x }) => P.timers.push(setTimeout(() => e.classList.add('show'), x.at || 0)));
+  P.glints.forEach(g => P.timers.push(setTimeout(() => g.e.classList.add('show'), g.at)));
+  P.layers.forEach((d, i) => { const g = P.p.layers[i].glow; if (g != null) P.timers.push(setTimeout(() => d.classList.add('show'), g)); });
+  (P.p.events || []).forEach(ev => P.timers.push(setTimeout(() => {
+    if (ev.do === 'shake' && !RM) retrigger(P.fig, 'shaking', 500);
+    if (ev.do === 'flash') { P.fig.style.setProperty('--fs', ev.strength ?? .9); retrigger(P.fig, 'flashing', 650); }
+    if (ev.do === 'reveal' && !RM) retrigger(P.fig, 'revealing', ev.ms || 1600);
+  }, ev.at)));
+  if (P.canvas) startRain(P);
+}
+function stop(P) {
+  P.live = false; P.timers.forEach(clearTimeout); P.timers = [];
+  P.fig.classList.remove('live', 'shaking', 'flashing');
+  P.texts.forEach(({ e }) => e.classList.remove('show'));
+  P.glints.forEach(g => g.e.classList.remove('show'));
+  P.layers.forEach(d => d.classList.remove('show'));
+  if (P.rain) { cancelAnimationFrame(P.rain.raf); P.rain = null; }
+}
+function startRain(P) {
+  const c = P.canvas, ctx = c.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2);
+  const w = c.width = c.clientWidth * dpr, h = c.height = c.clientHeight * dpr;
+  const n = Math.round(P.p.rain * (RM ? .3 : 1));
+  const drops = Array.from({ length: n }, () => ({ x: Math.random() * w * 1.2 - w * .2, y: Math.random() * h, l: (10 + Math.random() * 20) * dpr, v: (10 + Math.random() * 10) * dpr }));
+  const st = P.rain = { raf: 0 };
+  const tick = () => {
+    ctx.clearRect(0, 0, w, h); ctx.strokeStyle = 'rgba(220,228,240,.38)'; ctx.lineWidth = 1.1 * dpr; ctx.beginPath();
+    for (const d of drops) { ctx.moveTo(d.x, d.y); ctx.lineTo(d.x + d.l * .18, d.y + d.l); d.y += d.v; d.x += d.v * .18; if (d.y > h) { d.y = -d.l; d.x = Math.random() * w * 1.2 - w * .2; } }
+    ctx.stroke(); if (P.rain === st) st.raf = requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+const io = new IntersectionObserver(es => es.forEach(en => {
+  const P = panels.find(x => x.fig === en.target); if (!P) return;
+  if (en.intersectionRatio >= .55 && !P.live) start(P);
+  else if (!en.isIntersecting && P.live) stop(P);
+}), { threshold: [0, .55] });
+
+let ticking = false;
+function update() {
+  ticking = false;
+  const vh = innerHeight, doc = document.documentElement;
+  document.getElementById('progress').style.width = (scrollY / Math.max(1, doc.scrollHeight - vh) * 100) + '%';
+  if (RM) return;
+  for (const P of panels) {
+    const r = P.fig.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) continue;
+    const prog = (r.top + r.height / 2 - vh / 2) / vh;
+    for (const l of P.layers) l.style.transform = `translate3d(0,${(-prog * l.dataset.depth * 60).toFixed(1)}px,0)`;
+    if (P.live) shapeAll(P);
+  }
+}
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } saveProgress(); }, { passive: true });
+// reading progress for the website's "continue" button (per device, nothing leaves the browser)
+let saveT = 0;
+function saveProgress() {
+  clearTimeout(saveT); saveT = setTimeout(() => { try {
+    const max = document.documentElement.scrollHeight - innerHeight; if (max <= 0) return;
+    const f = Math.min(1, scrollY / max), st = JSON.parse(localStorage.getItem(PKEY) || '{"p":{}}');
+    st.p[SRC] = Math.max(st.p[SRC] || 0, f > .96 ? 1 : f); st.last = SRC; st.at = f; st.t = Date.now();
+    localStorage.setItem(PKEY, JSON.stringify(st));
+  } catch (e) {} }, 400);
+}
+addEventListener('resize', () => { panels.forEach(shapeAll); update(); });
+document.getElementById('langs').addEventListener('click', e => {
+  const l = e.target.dataset && e.target.dataset.l; if (!l || l === LANG) return;
+  LANG = l; try { localStorage.setItem('wtrr-lang', l); } catch (err) {}
+  const y = scrollY; build(); scrollTo(0, y);
+});
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,1915 @@
+{
+ "title": "What the Rain Remembers",
+ "titleJa": "沈町",
+ "subtitle": {
+  "hu": "2. fejezet · A senki tárgyai",
+  "en": "Chapter 2 · Nobody's Things",
+  "ja": "第2話・誰のものでもない"
+ },
+ "endSub": {
+  "hu": "2. fejezet · vége",
+  "en": "End of Chapter 2",
+  "ja": "第2話・おわり"
+ },
+ "prev": {
+  "src": "chapter.json",
+  "label": {
+   "hu": "← 1. fejezet",
+   "en": "← Chapter 1",
+   "ja": "← 第1話"
+  }
+ },
+ "panels": [
+  {
+   "id": "f02_p01",
+   "aspect": "21/9",
+   "rain": 40,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p01.webp",
+     "depth": 0.1,
+     "alt": "Morning drizzle: two small wooden houses at the foot of the seawall; Minato walks toward Gondō's door, the floodgate hut on the wall above"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "x": 3,
+     "y": 4,
+     "at": 400,
+     "text": {
+      "hu": "Yodoura. Az eső 1104. napja.",
+      "en": "Yodoura. Day 1,104 of the rain.",
+      "ja": "澱浦。雨、千百四日目。"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f02_p02",
+   "aspect": "3/2",
+   "rain": 30,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p02.webp",
+     "depth": 0.1,
+     "alt": "Gondō in his doorway, glasses fogged, glaring down at Minato"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 64,
+     "y": 6,
+     "at": 400,
+     "kind": "speech",
+     "to": "gondo_szaj",
+     "text": {
+      "hu": "Késtél.",
+      "en": "You're late.",
+      "ja": "遅い。"
+     },
+     "speaker": "gondo"
+    }
+   ],
+   "anchors": {
+    "gondo_szaj": {
+     "l": 0,
+     "x": 49.6,
+     "y": 19
+    }
+   },
+   "keep": [
+    {
+     "n": "Gondō arca",
+     "l": 0,
+     "x": 42,
+     "y": 6,
+     "w": 15,
+     "h": 22
+    }
+   ]
+  },
+  {
+   "id": "f02_p03",
+   "aspect": "3/2",
+   "rain": 30,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p03.webp",
+     "depth": 0.1,
+     "alt": "Minato hands back the bagged radio; Gondō takes it, one hand on his aching back, eyeing the logbook"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 68,
+     "y": 4,
+     "at": 400,
+     "kind": "speech",
+     "to": "gondo_szaj",
+     "text": {
+      "hu": "A rádiót kérem.\n…A napló meg\nminek van nálad?",
+      "en": "I'll take the\nradio. …And why've\nyou got the log?",
+      "ja": "無線、返せ。…日誌はなんで持ってきた？"
+     },
+     "speaker": "gondo"
+    }
+   ],
+   "anchors": {
+    "gondo_szaj": {
+     "l": 0,
+     "x": 57.5,
+     "y": 20.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Gondō arca",
+     "l": 0,
+     "x": 53,
+     "y": 5,
+     "w": 11,
+     "h": 20
+    },
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 18,
+     "y": 6,
+     "w": 12,
+     "h": 18
+    },
+    {
+     "n": "rádió",
+     "l": 0,
+     "x": 41,
+     "y": 29,
+     "w": 9,
+     "h": 17
+    }
+   ]
+  },
+  {
+   "id": "f02_p04",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p04.webp",
+     "depth": 0.1,
+     "alt": "Close-up: Minato's gloved finger under a line in Gondō's log"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "font": "gondo",
+     "c": "#3b3e48",
+     "text": {
+      "hu": "02:10 – 7-es kapu",
+      "en": "02:10 – Gate 7",
+      "ja": "02:10 七番門"
+     },
+     "x": 12.7,
+     "y": 9.32,
+     "s": 8.96,
+     "pos": {
+      "ja": {
+       "x": 12.7,
+       "y": 8.87,
+       "s": 7.84
+      }
+     }
+    },
+    {
+     "type": "hand",
+     "layer": 0,
+     "at": 0,
+     "font": "gondo",
+     "c": "#3b3e48",
+     "text": {
+      "hu": "kézi zárás – __S. M.__",
+      "en": "closed by hand – __S. M.__",
+      "ja": "手動閉鎖 担当：__S. M.__"
+     },
+     "pos": {
+      "ja": {
+       "x": 15.5,
+       "y": 36.87,
+       "s": 7.84
+      },
+      "en": {
+       "x": 5.14,
+       "y": 37.32,
+       "s": 8.4
+      }
+     },
+     "x": 5.14,
+     "y": 37.32,
+     "s": 8.96
+    },
+    {
+     "type": "bubble",
+     "x": 4,
+     "y": 60,
+     "at": 900,
+     "kind": "speech",
+     "to": [
+      3,
+      104
+     ],
+     "text": {
+      "hu": "Ezt maga írta,\nGondō-san? Azon az\néjszakán, három éve.",
+      "en": "Did you write this,\nGondō-san? That night,\nthree years ago.",
+      "ja": "これ、権藤さんが？三年前の、あの夜の。"
+     },
+     "speaker": "minato"
+    }
+   ]
+  },
+  {
+   "id": "f02_p05",
+   "aspect": "4/5",
+   "rain": 0,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p05.webp",
+     "depth": 0.1,
+     "alt": "Gondō takes off his fogged glasses and wipes them on his undershirt, squinting down at the open log"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p06",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p06.webp",
+     "depth": 0.1,
+     "alt": "Close on Gondō without glasses, frozen, staring at the page"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 24,
+     "y": 9,
+     "at": 400,
+     "kind": "speech",
+     "to": "gondo_szaj",
+     "text": {
+      "hu": "…Az én írásom.",
+      "en": "…That's my writing.",
+      "ja": "…わしの字だ。"
+     },
+     "speaker": "gondo",
+     "pos": {
+      "ja": {
+       "x": 37,
+       "y": 64
+      },
+      "en": {
+       "x": 19,
+       "y": 10
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 12,
+     "y": 40,
+     "at": 1500,
+     "kind": "speech",
+     "to": "gondo_szaj",
+     "text": {
+      "hu": "A\nTakeda-gyerek\nzárta.",
+      "en": "The Takeda boy\nclosed it.",
+      "ja": "武田んとこの坊主が閉めた。"
+     },
+     "speaker": "gondo",
+     "pos": {
+      "ja": {
+       "x": 16,
+       "y": 26
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "gondo_szaj": {
+     "l": 0,
+     "x": 77.5,
+     "y": 58.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Gondō arca",
+     "l": 0,
+     "x": 60,
+     "y": 2,
+     "w": 38,
+     "h": 72
+    }
+   ]
+  },
+  {
+   "id": "f02_p07",
+   "aspect": "3/2",
+   "rain": 30,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p07.webp",
+     "depth": 0.1,
+     "alt": "Over Gondō's shoulder: Minato, calm and hard-faced, under the eave"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 57,
+     "y": 4,
+     "at": 400,
+     "kind": "speech",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "Takedáék tavaly\nköltöztek ide,\nGondō-san.",
+      "en": "The Takedas moved\nhere last year,\nGondō-san.",
+      "ja": "武田さんちは去年越してきたんですよ、権藤さん。"
+     },
+     "speaker": "minato"
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 0,
+     "x": 31.3,
+     "y": 37
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 23,
+     "y": 16,
+     "w": 16,
+     "h": 26
+    }
+   ]
+  },
+  {
+   "id": "f02_p08",
+   "aspect": "3/2",
+   "rain": 30,
+   "scene": 1,
+   "layers": [
+    {
+     "src": "img/f02_p08.webp",
+     "depth": 0.1,
+     "alt": "Eyes shut, Gondō pushes the logbook back into Minato's hand and starts sliding the door closed; the old radio plays the game"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 65,
+     "y": 3,
+     "at": 400,
+     "kind": "speech",
+     "to": "gondo_szaj",
+     "text": {
+      "hu": "Vidd vissza a\nzsilipházba.\n…Aztán menj\niskolába.",
+      "en": "Take it back to the\ngatehouse. …Then go\nto school.",
+      "ja": "七番に戻しとけ。…そんで学校行け。"
+     },
+     "speaker": "gondo",
+     "pos": {
+      "en": {
+       "x": 34,
+       "y": 34
+      },
+      "ja": {
+       "x": 25,
+       "y": 4
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 66,
+     "y": 60,
+     "at": 1600,
+     "kind": "radio",
+     "to": "radio",
+     "text": {
+      "hu": "…és ez hazafutás!\nHárom–kettő a\nhazaiaknak!",
+      "en": "…home run!\nThree–two!",
+      "ja": "ホームラン！三対二！"
+     },
+     "speaker": "radio",
+     "pos": {
+      "hu": {
+       "x": 58,
+       "y": 61
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "gondo_szaj": {
+     "l": 0,
+     "x": 55,
+     "y": 31
+    },
+    "radio": {
+     "l": 0,
+     "x": 92.5,
+     "y": 35
+    }
+   },
+   "keep": [
+    {
+     "n": "Gondō arca",
+     "l": 0,
+     "x": 47.5,
+     "y": 9,
+     "w": 13,
+     "h": 25
+    }
+   ]
+  },
+  {
+   "id": "f02_p09",
+   "aspect": "21/9",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p09.webp",
+     "depth": 0.1,
+     "alt": "On the bus: Minato grips his dripping umbrella between his knees; a woman from the sunny next town steps into the puddle in dry white sneakers"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "jegyzet",
+     "layer": 0,
+     "at": 300,
+     "r": "0deg",
+     "text": {
+      "hu": "Városháza",
+      "en": "City Hall",
+      "ja": "市役所前"
+     },
+     "x": 25.3,
+     "y": 8.55,
+     "s": 3.067,
+     "pos": {
+      "en": {
+       "x": 26.68,
+       "y": 8.55,
+       "s": 3.067
+      },
+      "ja": {
+       "x": 26.92,
+       "y": 8.55,
+       "s": 3.067
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f02_p10",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p10.webp",
+     "depth": 0.1,
+     "alt": "The basement lost-and-found: shelves to the ceiling of tagged suitcases, school bags, a child's bike, a wedding dress, an urn; Minato walks toward the counter"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p11",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p11.webp",
+     "depth": 0.1,
+     "alt": "Hirano looks up from her crossword at the counter"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 38,
+     "y": 5,
+     "at": 400,
+     "kind": "speech",
+     "to": "hirano_szaj",
+     "text": {
+      "hu": "Mit keresel?",
+      "en": "What are you\nlooking for?",
+      "ja": "何探してるの？"
+     },
+     "speaker": "hirano",
+     "pos": {
+      "ja": {
+       "x": 10,
+       "y": 4
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 22,
+     "y": 60,
+     "at": 1400,
+     "kind": "speech",
+     "to": "minato_fej",
+     "text": {
+      "hu": "Egy kislány\ntornacipőjét keresem.\nHárom éve, a hetes\nzsilipnél veszett el.",
+      "en": "A little girl's\nsneakers. Found at\nSeven, three years\nago.",
+      "ja": "女の子の運動靴です。三年前、七番の水門で。"
+     },
+     "speaker": "minato",
+     "pos": {
+      "hu": {
+       "x": 22,
+       "y": 52
+      },
+      "en": {
+       "x": 22,
+       "y": 52
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "hirano_szaj": {
+     "l": 0,
+     "x": 67.7,
+     "y": 47.8
+    },
+    "minato_fej": {
+     "l": 0,
+     "x": 14,
+     "y": 30
+    }
+   },
+   "keep": [
+    {
+     "n": "Hirano arca",
+     "l": 0,
+     "x": 60,
+     "y": 29,
+     "w": 15,
+     "h": 25
+    }
+   ]
+  },
+  {
+   "id": "f02_p12",
+   "aspect": "4/5",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p12.webp",
+     "depth": 0.1,
+     "alt": "Minato, tiny, before a whole wall of children's shoes, every one tagged"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 3,
+     "y": 48,
+     "at": 400,
+     "kind": "speech",
+     "to": [
+      8,
+      88
+     ],
+     "text": {
+      "hu": "Hátul.\nHárom éve senki\nnem jött értük,\nkidobni meg\nnem merjük.",
+      "en": "In the back.\nNobody's come for\nthem in three years.\nNobody dares\nthrow them out.",
+      "ja": "奥。三年、誰も取りに来ないのよ。捨てるに捨てられなくて。"
+     },
+     "speaker": "hirano",
+     "pos": {
+      "ja": {
+       "x": 7,
+       "y": 31
+      },
+      "en": {
+       "x": 1,
+       "y": 34
+      }
+     }
+    }
+   ],
+   "keep": [
+    {
+     "n": "Minato",
+     "l": 0,
+     "x": 42,
+     "y": 52,
+     "w": 17,
+     "h": 44
+    }
+   ]
+  },
+  {
+   "id": "f02_p13",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p13.webp",
+     "depth": 0.1,
+     "alt": "Three similar pairs of small sneakers on a shelf; one toe is patched with the same silver tape as Minato's boot; his gloved hand reaches for it"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 58,
+     "y": 50,
+     "at": 900,
+     "kind": "whisper",
+     "to": [
+      84,
+      104
+     ],
+     "text": {
+      "hu": "…Ezt én\nragasztottam meg\nneki.",
+      "en": "…I taped that\nup for her.",
+      "ja": "…これ、俺が直してやったやつだ。"
+     },
+     "speaker": "minato",
+     "pos": {
+      "ja": {
+       "x": 64,
+       "y": 20
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f02_p14",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p14.webp",
+     "depth": 0.1,
+     "alt": "Minato folds back the heel: inside, in a parent's felt-pen hand, しおみ みお"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "jegyzet",
+     "layer": 0,
+     "at": 900,
+     "r": "0deg",
+     "text": {
+      "hu": "Shiomi Mio",
+      "en": "Shiomi Mio",
+      "ja": ""
+     },
+     "x": 41,
+     "y": 61,
+     "s": 2.6
+    }
+   ]
+  },
+  {
+   "id": "f02_p15",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p15.webp",
+     "depth": 0.1,
+     "alt": "Hirano reads over Minato's shoulder, glasses now on her nose"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 40,
+     "y": 2,
+     "at": 400,
+     "kind": "speech",
+     "to": "hirano_szaj",
+     "text": {
+      "hu": "Shiomi Mio.\nIsmerős?",
+      "en": "Shiomi Mio.\nKnow her?",
+      "ja": "しおみみお。知ってる子？"
+     },
+     "speaker": "hirano",
+     "pos": {
+      "ja": {
+       "x": 82,
+       "y": 1
+      },
+      "hu": {
+       "x": 37,
+       "y": 1
+      },
+      "en": {
+       "x": 37,
+       "y": 1
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 6,
+     "y": 62,
+     "at": 1500,
+     "kind": "speech",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "A húgom.",
+      "en": "My sister.",
+      "ja": "妹です。"
+     },
+     "speaker": "minato"
+    }
+   ],
+   "anchors": {
+    "hirano_szaj": {
+     "l": 0,
+     "x": 70.4,
+     "y": 33.5
+    },
+    "minato_szaj": {
+     "l": 0,
+     "x": 35,
+     "y": 41.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Hirano arca",
+     "l": 0,
+     "x": 63,
+     "y": 15,
+     "w": 15,
+     "h": 24
+    },
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 26,
+     "y": 26,
+     "w": 12,
+     "h": 22
+    },
+    {
+     "n": "cipő",
+     "l": 0,
+     "x": 52,
+     "y": 58,
+     "w": 19,
+     "h": 18
+    }
+   ]
+  },
+  {
+   "id": "f02_p16",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p16.webp",
+     "depth": 0.1,
+     "alt": "A short, kind pause; Hirano pulls a folded leaflet from the counter drawer"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 53,
+     "y": 3,
+     "at": 400,
+     "kind": "speech",
+     "to": "hirano_szaj",
+     "text": {
+      "hu": "Húgod? …Biztos,\nhogy nem tévedés?",
+      "en": "Your sister? …Are\nyou sure it's not\na mistake?",
+      "ja": "妹？…何かの間違いじゃないの？"
+     },
+     "speaker": "hirano"
+    }
+   ],
+   "anchors": {
+    "hirano_szaj": {
+     "l": 0,
+     "x": 37.9,
+     "y": 35
+    }
+   },
+   "keep": [
+    {
+     "n": "Hirano arca",
+     "l": 0,
+     "x": 25,
+     "y": 12,
+     "w": 23,
+     "h": 30
+    }
+   ]
+  },
+  {
+   "id": "f02_p17",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 2,
+   "layers": [
+    {
+     "src": "img/f02_p17.webp",
+     "depth": 0.1,
+     "alt": "Minato photographs the name in the heel with his phone; Hirano leans on the counter beside the leaflet"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 74,
+     "y": 34,
+     "at": 400,
+     "kind": "speech",
+     "to": "hirano_szaj",
+     "text": {
+      "hu": "Lefotózhatod.\nKiadni csak\nigazolással\ntudom.",
+      "en": "Take a picture.\nI can only\nrelease it\nwith proof.",
+      "ja": "写真ならいいよ。渡すのは証明できてから。"
+     },
+     "speaker": "hirano",
+     "pos": {
+      "ja": {
+       "x": 77,
+       "y": 30
+      },
+      "hu": {
+       "x": 70,
+       "y": 34
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "hirano_szaj": {
+     "l": 0,
+     "x": 68,
+     "y": 24.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Hirano arca",
+     "l": 0,
+     "x": 63,
+     "y": 10,
+     "w": 12,
+     "h": 22
+    },
+    {
+     "n": "telefon",
+     "l": 0,
+     "x": 28.5,
+     "y": 38,
+     "w": 15,
+     "h": 32
+    }
+   ]
+  },
+  {
+   "id": "f02_p18",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p18.webp",
+     "depth": 0.1,
+     "alt": "The glass door of the City Counseling Office in a half-empty mall; inside, Akari at the reception desk, an old woman in a hat waiting; Minato outside with a leaflet"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "tabla",
+     "layer": 0,
+     "at": 200,
+     "r": "0deg",
+     "text": {
+      "hu": "Városi tanácsadó iroda",
+      "en": "City Counseling Office",
+      "ja": "市民相談室"
+     },
+     "x": 40.65,
+     "y": 19.29,
+     "s": 3.36,
+     "pos": {
+      "en": {
+       "x": 40.73,
+       "y": 19.22,
+       "s": 3.453
+      },
+      "ja": {
+       "x": 49.83,
+       "y": 19.0,
+       "s": 3.733
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "f02_p19",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p19.webp",
+     "depth": 0.1,
+     "alt": "Minato puts the leaflet on the counter; Akari looks up from her phone with a crooked half-smile"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 14,
+     "y": 34,
+     "at": 200,
+     "kind": "speech",
+     "to": "minato_fej",
+     "text": {
+      "hu": "…Szia, Akari.",
+      "en": "…Hey, Akari.",
+      "ja": "…よう、灯。"
+     },
+     "speaker": "minato",
+     "pos": {
+      "ja": {
+       "x": 22,
+       "y": 2
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 70,
+     "y": 4,
+     "at": 1400,
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Mégis eljöttél?\n…Ne nézz így, ez a\nmellékmelóm.",
+      "en": "So you came after\nall? …Don't look at\nme like that, it's\nmy side job.",
+      "ja": "ほんまに\n来たんや。\n…バイトやねん。"
+     },
+     "speaker": "akari",
+     "pos": {
+      "ja": {
+       "x": 72,
+       "y": 26
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 60,
+     "y": 29
+    },
+    "minato_fej": {
+     "l": 0,
+     "x": 5,
+     "y": 12
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 53,
+     "y": 12,
+     "w": 14,
+     "h": 22
+    }
+   ]
+  },
+  {
+   "id": "f02_p20",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p20.webp",
+     "depth": 0.1,
+     "alt": "Minato holds out his phone: the photo of the shoe's heel, しおみ みお; Akari looks"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p21",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p21.webp",
+     "depth": 0.1,
+     "alt": "Akari, serious now, eyes lowered"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 34,
+     "y": 6,
+     "at": 400,
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Egy név még nem\nbizonyíték, Minato.",
+      "en": "A name isn't\nproof, Minato.",
+      "ja": "名前だけじゃ証拠にならへんよ、湊。"
+     },
+     "speaker": "akari"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 81,
+     "y": 46
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 75,
+     "y": 22,
+     "w": 12,
+     "h": 28
+    }
+   ]
+  },
+  {
+   "id": "f02_p22",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p22.webp",
+     "depth": 0.1,
+     "alt": "In the waiting area an old woman sits upright, holding a man's large umbrella with a lost-and-found tag; Minato turns toward her"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 3,
+     "y": 3,
+     "at": 400,
+     "kind": "speech",
+     "to": "ikeda_szaj",
+     "text": {
+      "hu": "A férjem\nesernyője. A\ntalált tárgyaknál\nvolt.",
+      "en": "My husband's\numbrella. It was at\nthe lost and found.",
+      "ja": "主人の傘です。\n落とし物に\nあって。"
+     },
+     "speaker": "ikeda",
+     "pos": {
+      "ja": {
+       "x": 3,
+       "y": 2
+      },
+      "hu": {
+       "x": 1,
+       "y": 43
+      },
+      "en": {
+       "x": 46,
+       "y": 16
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 46,
+     "y": 22,
+     "at": 1600,
+     "kind": "speech",
+     "to": "ikeda_szaj",
+     "text": {
+      "hu": "Azt mondják, sose\nvolt férjem.",
+      "en": "They say I never\nhad a husband.",
+      "ja": "主人なんて\nいなかったって。"
+     },
+     "speaker": "ikeda",
+     "pos": {
+      "ja": {
+       "x": 50,
+       "y": 2
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "ikeda_szaj": {
+     "l": 0,
+     "x": 32,
+     "y": 42
+    }
+   },
+   "keep": [
+    {
+     "n": "Ikeda arca",
+     "l": 0,
+     "x": 28,
+     "y": 33,
+     "w": 8,
+     "h": 12
+    },
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 88,
+     "y": 4,
+     "w": 10,
+     "h": 14
+    }
+   ]
+  },
+  {
+   "id": "f02_p23",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p23.webp",
+     "depth": 0.1,
+     "alt": "Mrs. Ikeda looks up at Minato, simple and almost friendly"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 64,
+     "y": 3,
+     "at": 400,
+     "kind": "speech",
+     "to": "ikeda_szaj",
+     "text": {
+      "hu": "Minden éjjel bekopog\na gát négyes kapuján.\nFél négy után.",
+      "en": "Every night he\nknocks on Gate\nFour in the\nseawall. Just\nafter half past\nthree.",
+      "ja": "毎晩、堤防の四番の門を叩くんです。三時半すぎに。"
+     },
+     "speaker": "ikeda"
+    }
+   ],
+   "anchors": {
+    "ikeda_szaj": {
+     "l": 0,
+     "x": 46.7,
+     "y": 50.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Ikeda arca",
+     "l": 0,
+     "x": 36,
+     "y": 26,
+     "w": 22,
+     "h": 30
+    }
+   ]
+  },
+  {
+   "id": "f02_p24",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 3,
+   "layers": [
+    {
+     "src": "img/f02_p24.webp",
+     "depth": 0.1,
+     "alt": "Akari's pen stops over the register; she doesn't look at Minato"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 22,
+     "y": 3,
+     "at": 400,
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Ma éjjel fél négykor a\nnégyesnél vagyok. Ha\nakarsz, gyere.",
+      "en": "I'm on Gate Four\ntonight. Half\npast three. Come\nif you want.",
+      "ja": "今夜、三時半、四番におるから。来たかったら来て。"
+     },
+     "speaker": "akari"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 76,
+     "y": 27
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 70,
+     "y": 10,
+     "w": 13,
+     "h": 22
+    }
+   ]
+  },
+  {
+   "id": "f02_p25",
+   "aspect": "21/9",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p25.webp",
+     "depth": 0.1,
+     "alt": "Dusk on the seawall: TV lights, a construction site and a blank banner; Deputy Mayor Kuga speaks to the camera under an aide's umbrella; Minato approaches far off"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "tabla",
+     "layer": 0,
+     "at": 200,
+     "r": "0deg",
+     "text": {
+      "hu": "Új védőgát\nYodoura\nholnapjáért",
+      "en": "A new seawall\nfor Yodoura’s\ntomorrow",
+      "ja": "新防潮堤\n澱浦の明日\nのために"
+     },
+     "x": 78.6,
+     "y": 14,
+     "s": 2.2,
+     "pos": {
+      "en": {
+       "x": 78.6,
+       "y": 15.5,
+       "s": 1.8
+      },
+      "ja": {
+       "x": 79.4,
+       "y": 12,
+       "s": 2.6
+      }
+     }
+    },
+    {
+     "type": "caption",
+     "x": 3,
+     "y": 72,
+     "at": 900,
+     "text": {
+      "hu": "Kuga Sōichirō alpolgármester",
+      "en": "Deputy Mayor Kuga Sōichirō",
+      "ja": "久我宗一郎 副市長"
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 14,
+     "y": 2,
+     "at": 400,
+     "kind": "speech",
+     "to": "kuga_szaj",
+     "text": {
+      "hu": "…hogy a víz\ntöbbé senkit\nne vigyen el tőlünk.",
+      "en": "…so that the water\nnever takes anyone\nfrom us again.",
+      "ja": "…二度と、\n水に奪わせない。"
+     },
+     "speaker": "kuga",
+     "pos": {
+      "ja": {
+       "x": 18,
+       "y": 1
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "kuga_szaj": {
+     "l": 0,
+     "x": 58.6,
+     "y": 37.5
+    }
+   },
+   "keep": [
+    {
+     "n": "Kuga arca",
+     "l": 0,
+     "x": 56,
+     "y": 29,
+     "w": 6,
+     "h": 14
+    }
+   ]
+  },
+  {
+   "id": "f02_p26",
+   "aspect": "3/2",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p26.webp",
+     "depth": 0.1,
+     "alt": "Minato walks past the cordon, the faded patch on his coat's back; under the TV light Kuga breaks off and turns toward him"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p27",
+   "aspect": "3/2",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p27.webp",
+     "depth": 0.1,
+     "alt": "Over Minato's shoulder: Kuga steps up smiling, closed umbrella in his left hand, offering his right"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 8,
+     "y": 4,
+     "at": 400,
+     "kind": "speech",
+     "to": "kuga_szaj",
+     "text": {
+      "hu": "Gondō-san küldött?",
+      "en": "Did Gondō-san\nsend you?",
+      "ja": "権藤さんのところの子かな？"
+     },
+     "speaker": "kuga",
+     "pos": {
+      "ja": {
+       "x": 34,
+       "y": 1
+      }
+     }
+    },
+    {
+     "type": "bubble",
+     "x": 20,
+     "y": 50,
+     "at": 1500,
+     "kind": "speech",
+     "to": "minato_fej",
+     "text": {
+      "hu": "Csak hazafelé\nmegyek.",
+      "en": "I'm just going home.",
+      "ja": "…帰るとこです。"
+     },
+     "speaker": "minato"
+    }
+   ],
+   "anchors": {
+    "kuga_szaj": {
+     "l": 0,
+     "x": 59.6,
+     "y": 31
+    },
+    "minato_fej": {
+     "l": 0,
+     "x": 12,
+     "y": 32
+    }
+   },
+   "keep": [
+    {
+     "n": "Kuga arca",
+     "l": 0,
+     "x": 52,
+     "y": 12,
+     "w": 15,
+     "h": 26
+    }
+   ]
+  },
+  {
+   "id": "f02_p28",
+   "aspect": "3/2",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p28.webp",
+     "depth": 0.1,
+     "alt": "The handshake: Kuga's right hand is missing its ring and little fingers"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 4,
+     "y": 4,
+     "at": 400,
+     "kind": "speech",
+     "to": [
+      30,
+      -3
+     ],
+     "text": {
+      "hu": "Hogy van a dereka?",
+      "en": "How's his back?",
+      "ja": "腰の具合はどうだい？"
+     },
+     "speaker": "kuga"
+    }
+   ],
+   "zoom": {
+    "scale": 1.12,
+    "x": 58,
+    "y": 55,
+    "ms": 5000
+   }
+  },
+  {
+   "id": "f02_p29",
+   "aspect": "87/80",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p29.webp",
+     "depth": 0.1,
+     "alt": "Over Kuga's shoulder: behind the cordon, by the formwork, the rain breaks on someone who isn't there – a helmet, a shoulder"
+    }
+   ],
+   "texts": [],
+   "gap": 4
+  },
+  {
+   "id": "f02_p30",
+   "aspect": "3/2",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p30.webp",
+     "depth": 0.1,
+     "alt": "Closer: the figure's helmet has turned toward Minato"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p31",
+   "aspect": "3/2",
+   "rain": 40,
+   "scene": 4,
+   "layers": [
+    {
+     "src": "img/f02_p31.webp",
+     "depth": 0.1,
+     "alt": "Over Kuga's shoulder: Minato, pale and soaked, face unreadable"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 22,
+     "y": 4,
+     "at": 400,
+     "kind": "speech",
+     "to": [
+      8,
+      30
+     ],
+     "text": {
+      "hu": "Valami baj van?",
+      "en": "Something wrong?",
+      "ja": "どうかしたかい？"
+     },
+     "speaker": "kuga"
+    },
+    {
+     "type": "bubble",
+     "x": 77,
+     "y": 64,
+     "at": 1500,
+     "kind": "speech",
+     "to": "minato_szaj",
+     "text": {
+      "hu": "Semmi. Esik.",
+      "en": "Nothing. It's\nraining.",
+      "ja": "…別に。雨なんで。"
+     },
+     "speaker": "minato",
+     "pos": {
+      "ja": {
+       "x": 70,
+       "y": 64
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "minato_szaj": {
+     "l": 0,
+     "x": 67,
+     "y": 47
+    }
+   },
+   "keep": [
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 57,
+     "y": 18,
+     "w": 20,
+     "h": 34
+    }
+   ]
+  },
+  {
+   "id": "f02_p32",
+   "aspect": "21/9",
+   "rain": 80,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p32.webp",
+     "depth": 0.1,
+     "alt": "Night, pouring rain: the seawall with its stair and closed steel gate; a small guard hut with a lit window, two figures inside"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "x": 3,
+     "y": 4,
+     "at": 400,
+     "text": {
+      "hu": "03:38 · a négyes kapu",
+      "en": "3:38 a.m. · Gate Four",
+      "ja": "午前三時三十八分・四番門"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f02_p33",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p33.webp",
+     "depth": 0.1,
+     "alt": "In the hut: Akari holds her grandfather's old log open, a finger on one line; Minato's gloved hand at the edge"
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "gondo",
+     "layer": 0,
+     "at": 0,
+     "c": "#24262e",
+     "r": "14deg",
+     "text": {
+      "hu": "3:40 kopogtak. Senki.",
+      "en": "3:40 knocking. Nobody.",
+      "ja": "3:40 ノック。無人"
+     },
+     "x": 65.6,
+     "y": 45.5,
+     "s": 2.0
+    },
+    {
+     "type": "hand",
+     "font": "gondo",
+     "layer": 0,
+     "at": 0,
+     "c": "#24262e",
+     "r": "14deg",
+     "text": {
+      "hu": "3:40 kopogtak. Senki.",
+      "en": "3:40 knocking. Nobody.",
+      "ja": "3:40 ノック。無人"
+     },
+     "x": 63.9,
+     "y": 53.5,
+     "s": 2.0
+    },
+    {
+     "type": "hand",
+     "font": "gondo",
+     "layer": 0,
+     "at": 0,
+     "c": "#24262e",
+     "r": "14deg",
+     "text": {
+      "hu": "3:40 kopogtak. Senki.",
+      "en": "3:40 knocking. Nobody.",
+      "ja": "3:40 ノック。無人"
+     },
+     "x": 62.2,
+     "y": 61.5,
+     "s": 2.0
+    },
+    {
+     "type": "bubble",
+     "x": 3,
+     "y": 4,
+     "at": 900,
+     "kind": "speech",
+     "to": "akari_fej",
+     "text": {
+      "hu": "A nagyapám\nnaplója. Három\néve, minden\néjjel.",
+      "en": "Grandpa's log. Three\nyears, every night.",
+      "ja": "じいちゃんの日誌。三年、毎晩や。"
+     },
+     "speaker": "akari",
+     "pos": {
+      "hu": {
+       "x": 19,
+       "y": 1
+      },
+      "ja": {
+       "x": 1,
+       "y": 4
+      }
+     }
+    }
+   ],
+   "anchors": {
+    "akari_fej": {
+     "l": 0,
+     "x": 26,
+     "y": 42
+    }
+   }
+  },
+  {
+   "id": "f02_p34",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p34.webp",
+     "depth": 0.1,
+     "alt": "Akari and Minato snap their heads toward the window and the steel gate beyond"
+    }
+   ],
+   "texts": [
+    {
+     "type": "sfx",
+     "x": 21,
+     "y": 50,
+     "at": 300,
+     "s": 6,
+     "r": "-3deg",
+     "c": "#f4f1e8",
+     "text": {
+      "hu": "KOPP. KOPP. KOPP.",
+      "en": "KNOCK. KNOCK. KNOCK.",
+      "ja": "コン。コン。コン。"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f02_p35",
+   "aspect": "3/2",
+   "rain": 80,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p35.webp",
+     "depth": 0.1,
+     "alt": "Minato has stepped out from under the eave into the downpour, looking at the seawall stair; Akari stays in the doorway, arms crossed"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 78,
+     "y": 8,
+     "at": 400,
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Szél.",
+      "en": "It's the wind.",
+      "ja": "風やって。"
+     },
+     "speaker": "akari"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 70.4,
+     "y": 39.4
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 67,
+     "y": 33,
+     "w": 7,
+     "h": 10
+    }
+   ]
+  },
+  {
+   "id": "f02_p36",
+   "aspect": "4/5",
+   "rain": 80,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p36.webp",
+     "depth": 0.1,
+     "alt": "From Minato's eyes: at the top of the seawall stair the rain breaks on an old man in a hat who isn't there; he starts down"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p37",
+   "aspect": "3/2",
+   "rain": 80,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p37.webp",
+     "depth": 0.1,
+     "alt": "The figure reaches the hut's eave – and where the rain stops, so does he; only splashing legs remain"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 64,
+     "y": 8,
+     "at": 900,
+     "kind": "whisper",
+     "to": "minato_fej",
+     "text": {
+      "hu": "Akari…",
+      "en": "Akari…",
+      "ja": "…灯。"
+     },
+     "speaker": "minato"
+    }
+   ],
+   "anchors": {
+    "minato_fej": {
+     "l": 0,
+     "x": 90.8,
+     "y": 36
+    }
+   }
+  },
+  {
+   "id": "f02_p38",
+   "aspect": "4/5",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p38.webp",
+     "depth": 0.1,
+     "alt": "From inside the hut, over Akari's shoulder: on the dry glass a wet handprint appears from outside"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p39",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p39.webp",
+     "depth": 0.1,
+     "alt": "Akari photographs the handprint with her bagged phone, hands shaking"
+    }
+   ],
+   "texts": []
+  },
+  {
+   "id": "f02_p40",
+   "aspect": "3/2",
+   "rain": 0,
+   "scene": 5,
+   "layers": [
+    {
+     "src": "img/f02_p40.webp",
+     "depth": 0.1,
+     "alt": "Akari lowers the phone and finally looks at Minato, soaked in the doorway; the open log between them"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "x": 48,
+     "y": 52,
+     "at": 800,
+     "kind": "speech",
+     "to": "akari_szaj",
+     "text": {
+      "hu": "Mondd el az\nelejétől.",
+      "en": "Tell me from the\nbeginning.",
+      "ja": "…最初から話して。"
+     },
+     "speaker": "akari"
+    }
+   ],
+   "anchors": {
+    "akari_szaj": {
+     "l": 0,
+     "x": 71.5,
+     "y": 41
+    }
+   },
+   "keep": [
+    {
+     "n": "Akari arca",
+     "l": 0,
+     "x": 64,
+     "y": 18,
+     "w": 17,
+     "h": 30
+    },
+    {
+     "n": "Minato arca",
+     "l": 0,
+     "x": 32,
+     "y": 6,
+     "w": 11,
+     "h": 19
+    }
+   ]
+  }
+ ]
+}
