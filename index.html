@@ -233,7 +233,7 @@ function render() {
   const lastN = fs ? fs.list.chapters[fs.list.chapters.length - 1].n : null;
   const lastCh = fs && fp && fp.last && fs.list.chapters.find(c => c.src === fp.last);
   const fa = document.getElementById('feature');
-  fa.innerHTML = `<a class="art" href="${f.slug}/" tabindex="-1" aria-hidden="true"><img src="${f.banner}" alt="" fetchpriority="high"></a>
+  fa.innerHTML = `<a class="art" href="${f.slug}/" tabindex="-1" aria-hidden="true"><img src="${f.banner}" srcset="${f.banner.replace('.webp', '-900.webp')} 900w, ${f.banner} 1680w" sizes="(max-width: 860px) 100vw, 700px" alt="" fetchpriority="high"></a>
     <div class="txt">${lastN ? `<span class="badge">${esc(t.newCh(lastN))}</span>` : ''}
       <div class="ja" lang="ja">${esc(f.titleJa)}</div><h1>${esc(f.title)}</h1><p>${esc(pick(f.logline))}</p>
       <div class="actions"><a class="btn light" href="${lastCh && fp.at > .03 && fp.at < .97 ? f.slug + '/read.html#ch=' + lastCh.src + '&resume' : f.slug + '/read.html'}">${esc(lastCh && fp.at > .03 && fp.at < .97 ? t.cont(lastCh.n, Math.round(fp.at * 100)) : t.read)}</a>
@@ -257,7 +257,7 @@ function render() {
 
   // the shelf
   document.getElementById('shelf').innerHTML = CAT.series.map(s => { const d = SER[s.slug], n = d ? d.list.chapters.length : 0;
-    return `<li><a href="${s.slug}/"><div class="cover"><img src="${s.cover}" alt="" loading="lazy"><div class="tt"><span lang="ja">${esc(s.titleJa)}</span><b>${esc(s.title)}</b></div></div>
+    return `<li><a href="${s.slug}/"><div class="cover"><img src="${s.cover.replace('.webp', '-400.webp')}" srcset="${s.cover.replace('.webp', '-400.webp')} 400w, ${s.cover} 720w" sizes="(max-width: 860px) 50vw, 220px" alt="" loading="lazy"><div class="tt"><span lang="ja">${esc(s.titleJa)}</span><b>${esc(s.title)}</b></div></div>
       <p>${esc(s.status === 'complete' ? t.complete : t.ongoing)}, ${esc(t.chapters(n))}</p>
       <div class="tags">${(pick(s.genres) || []).map(g => `<span>${esc(g)}</span>`).join('')}</div></a></li>`; }).join('')
     + (CAT.comingSoon ? `<li class="soon"><div class="cover">${esc(t.soon)}</div></li>` : '');
