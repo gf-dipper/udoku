@@ -43,7 +43,8 @@
   nav a { text-decoration:none; color:var(--grey); }
   nav a:hover { color:var(--ink); }
   .langs { margin-left:auto; display:flex; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--sheet); }
-  .langs button { font:600 13px/1 var(--sans); color:var(--grey); background:none; border:0; padding:8px 12px; border-radius:999px; cursor:pointer; }
+  .langs button { font:600 13px/1 var(--sans); color:var(--grey); background:none; border:0; padding:11px 13px; border-radius:999px; cursor:pointer; position:relative; }
+  .langs button::after { content:''; position:absolute; inset:-4px -1px; }
   .langs button[aria-pressed="true"] { background:var(--ink); color:var(--sheet); }
 
   /* featured series */
@@ -174,7 +175,7 @@ const T = {
     ch: n => `Chapter ${n}`, readPct: p => `${p}% read`,
     aboutTitle:'Manga that moves when you scroll',
     about1:'Every story here is original and drawn as a manga, then built for the screen: panels come alive as they reach the middle of your screen, with falling rain, lightning and speech that appears in time.',
-    about2:'Read on your phone, held upright, or on any screen. Your place in each chapter is saved on your device, nothing else is collected.',
+    about2:'Read on your phone, held upright, or on any screen. Your place in each chapter is saved only on your device. There are no accounts and no tracking; the fonts are loaded from Google Fonts.',
     fPrice:'Price', fPriceV:'Free', fLang:'Languages', fDevice:'Best on', fDeviceV:'Phone, held upright', fAccount:'Account', fAccountV:'Not needed',
     nameNote:'The name comes from 晴耕雨読, “work the fields when it is sunny, read when it rains”. 雨読, udoku, is the rainy-day half.',
     copy:'© 2026 Geri. All rights reserved.', made:'Made in Budapest.'
@@ -188,7 +189,7 @@ const T = {
     ch: n => `${n}. fejezet`, readPct: p => `${p}%-ig olvastad`,
     aboutTitle:'Manga, ami görgetésre megmozdul',
     about1:'Minden történet itt saját, eredeti manga, amit képernyőre építünk: a panelek akkor kelnek életre, amikor a képernyőd közepére érnek. Esik az eső, villám csap, és a szereplők a megfelelő pillanatban szólalnak meg.',
-    about2:'Olvasd álló telefonon vagy bármilyen képernyőn. Az eszközöd megjegyzi, hol tartasz az egyes fejezetekben, ezen kívül semmit nem gyűjtünk.',
+    about2:'Olvasd álló telefonon vagy bármilyen képernyőn. Hogy hol tartasz, azt csak a saját eszközöd jegyzi meg. Nincs regisztráció és nincs követés; a betűtípusokat a Google Fonts tölti be.',
     fPrice:'Ár', fPriceV:'Ingyenes', fLang:'Nyelvek', fDevice:'Leginkább', fDeviceV:'Álló telefonon', fAccount:'Fiók', fAccountV:'Nem kell',
     nameNote:'A név a japán 晴耕雨読 mondásból jön: „ha süt a nap, dolgozz a földeken, ha esik, olvass”. A 雨読 (udoku) az esős napi olvasás.',
     copy:'© 2026 Geri. Minden jog fenntartva.', made:'Budapesten készült.'
@@ -202,7 +203,7 @@ const T = {
     ch: n => `第${n}話`, readPct: p => `${p}%まで読んだ`,
     aboutTitle:'スクロールで動くマンガ',
     about1:'ここにあるのはすべてオリジナルのマンガです。コマが画面の真ん中に来ると動き出し、雨が降り、稲妻が走り、セリフが現れます。',
-    about2:'スマホの縦持ちでも、どの画面でも読めます。読んだ場所はお使いの端末にだけ保存され、それ以外の情報は集めていません。',
+    about2:'スマホの縦持ちでも、どの画面でも読めます。読んだ場所はお使いの端末にだけ保存されます。登録や追跡はありません（フォントは Google Fonts から読み込みます）。',
     fPrice:'料金', fPriceV:'無料', fLang:'言語', fDevice:'おすすめ', fDeviceV:'スマホ（縦持ち）', fAccount:'アカウント', fAccountV:'不要',
     nameNote:'名前は「晴耕雨読」から。雨の日は、読む日。',
     copy:'© 2026 Geri. All rights reserved.', made:'ブダペストで制作。'
