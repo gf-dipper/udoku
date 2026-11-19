@@ -46,7 +46,8 @@
   .mark .seal { display:grid; place-items:center; width:30px; height:30px; background:#c8372d; color:#fff; font:800 17px/1 var(--mincho); border-radius:3px; }
   .mark:hover #siteName { text-decoration:underline; text-underline-offset:4px; }
   .langs { display:flex; border:1px solid #3a454c; border-radius:999px; padding:3px; background:rgba(22,28,32,.7); backdrop-filter:blur(6px); }
-  .langs button { font:600 13px/1 var(--sans); color:var(--mist); background:none; border:0; padding:8px 12px; border-radius:999px; cursor:pointer; }
+  .langs button { font:600 13px/1 var(--sans); color:var(--mist); background:none; border:0; padding:11px 13px; border-radius:999px; cursor:pointer; position:relative; }
+  .langs button::after { content:''; position:absolute; inset:-4px -1px; }
   .langs button[aria-pressed="true"] { background:var(--ink); color:var(--night); }
 
   /* hero */
@@ -123,7 +124,10 @@
   }
   @media (max-width: 700px) {
     .hero { grid-template-columns:1fr; gap:0; padding:0 0 40px; }
-    .hero .stage { order:-1; width:100vw; margin-left:calc(50% - 50vw); border-radius:0; box-shadow:none; }
+    .hero .stage { order:-1; width:100vw; margin-left:calc(50% - 50vw); border-radius:0; box-shadow:none; aspect-ratio:8/7; max-height:50vh; }
+    .hero .stage img { object-position:50% 66%; }
+    .hero .logline { font-size:17px; margin-bottom:26px; }
+    .hero h1 { margin-bottom:18px; }
     .top { background:linear-gradient(rgba(22,28,32,.75), rgba(22,28,32,0)); }
     .hero-text { padding:28px 0 0 74px; }
     .tate { font-size:44px; top:30px; }
@@ -370,16 +374,20 @@ addEventListener('pageshow', e => { if (e.persisted) render(); });
 (() => {
   const cv = document.getElementById('rain'), ctx = cv.getContext('2d');
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const STEP = { y: .786, x0: .12, x1: .86 };  // just above the water, in front of the last step
+  const STEP = { y: .786, x0: .12, x1: .86 };  // just above the water, in front of the last step (in image coordinates)
+  let SY = STEP.y;  // the same line in canvas coordinates (the phone layout crops the picture)
   let W = 0, H = 0, dpr = 1, drops = [], splashes = [], t0 = performance.now(), running = true;
   function size() {
     const r = cv.getBoundingClientRect(); dpr = Math.min(2, devicePixelRatio || 1);
     W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const img = cv.parentNode.querySelector('img'), ih = Math.max(H, W * 1375 / 1100);
+    const py = (parseFloat((getComputedStyle(img).objectPosition.split(' ')[1]) || '50') || 50) / 100;
+    SY = (STEP.y * ih - (ih - H) * py) / H;
   }
   function drop(init) {
     const hits = Math.random() < .2;
     const x = hits ? (STEP.x0 + Math.random() * (STEP.x1 - STEP.x0)) * W : Math.random() * W * 1.1;
-    return { x: x - (hits ? .12 * STEP.y * H : 0), y: init ? Math.random() * H : -40 - Math.random() * H * .3,
+    return { x: x - (hits ? .12 * SY * H : 0), y: init ? Math.random() * H : -40 - Math.random() * H * .3,
       v: H * (1.5 + Math.random() * .9), len: 14 + Math.random() * 22, hits, a: .18 + Math.random() * .25 };
   }
   function splash(x, y) { splashes.push({ x, y, t: 0 }); }
@@ -391,7 +399,7 @@ addEventListener('pageshow', e => { if (e.persisted) render(); });
     ctx.lineCap = 'round';
     for (const d of drops) {
       d.y += d.v * dt; d.x += d.v * dt * .12;
-      const stop = d.hits && age > 1.1 ? STEP.y * H : H + 40;
+      const stop = d.hits && age > 1.1 ? SY * H : H + 40;
       if (d.y >= stop) { if (d.hits && age > 1.1) splash(d.x, stop); Object.assign(d, drop(false)); continue; }
       ctx.strokeStyle = `rgba(230,233,235,${d.a})`; ctx.lineWidth = 1;
       ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - d.len * .12, d.y - d.len); ctx.stroke();
@@ -409,7 +417,7 @@ addEventListener('pageshow', e => { if (e.persisted) render(); });
   }
   function still() {
     ctx.clearRect(0, 0, W, H);
-    for (let i = 0; i < 9; i++) { const x = (STEP.x0 + (i + .5) / 9 * (STEP.x1 - STEP.x0)) * W, y = STEP.y * H;
+    for (let i = 0; i < 9; i++) { const x = (STEP.x0 + (i + .5) / 9 * (STEP.x1 - STEP.x0)) * W, y = SY * H;
       ctx.strokeStyle = 'rgba(63,224,208,.8)'; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.ellipse(x, y, 6, 1.8, 0, 0, Math.PI * 2); ctx.stroke(); }
   }
   size(); addEventListener('resize', () => { size(); if (RM) still(); });

@@ -865,14 +865,14 @@
    "texts": [
     {
      "type": "bubble",
-     "x": 74,
+     "x": 69,
      "y": 34,
      "at": 400,
      "kind": "speech",
      "to": "hirano_szaj",
      "text": {
       "hu": "Lefotózhatod.\nKiadni csak\nigazolással\ntudom.",
-      "en": "Take a picture.\nI can only\nrelease it\nwith proof.",
+      "en": "Take a photo.\nI can only\nrelease it\nwith proof.",
       "ja": "写真ならいいよ。渡すのは証明できてから。"
      },
      "speaker": "hirano",

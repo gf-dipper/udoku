@@ -19,10 +19,11 @@
   .end a.home { display:block; margin-top:18px; color:#8f8d9c; font-size:15px; }
   .langs { display:flex; gap:4px; flex-shrink:0; }
   header { gap:8px !important; }
-  .langs button { background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; padding:4px 10px; font:inherit; font-size:15px; cursor:pointer; }
+  .langs button { position:relative; min-height:34px; background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; padding:4px 10px; font:inherit; font-size:15px; cursor:pointer; }
+  .langs button::after, .tools button::after, .seg button::after, .nextbar button.x::after { content:''; position:absolute; inset:-6px -2px; }
   .langs button.on { background:var(--teal); color:#071211; border-color:var(--teal); }
   .tools { display:flex; gap:4px; flex-shrink:0; margin-left:auto; }
-  .tools button { display:grid; place-items:center; width:34px; height:30px; background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; cursor:pointer; padding:0; }
+  .tools button { position:relative; display:grid; place-items:center; width:38px; height:34px; background:#1a1c22; color:#bdbcc8; border:1px solid #2a2d36; border-radius:6px; cursor:pointer; padding:0; }
   .tools button[aria-expanded="true"] { border-color:var(--teal); color:#fff; }
   .tools svg { width:18px; height:18px; }
   .sheet { position:fixed; top:58px; right:12px; z-index:70; width:min(340px, calc(100vw - 24px)); max-height:calc(100vh - 80px); overflow:auto;
@@ -40,7 +41,10 @@
   .opt { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-top:1px solid #23262e; font-size:15px; }
   .opt:first-of-type { border-top:0; }
   .seg { display:flex; background:#1a1c22; border:1px solid #2a2d36; border-radius:8px; padding:2px; }
-  .seg button { background:none; border:0; color:#bdbcc8; font:inherit; font-size:14px; padding:6px 10px; border-radius:6px; cursor:pointer; }
+  .seg button { position:relative; min-width:44px; min-height:38px; background:none; border:0; color:#bdbcc8; font:inherit; font-size:14px; padding:6px 12px; border-radius:6px; cursor:pointer; }
+  #segText button { line-height:1; }
+  #segText button[data-v="1"] { font-size:13px; }
+  #segText button[data-v="1.3"] { font-size:21px; }
   .seg button[aria-pressed="true"] { background:var(--teal); color:#071211; }
   .nextbar { position:fixed; left:50%; bottom:max(14px, env(safe-area-inset-bottom)); z-index:55; transform:translate(-50%, 160%); transition:transform .35s ease;
     display:flex; align-items:center; gap:10px; width:min(560px, calc(100vw - 24px)); padding:10px 10px 10px 16px; background:rgba(20,22,27,.94); backdrop-filter:blur(8px);
@@ -51,9 +55,9 @@
   .nextbar a { flex-shrink:0; text-decoration:none; font-size:14px; font-weight:600; padding:10px 14px; border-radius:10px; }
   .nextbar a.go { background:var(--teal); color:#071211; }
   .nextbar a.all { color:#bdbcc8; border:1px solid #3a3d47; }
-  .nextbar button.x { flex-shrink:0; background:none; border:0; color:#8f8d9c; font-size:20px; cursor:pointer; padding:4px 6px; }
+  .nextbar button.x { position:relative; flex-shrink:0; width:40px; height:40px; background:none; border:0; color:#8f8d9c; font-size:22px; cursor:pointer; padding:0; }
   .progress { position:fixed; top:0; left:0; height:3px; width:0; background:var(--teal); z-index:60; }
-  main { max-width:760px; margin:0 auto; padding:80px 12px 140px; display:flex; flex-direction:column; gap:26px; }
+  main { max-width:760px; margin:0 auto; padding:80px 12px 180px; display:flex; flex-direction:column; gap:26px; }
 
   .title { text-align:center; padding:70px 0 50px; }
   .title .ja { font-family:'Noto Sans JP', sans-serif; font-weight:700; font-size:20px; letter-spacing:8px; color:var(--teal); }
@@ -129,12 +133,13 @@
   body.ja .hand { font-family:'Yomogi', 'Patrick Hand', cursive; }
   .hand.f-gondo { font-family:'Kalam', cursive; }
   .hand.f-gyerek, body.ja .hand.f-gyerek { font-family:'Yomogi', cursive; line-height:1.05; }
-  .hand.f-jegyzet, body.ja .hand.f-jegyzet { font-family:'Noto Sans', 'Noto Sans JP', sans-serif; font-weight:400; color:#e2e2e6 !important; mix-blend-mode:normal; text-shadow:0 0 .25em #000, 0 0 .5em #000; letter-spacing:.01em; }
+  .hand.f-jegyzet, body.ja .hand.f-jegyzet { font-size:calc(var(--s,3) * 1cqw * var(--ts,1)); font-family:'Noto Sans', 'Noto Sans JP', sans-serif; font-weight:400; color:#e2e2e6 !important; mix-blend-mode:normal; text-shadow:0 0 .25em #000, 0 0 .5em #000; letter-spacing:.01em; }
   .hand.f-tabla, body.ja .hand.f-tabla { font-family:'Noto Sans', 'Noto Sans JP', sans-serif; font-weight:700; letter-spacing:.02em; line-height:1.15; text-align:center; }
   body.ja .hand.f-gondo { font-family:'Klee One', 'Kalam', cursive; }
   .hand i { font-style:normal; font-family:'Caveat', cursive; font-size:1.12em; }
   .end { text-align:center; color:#8f8d9c; padding:40px 0; font-size:18px; }
   .end span { display:block; }
+  .end span.soon { margin-top:10px; color:#3fe0d0; font-size:17px; }
   .end b { display:block; color:#e8e7ee; font-size:28px; margin-bottom:6px; font-weight:400; }
   .err { color:#ff8a8a; text-align:center; }
   .end a.next { display:inline-block; margin-top:22px; padding:10px 22px; border:1px solid #5d5b6a; border-radius:22px; color:#e8e7ee; text-decoration:none; font-size:17px; }
@@ -143,6 +148,13 @@
   @media (prefers-reduced-motion: reduce) {
     .panel.shaking, .panel.live .cam.zoom, .glint.show, .title .hint { animation:none !important; }
   }
+  /* "Animations: off" in the settings does the same as the system setting */
+  body.rm .panel.shaking, body.rm .panel.live .cam.zoom, body.rm .glint.show, body.rm .title .hint, body.rm .layer.glowl.show, body.rm .sfx.show { animation:none !important; }
+  body.rm .glint.show { opacity:.55; }
+  body.rm .sfx.show { opacity:1; transform:rotate(var(--r,0deg)); }
+  body.rm .txt.bubble, body.rm .txt.caption { transition:opacity .2s; transform:none; }
+  body.rm .panel.flashing .flash { animation-duration:1.4s; }
+  body.rm .nextbar { transition:none; }
 </style>
 </head>
 <body>
@@ -159,7 +171,7 @@
 </header>
 <div class="sheet" id="chSheet" hidden><h2 id="chHead"></h2><div id="chList"></div></div>
 <div class="sheet" id="setSheet" hidden>
-  <div class="opt"><span id="optText"></span><div class="seg" id="segText"><button data-v="1">A</button><button data-v="1.15" style="font-size:17px">A</button></div></div>
+  <div class="opt"><span id="optText"></span><div class="seg" id="segText"><button data-v="1">A</button><button data-v="1.3">A</button></div></div>
   <div class="opt"><span id="optMotion"></span><div class="seg" id="segMotion"><button data-v="0"></button><button data-v="1"></button></div></div>
 </div>
 <main id="reader"></main>
@@ -168,15 +180,15 @@
 <script>
 const UI = {
   en: { hint: 'Scroll slowly', end: 'To be continued', endSub: '', home: 'All chapters', chapters: 'Chapters', settings: 'Reading settings',
-        text: 'Text size', motion: 'Animations', on: 'On', off: 'Off', next: 'Next', nextGo: 'Read', soon: n => `Chapter ${n} is in the works`, ch: n => `Chapter ${n}`, close: 'Close' },
+        text: 'Text size', small: 'Normal text', big: 'Larger text', motion: 'Animations', on: 'On', off: 'Off', next: 'Next', nextGo: 'Read', soon: n => `Chapter ${n} is in the works`, ch: n => `Chapter ${n}`, close: 'Close' },
   hu: { hint: 'Görgess lassan', end: 'Folytatjuk', endSub: '', home: 'Az összes fejezet', chapters: 'Fejezetek', settings: 'Olvasási beállítások',
-        text: 'Betűméret', motion: 'Animációk', on: 'Be', off: 'Ki', next: 'Következik', nextGo: 'Olvasás', soon: n => `A ${n}. fejezet készül`, ch: n => `${n}. fejezet`, close: 'Bezárás' },
+        text: 'Betűméret', small: 'Normál szöveg', big: 'Nagyobb szöveg', motion: 'Animációk', on: 'Be', off: 'Ki', next: 'Következik', nextGo: 'Olvasás', soon: n => `A ${n}. fejezet készül`, ch: n => `${n}. fejezet`, close: 'Bezárás' },
   ja: { hint: 'ゆっくりスクロール', end: 'つづく', endSub: '', home: 'エピソード一覧', chapters: 'エピソード', settings: '表示設定',
-        text: '文字サイズ', motion: 'アニメーション', on: 'オン', off: 'オフ', next: '次の話', nextGo: '読む', soon: n => `第${n}話 制作中`, ch: n => `第${n}話`, close: '閉じる' }
+        text: '文字サイズ', small: '標準', big: '大きめ', motion: 'アニメーション', on: 'オン', off: 'オフ', next: '次の話', nextGo: '読む', soon: n => `第${n}話 制作中`, ch: n => `第${n}話`, close: '閉じる' }
 };
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
 let RM = matchMedia('(prefers-reduced-motion: reduce)').matches || store.get('wtrr-rm') === '1';
-let TS = parseFloat(store.get('wtrr-ts') || '1') || 1;
+let TS = parseFloat(store.get('wtrr-ts') || '1') || 1; if (TS !== 1) TS = 1.3;
 document.documentElement.style.setProperty('--ts', TS);
 // smaller images for phones: img/m/<name> is 800 px wide, the original is used on large or very sharp screens
 const SMALL = !new URLSearchParams(location.search).has('full');
@@ -213,6 +225,7 @@ function build() {
   reader.innerHTML = '';
   document.body.classList.toggle('ja', LANG === 'ja'); document.body.classList.toggle('rm', RM);
   document.documentElement.lang = LANG;
+  { const st = tr(CH.subtitle) || ''; document.title = (st ? st + ' · ' : '') + (tr(CH.title) || 'What the Rain Remembers'); }
   document.querySelectorAll('#langs button').forEach(b => b.classList.toggle('on', b.dataset.l === LANG));
 
   const t = el('section', 'title');
@@ -242,6 +255,7 @@ function build() {
       if (pos.right != null) e.style.right = pos.right + '%'; else e.style.left = pos.x + '%';
       e.style.top = pos.y + '%';
       if (pos.mh) e.style.maxHeight = pos.mh + '%';
+      e.dataset.ot = e.style.top; e.dataset.ol = e.style.left; e.dataset.or = e.style.right;
       if (x.type === 'sfx') { if (x.halk) e.classList.add('halk'); e.style.setProperty('--s', x.s || 8); e.style.setProperty('--r', x.r || '0deg'); if (x.c) e.style.setProperty('--c', x.c); }
       let svg = null;
       if (x.type === 'bubble') {
@@ -270,6 +284,7 @@ function build() {
   const end = el('div', 'end'); end.innerHTML = `<b></b><span></span>`;
   end.querySelector('b').textContent = tr(CH.endTitle) || UI[LANG].end; end.querySelector('span').textContent = tr(CH.endSub) || UI[LANG].endSub;
   if (CH.next) { const a = el('a', 'next'); a.href = '#ch=' + CH.next.src; a.textContent = tr(CH.next.label); end.append(a); }
+  else loadList().then(l => { if (!l.next) return; const sp = el('span', 'soon'); sp.textContent = UI[LANG].soon(l.next.n); end.querySelector('span').after(sp); });
   if (HOME) { const a = el('a', 'home'); a.href = HOME + '#chapters'; a.textContent = UI[LANG].home; end.append(a); }
   if (CH.prev) { const a = el('a', 'prev'); a.href = CH.prev.src === 'chapter.json' ? '#' : '#ch=' + CH.prev.src; a.textContent = tr(CH.prev.label); t.append(a); }
   reader.append(end);
@@ -300,6 +315,15 @@ function shapeBalloon(P, T) {
   if (sp) { // a szöveg téglalapja férjen bele az ellipszisbe: (a/A)^2 + (b/B)^2 <= 1
     const sw = sp.offsetWidth, sh = sp.offsetHeight, px = Math.round(sw * 0.18 + 9), py = Math.round(sh * 0.26 + 8);
     if (e.dataset.pad !== px + ',' + py) { e.style.padding = py + 'px ' + px + 'px'; e.dataset.pad = px + ',' + py; }
+  }
+  if (TS !== 1) {   // larger text: keep the whole balloon inside the panel
+    e.style.top = e.dataset.ot; e.style.left = e.dataset.ol; e.style.right = e.dataset.or;
+    const W = P.fig.clientWidth, H = P.fig.clientHeight, m = 4;
+    if (!e.dataset.or && e.offsetLeft + e.offsetWidth > W - 8 && e.offsetLeft > W * .45) { e.style.left = (W * .45) + 'px'; }   // squeezed against the right edge: give it room to widen
+    let L = e.offsetLeft, Tp = e.offsetTop; const bw = e.offsetWidth, bh = e.offsetHeight;
+    const nL = Math.max(m, Math.min(L, W - bw - m)), nT = Math.max(m, Math.min(Tp, H - bh - m));
+    if (nL !== L) { e.style.right = ''; e.style.left = nL + 'px'; }
+    if (nT !== Tp) e.style.top = nT + 'px';
   }
   const w = e.offsetWidth, h = e.offsetHeight, ox = e.offsetLeft, oy = e.offsetTop;
   const cx = w / 2, cy = h / 2, rx = w / 2, ry = h / 2;
@@ -389,13 +413,13 @@ function stop(P) {
 function startRain(P) {
   const c = P.canvas, ctx = c.getContext('2d'), dpr = Math.min(devicePixelRatio || 1, 2);
   const w = c.width = c.clientWidth * dpr, h = c.height = c.clientHeight * dpr;
-  const n = Math.round(P.p.rain * (RM ? .3 : 1));
+  const n = Math.round(P.p.rain * (RM ? .5 : 1));
   const drops = Array.from({ length: n }, () => ({ x: Math.random() * w * 1.2 - w * .2, y: Math.random() * h, l: (10 + Math.random() * 20) * dpr, v: (10 + Math.random() * 10) * dpr }));
   const st = P.rain = { raf: 0 };
   const tick = () => {
     ctx.clearRect(0, 0, w, h); ctx.strokeStyle = 'rgba(220,228,240,.38)'; ctx.lineWidth = 1.1 * dpr; ctx.beginPath();
     for (const d of drops) { ctx.moveTo(d.x, d.y); ctx.lineTo(d.x + d.l * .18, d.y + d.l); d.y += d.v; d.x += d.v * .18; if (d.y > h) { d.y = -d.l; d.x = Math.random() * w * 1.2 - w * .2; } }
-    ctx.stroke(); if (P.rain === st) st.raf = requestAnimationFrame(tick);
+    ctx.stroke(); if (P.rain === st && !RM) st.raf = requestAnimationFrame(tick);
   };
   tick();
 }
@@ -485,7 +509,7 @@ function refreshUI() {
   $('setBtn').setAttribute('aria-label', u.settings); $('setBtn').title = u.settings;
   $('optText').textContent = u.text; $('optMotion').textContent = u.motion;
   const sm = $('segMotion').children; sm[0].textContent = u.on; sm[1].textContent = u.off;
-  [...$('segText').children].forEach(b => b.setAttribute('aria-pressed', String(parseFloat(b.dataset.v) === TS)));
+  [...$('segText').children].forEach(b => { b.setAttribute('aria-pressed', String(parseFloat(b.dataset.v) === TS)); const k = b.dataset.v === '1' ? u.small : u.big; b.setAttribute('aria-label', k); b.title = k; });
   sm[0].setAttribute('aria-pressed', String(!RM)); sm[1].setAttribute('aria-pressed', String(RM));
   $('nbX').setAttribute('aria-label', u.close);
   $('nextBar').classList.remove('show'); $('nextBar').dataset.for = ''; nbClosed = false;
@@ -500,7 +524,7 @@ $('nbX').addEventListener('click', () => { nbClosed = true; $('nextBar').classLi
 function nextBarCheck() {
   if (!CH) return;
   const max = document.documentElement.scrollHeight - innerHeight, f = max > 0 ? scrollY / max : 0, u = UI[LANG], bar = $('nextBar');
-  const show = f > .86 && !nbClosed;
+  const endEl = reader.querySelector('.end'), show = !!endEl && endEl.getBoundingClientRect().top < innerHeight * .8 && !nbClosed;
   if (show && bar.dataset.for !== SRC + LANG) {
     bar.dataset.for = SRC + LANG;
     const go = $('nbGo'), all = $('nbAll'), t = $('nbText');
@@ -509,7 +533,8 @@ function nextBarCheck() {
       t.innerHTML = '<span></span><b></b>'; t.firstChild.textContent = u.next;
       const n = chNum(CH.next.src); t.lastChild.textContent = u.ch(n);
       loadList().then(l => { const c = l.chapters.find(x => x.src === CH.next.src); if (c) t.lastChild.textContent = u.ch(n) + ': ' + chTitle(c.data); });
-    } else { go.hidden = true; t.innerHTML = '<b></b>'; t.firstChild.textContent = tr(CH.endTitle) || u.end; }
+    } else { go.hidden = true; t.innerHTML = '<b></b><span></span>'; t.firstChild.textContent = tr(CH.endTitle) || u.end;
+      loadList().then(l => { if (l.next) t.lastChild.textContent = u.soon(l.next.n); }); }
     all.hidden = !HOME || !!CH.next; if (HOME) { all.href = HOME + '#chapters'; all.textContent = u.home; }
   }
   bar.classList.toggle('show', show);
