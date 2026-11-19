@@ -132,7 +132,7 @@ const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let LANG = 'en';
 try { LANG = localStorage.getItem('wtrr-lang') || ({ hu: 'hu', ja: 'ja' }[(navigator.language || '').slice(0, 2)] || 'en'); } catch (e) {}
 // on the website the reader is <series>/read.html, next to the series page
-const HOME = /\/read\.html$/.test(location.pathname) ? './' : null;
+const HOME = /\/read(\.html)?$/.test(location.pathname) ? './' : null;
 const PKEY = 'prog:' + location.pathname.replace(/[^/]*$/, '');
 if (HOME) { const b = document.getElementById('brand'); b.href = HOME; b.classList.add('home'); }
 let SRC = 'chapter.json';
