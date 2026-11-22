@@ -113,7 +113,7 @@
      "kind": "speech",
      "to": "gondo_szaj",
      "text": {
-      "hu": "A rádiót kérem.\n…A napló meg\nminek van nálad?",
+      "hu": "Add ide a rádiót.\n…A napló meg\nminek van nálad?",
       "en": "I'll take the\nradio. …And why've\nyou got the log?",
       "ja": "無線、返せ。…日誌はなんで持ってきた？"
      },
@@ -491,6 +491,29 @@
        "s": 3.067
       }
      }
+    },
+    {
+     "type": "bubble",
+     "x": 4,
+     "y": 22,
+     "at": 1100,
+     "kind": "speech",
+     "speaker": "no",
+     "to": [
+      35,
+      36
+     ],
+     "text": {
+      "hu": "Itt még\nmindig esik?",
+      "en": "Still raining\nhere?",
+      "ja": "まだ\n降っとるん？"
+     },
+     "pos": {
+      "ja": {
+       "x": 3,
+       "y": 12
+      }
+     }
     }
    ]
   },
@@ -730,7 +753,7 @@
      "kind": "speech",
      "to": "hirano_szaj",
      "text": {
-      "hu": "Shiomi Mio.\nIsmerős?",
+      "hu": "Shiomi Mio.\nIsmered?",
       "en": "Shiomi Mio.\nKnow her?",
       "ja": "しおみみお。知ってる子？"
      },
@@ -1472,9 +1495,9 @@
       -3
      ],
      "text": {
-      "hu": "Hogy van a dereka?",
-      "en": "How's his back?",
-      "ja": "腰の具合はどうだい？"
+      "hu": "És Gondō-san\ndereka?",
+      "en": "And how's\nGondō's back?",
+      "ja": "権藤さんの\n腰の具合は\nどうだい？"
      },
      "speaker": "kuga"
     }
@@ -1754,7 +1777,7 @@
      "kind": "speech",
      "to": "akari_szaj",
      "text": {
-      "hu": "Szél.",
+      "hu": "Csak a szél.",
       "en": "It's the wind.",
       "ja": "風やって。"
      },

@@ -34,6 +34,37 @@
       "en": "Yodoura. Day 1,103 of the rain.",
       "hu": "Yodoura. Az eső 1103. napja.",
       "ja": "澱浦。雨、千百三日目。"
+     },
+     "pos": {
+      "ja": {
+       "x": 29,
+       "y": 4
+      }
+     }
+    },
+    {
+     "type": "caption",
+     "x": 3,
+     "y": 13,
+     "at": 1600,
+     "text": {
+      "hu": "Három éve esik. Az alsóváros\nazóta víz alatt van.",
+      "en": "It hasn't stopped in three years.\nThe lower town has been underwater since.",
+      "ja": "三年、降りやまない。\n下町は、それからずっと水の底だ。"
+     },
+     "pos": {
+      "hu": {
+       "x": 3,
+       "y": 15
+      },
+      "en": {
+       "x": 3,
+       "y": 19
+      },
+      "ja": {
+       "x": 3,
+       "y": 4
+      }
      }
     }
    ]
@@ -376,9 +407,9 @@
      "y": 5,
      "at": 600,
      "text": {
-      "en": "Her other one.",
-      "hu": "A párja.",
-      "ja": "もう片方。"
+      "hu": "A párja.\nMio mindig kettőt hordott.",
+      "en": "Her other one.\nMio always wore two.",
+      "ja": "もう片方。\n澪はいつも、二つつけてた。"
      }
     }
    ]
@@ -672,7 +703,7 @@
      "at": 900,
      "text": {
       "en": "Seven. What's the reading?",
-      "hu": "Hetes. Mennyi?",
+      "hu": "Hetes,\nmennyi a víz?",
       "ja": "七番。水位は？"
      },
      "speaker": "radio",
@@ -863,6 +894,28 @@
      "src": "img/f01_p13.webp",
      "depth": 0.1,
      "alt": "Minato, seen from behind, steps off the steel catwalk into the lock hut; warm lamplight spills from the open door"
+    },
+    {
+     "src": "img/f01_p13_tabla.webp",
+     "depth": 0.1,
+     "alt": ""
+    }
+   ],
+   "texts": [
+    {
+     "type": "hand",
+     "font": "jegyzet",
+     "layer": 1,
+     "at": 0,
+     "r": "0deg",
+     "x": 45.6,
+     "y": 20.3,
+     "s": 1.9,
+     "text": {
+      "hu": "7-ES ZSILIP",
+      "en": "LOCK GATE 7",
+      "ja": "第七水門"
+     }
     }
    ]
   },
@@ -966,9 +1019,9 @@
      "layer": 0,
      "at": 900,
      "text": {
-      "hu": "21:40 – 7-es: +~~1,80~~ 1,86 m",
-      "en": "21:40 – Gate 7: +~~1.80~~ 1.86 m",
-      "ja": "21:40 7番 +~~1.80~~ 1.86m"
+      "hu": "21:40 – 7-es: +~~1,80~~ 1,86 m  S. M.",
+      "en": "21:40 – Gate 7: +~~1.80~~ 1.86 m  S. M.",
+      "ja": "21:40 7番 +~~1.80~~ 1.86m　S. M."
      },
      "pos": {
       "en": {
@@ -1137,6 +1190,17 @@
      "s": 2.427,
      "font": "gondo",
      "c": "#3b3e48"
+    },
+    {
+     "type": "caption",
+     "x": 3,
+     "y": 4,
+     "at": 300,
+     "text": {
+      "hu": "Három évvel ezelőtt",
+      "en": "Three years ago",
+      "ja": "三年前"
+     }
     }
    ]
   },
@@ -1253,7 +1317,7 @@
      "kind": "speech",
      "to": "minato_szaj",
      "text": {
-      "hu": "Ki zárta a hetest\nakkor éjjel?",
+      "hu": "Ki zárta be\na hetest\naznap éjjel?",
       "en": "Who closed Gate 7\nthat night?",
       "ja": "あの夜、\n７番を\n閉めたのは\n誰だ？"
      },
@@ -1422,9 +1486,9 @@
      "kind": "speech",
      "to": "akari_szaj",
      "text": {
-      "hu": "Te megint számoltad\na lépcsőt?",
-      "en": "You were counting\nthe steps again?",
-      "ja": "また階段\n数えとったん？"
+      "hu": "Megint itt ázol?",
+      "en": "Soaking out here\nagain?",
+      "ja": "また\n濡れとるん？"
      },
      "pos": {
       "ja": {
@@ -1474,9 +1538,9 @@
      "kind": "speech",
      "to": "akari_szaj",
      "text": {
-      "hu": "…és a kaput még mindig\ngyorsabban zárom be,\nmint te.",
-      "en": "…and I still shut\nmy gate faster\nthan you.",
-      "ja": "…で、\n閉めるのは\nまだうちの方が\n速いし。"
+      "hu": "Én a négyest\nrég bezártam.\nTe még mindig\nlépcsőt számolsz?",
+      "en": "I shut Gate 4\nages ago. You're still\ncounting steps?",
+      "ja": "うちは\nとっくに\n四番閉めたで。\nまだ階段\n数えとるん？"
      },
      "pos": {
       "ja": {
@@ -1658,8 +1722,8 @@
      "kind": "speech",
      "to": "akari_szaj",
      "text": {
-      "hu": "Holnap bent vagyok\naz irodában.\nHa akarsz beszélni…",
-      "en": "I'm at the office\ntomorrow.\nIf you want to talk…",
+      "hu": "Holnap bent leszek\na tanácsadóban.\nHa akarsz beszélni…",
+      "en": "I'm at the counseling\noffice tomorrow.\nIf you want to talk…",
       "ja": "明日、\n相談所に\nおるから。\n話したく\nなったら…"
      }
     }
